@@ -1,0 +1,244 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(rel='stylesheet' href='/assets//bootstrap/css/bootstrap-grid.rtl.min.css.map')
+  title Home
+  link(rel='stylesheet' href='/css/style.css')
+// Header begins here
+header#header
+  .container-fluid.d-flex.align-items-center.header-content
+    h1.logo.mr-auto
+      a(href='home.html') UFARM
+    // Nava Menu
+    nav.nav-menu.d-none.d-lg-block
+      ul
+        li
+          a(href='index.html') Home
+        li.active
+          a(href='products.html') Products
+        li
+          a(href='#') Services
+        li
+          a(href='#') About
+        li
+          a(href='#') Conatct
+        li
+          a(href='#') More
+    // End of Nav
+    .btn-area
+      a.btn.sign-up(href='#') Sign up
+      a.btn.login(href='#') Login
+// Header ends here
+// Products Begins
+.container-fluid
+  #items-header.bg-white.d-flex.align-items-center.justify-content-between.w-100
+    button#filter-btn.btn.btn-hide.text-uppercase(type='button' data-toggle='collapse' data-target='#filterbar' aria-expanded='false' aria-controls='filterbar' onclick='changeBtnTxt()')
+      span#filter-angle.fas.fa-angle-left
+      span#btn-txt Hide filters
+    nav.navbar.navbar-expand-lg.navbar-light.pl-lg-0.pl-auto
+      button#icon.navbar-toggler(type='button' data-toggle='collapse' data-target='#mynav' aria-controls='mynav' aria-expanded='false' aria-label='Toggle navigation' onclick='chnageIcon()')
+        span.navbar-toggler-icon
+      #mynav.collapse.navbar-collapse
+        ul.navbar-nav.d-lg-flex.align-items-lg-center
+          li.nav-item.active
+            select#sort(name='sort')
+              option(value='' hidden='' selected='') Sort by
+              option(value='price') Price
+              option(value='popularity') Popularity
+              option(value='rating') Rating
+          li.nav-item.d-inline-flex.align-items-center.justify-content-between.mb-lg-0.mb-3
+            #select2.d-inline-flex.align-items-center.mx-lg-2
+              .pl-2 Products:
+              select#pro(name='pro')
+                option(value='18') 18
+                option(value='19') 19
+                option(value='20') 20
+            .font-weight-bold.mx-2.result 18 from 200
+          li.nav-item.d-lg-none.d-inline-flex
+    .ml-auto.mt-3.mr-2
+      nav(aria-label='Page navigation example')
+        ul.pagination
+          li.page-item
+            a.page-link(href='#' aria-label='Previous')
+              span.font-weight-bold(aria-hidden='true') &lt;
+              span.sr-only Previous
+          li.page-item.active
+            a.page-link(href='#') 1
+          li.page-item
+            a.page-link(href='#') ..
+          li.page-item
+            a.page-link(href='#') 24
+          li.page-item
+            a.page-link(href='#' aria-label='Next')
+              span.font-weight-bold(aria-hidden='true') &gt;
+              span.sr-only Next
+  #content.my-5
+    #filterbar.collapse
+      .box.border-bottom
+        .form-group.text-center
+          .btn-group(data-toggle='buttons')
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='radio')
+              |  Reset
+            label.btn.btn-success.form-check-label.active
+              input.form-check-input(type='radio' checked='')
+              |  Apply
+        div
+          label.tick
+            | New 
+            input(type='checkbox' checked='checked')
+            span.check
+        div
+          label.tick
+            | Sale 
+            input(type='checkbox')
+            span.check
+      .box.border-bottom
+        .box-label.text-uppercase.d-flex.align-items-center
+          | Outerwear
+          button#out.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box' aria-expanded='false' aria-controls='inner-box' onclick='outerFilter()')
+            span.fas.fa-plus
+        #inner-box.collapse.mt-2.mr-1
+          .my-1
+            label.tick
+              | Windbreaker 
+              input(type='checkbox' checked='checked')
+              span.check
+          .my-1
+            label.tick
+              | Jumpsuit 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Jacket 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Coat 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Raincoat 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Handbag 
+              input(type='checkbox' checked='')
+              span.check
+          .my-1
+            label.tick
+              | Warm vest 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Wallets 
+              input(type='checkbox' checked='')
+              span.check
+      .box.border-bottom
+        .box-label.text-uppercase.d-flex.align-items-center
+          | season
+          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box2' aria-expanded='false' aria-controls='inner-box2')
+            span.fas.fa-plus
+        #inner-box2.collapse.mt-2.mr-1
+          .my-1
+            label.tick
+              | Spring 
+              input(type='checkbox' checked='checked')
+              span.check
+          .my-1
+            label.tick
+              | Summer 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Autumn 
+              input(type='checkbox' checked='')
+              span.check
+          .my-1
+            label.tick
+              | Winter 
+              input(type='checkbox')
+              span.check
+          .my-1
+            label.tick
+              | Rainy 
+              input(type='checkbox')
+              span.check
+      .box.border-bottom
+        .box-label.text-uppercase.d-flex.align-items-center
+          | price
+          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#price' aria-expanded='false' aria-controls='price')
+            span.fas.fa-plus
+        #price.collapse
+          .middle
+            .multi-range-slider
+              input#input-left(type='range' min='0' max='100' value='10')
+              input#input-right(type='range' min='0' max='100' value='50')
+              .slider
+                .track
+                .range
+                .thumb.left
+                .thumb.right
+          .d-flex.align-items-center.justify-content-between.mt-2
+            div
+              span#amount-left.font-weight-bold
+              |  uah
+            div
+              span#amount-right.font-weight-bold
+              |  uah
+      .box
+        .box-label.text-uppercase.d-flex.align-items-center
+          | size
+          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#size' aria-expanded='false' aria-controls='size')
+            span.fas.fa-plus
+        #size.collapse
+          .btn-group.d-flex.align-items-center.flex-wrap(data-toggle='buttons')
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='checkbox')
+              |  80
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='checkbox' checked='')
+              |  92
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='checkbox' checked='')
+              |  102
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='checkbox' checked='')
+              |  104
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='checkbox' checked='')
+              |  106
+            label.btn.btn-success.form-check-label
+              input.form-check-input(type='checkbox' checked='')
+              |  108
+    #products
+      .row.mx-0.gx-3
+       each item in ['apple', 'banana', 'cherry', 'berry', 'pineapp','tomato', 'apple']
+        .col-lg-4.col-md-6.mb-5
+          .card.d-flex.flex-column.align-items-center
+            .product-name Torn Jeans for Men
+            .card-img
+              img(src='/assets/images/image1.jpg' alt='')
+            .card-body.pt-5
+              .text-muted.text-center.mt-auto
+                | Product name
+              .d-flex.align-items-center.justify-content-center.colors.my-2
+                button.btn.btn-success.border.form-check-label
+                  i.bi.bi-shopping-cart
+                  |                     Place order
+              .d-flex.align-items-center.justify-content-center.price
+                .font-weight-bold 1200 uah
+        
+script(src='/assets/bootstrap/js/bootstrap.min.js')
+script(src='/assets/bootstrap/js/bootstrap.js')
+script(src='/assets/products.js')
