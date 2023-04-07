@@ -88,7 +88,7 @@ main(style='margin-top: 58px')
         .card-header
           h5.card-title Add Farmer One
         .card-body
-          form#regForm(onsubmit='return validFarmOneForm()')
+          form#regForm(onsubmit='return validFarmOneForm()' method="post" action="/register-fo")
             .row
               .col-md-4.pr-1
                 .form-group
@@ -99,16 +99,16 @@ main(style='margin-top: 58px')
                 .form-group
                   .form-group
                     label Ward represented
-                    select#gender.form-select(aria-label='Default select example' name='gender')
+                    select#ward.form-select(aria-label='Default select example' name='ward')
                       option(value='Ward1') Ward One
                       option(value='Ward2') Ward Two
-                      option(value='Ward3') Ward Two
-                      option(value='Ward4') Ward Two
+                      option(value='Ward3') Ward Three
+                      option(value='Ward4') Ward Four
                     p#genderErr.text-danger
               .col-md-3.pr-1
                 .form-group
                   label Unique FO number, 
-                  input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly='')
+                  input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly)
                   p#idErr.text-danger
             .row
               .col-md-4.pr-1
@@ -119,7 +119,7 @@ main(style='margin-top: 58px')
               .col-md-4.pl-1
                 .form-group
                   label Gender
-                  select#activity.form-select(aria-label='Default select example' name='activity')
+                  select#gender.form-select(aria-label='Default select example' name='gender')
                     option(value='Male') Male
                     option(value='Female') Female
               .col-md-4.pr-1
@@ -132,9 +132,9 @@ main(style='margin-top: 58px')
                 .form-group
                   label Activities undertaken
                   select#activity.form-select(aria-label='Default select example' name='activity')
-                    option(value='1') Horticulture
-                    option(value='2') Poultry Farming
-                    option(value='3') Dairy Farming
+                    option(value='Horticulture') Horticulture
+                    option(value='Poultry Farming') Poultry Farming
+                    option(value=' Dairy Farming')  Dairy Farming
               .col-md-4.pr-1
                 .form-group
                   label NIN Number

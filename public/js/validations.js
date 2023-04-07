@@ -30,7 +30,7 @@ function validFarmOneForm() {
       return false;
     }
     err.textContent = "";
-    input.style.borderColor = "red";
+    input.style.borderColor = "";
   }
   //Validate date of registraion
   let regDate = document.forms["regForm"]["dor"].value;
@@ -209,7 +209,7 @@ function validUrbanFarmerForm() {
       return false;
     }
     err.textContent = "";
-    input.style.borderColor = "red";
+    input.style.borderColor = "";
   }
   //Validate phone number
   let phoneNumber = document.forms["regForm"]["phone"].value;

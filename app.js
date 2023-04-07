@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const bodyParser = require("body-parser");
+
 //Routes
 const agricOfficerRoute = require("./Routes/agricOfficerRoute");
 const farmOneRoute = require("./Routes/farmerOneRoute");
 const productsRoute = require("./Routes/productsRoute");
 const registerFoRoute = require("./Routes/registerFoRoute");
 const registerUfRoute = require("./Routes/registerUfRoute");
+
+app.use(bodyParser.urlencoded({ extended: true })); //allow body-parser
 
 //Templates engine
 app.set("view engine", "pug");
