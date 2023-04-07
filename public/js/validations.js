@@ -9,96 +9,138 @@ const phoneREGEX =
   /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
 const ninRegex = /^[A-Z0-9]{14}$/i;
 function validFarmOneForm() {
+  let input;
+
   //Validate Name
   let name = document.forms["regForm"]["name"].value;
   let err = "";
+  input = document.getElementById("name");
   err = document.getElementById("nameErr");
   if (name == "") {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent = "Name can't be empty";
     return false;
   } else {
     const validName = nameREGEX.test(name);
     if (!validName) {
+      input.focus();
+      input.style.borderColor = "red";
       err.textContent = "Invalid name given";
       return false;
     }
     err.textContent = "";
+    input.style.borderColor = "red";
   }
   //Validate date of registraion
   let regDate = document.forms["regForm"]["dor"].value;
   err = document.getElementById("dorErr");
+  input = document.getElementById("dor");
   if (!regDate) {
     err.textContent = "Registraion date is needed";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   }
   err.textContent = "";
+  input.style.borderColor = "";
   //Validate date of birth
   let birthDate = document.forms["regForm"]["dob"].value;
   err = document.getElementById("dobErr");
+  input = document.getElementById("dob");
   if (!birthDate) {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent = "Date of birth is needed";
     return false;
   }
   err.textContent = "";
+  input.style.borderColor = "";
   //Validate NIN number
   let nin = document.forms["regForm"]["nin"].value;
   err = document.getElementById("ninErr");
+  input = document.getElementById("nin");
   if (!nin) {
     err.textContent = "NIN is required";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   } else {
     const validNin = ninRegex.test(nin);
     if (!validNin) {
       err.textContent = "Invalid NIN provided";
+      input.focus();
+      input.style.borderColor = "red";
       return false;
     }
     err.textContent = "";
+    input.style.borderColor = "";
   }
   //Validate phone number
   let phoneNumber = document.forms["regForm"]["phone"].value;
   err = document.getElementById("phoneErr");
+  input = document.getElementById("phone");
   if (!phoneNumber) {
     err.textContent = "Phone number is required";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   } else {
     const validPhone = phoneREGEX.test(phoneNumber);
     if (!validPhone) {
       err.textContent = "Invalid phone number provided";
+      input.focus();
+      input.style.borderColor = "red";
       return false;
     }
     err.textContent = "";
+    input.style.borderColor = "";
   }
   //Validate address
   let address = document.forms["regForm"]["address"].value;
   err = document.getElementById("addressErr");
+  input = document.getElementById("address");
   if (!address) {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent = "Farmer's address is required";
     return false;
   } else {
     err.textContent = "";
+    input.style.borderColor = "";
   }
   //Validate resdence type
   let residenceType = document.forms["regForm"]["residence"].value;
   err = document.getElementById("residenceErr");
+  input = document.getElementById("residence");
   if (!residenceType) {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent = "Farmer's residence type is required";
     return false;
   } else {
     err.textContent = "";
+    input.style.borderColor = "";
   }
   //Validate number or years
   let yearsOfStay = document.forms["regForm"]["years"].value;
   err = document.getElementById("yearErr");
+  input = document.getElementById("years");
   if (!yearsOfStay) {
     err.textContent = "You must provide years";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   }
   if (yearsOfStay <= 10) {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent =
       "The Farmer must have lived in the area for more than 10 years";
     return false;
   }
   err.textContent = "";
+  input.style.borderColor = "";
   return true;
 }
 
