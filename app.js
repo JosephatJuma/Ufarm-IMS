@@ -5,10 +5,10 @@ const bodyParser = require("body-parser");
 
 //Routes
 const agricOfficerRoute = require("./Routes/agricOfficerRoute");
-const farmOneRoute = require("./Routes/farmerOneRoute");
-const productsRoute = require("./Routes/productsRoute");
-const registerFoRoute = require("./Routes/registerFoRoute");
-const registerUfRoute = require("./Routes/registerUfRoute");
+const farmOneRoute = require("./routes/farmerOneRoute");
+const productsRoute = require("./routes/productsRoute");
+const registerFoRoute = require("./routes/registerFoRoute");
+const registerUfRoute = require("./routes/registerUfRoute");
 
 app.use(bodyParser.urlencoded({ extended: true })); //allow body-parser
 
