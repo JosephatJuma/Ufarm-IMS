@@ -103,76 +103,107 @@ function validFarmOneForm() {
 }
 
 function validUrbanFarmerForm() {
+  let input;
   //Validate urban farmer Name
   let name = document.forms["regForm"]["name"].value;
   let err = "";
+  input = document.getElementById("name");
   err = document.getElementById("nameErr");
   if (name == "") {
     err.textContent = "Name Can not be empty";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   } else {
     const validName = nameREGEX.test(name);
     if (!validName) {
       err.textContent = "Invalid name given";
+      input.focus();
+      input.style.borderColor = "red";
       return false;
     }
     err.textContent = "";
+    input.style.borderColor = "";
   }
   //Validate date of registraion
   let regDate = document.forms["regForm"]["dor"].value;
   err = document.getElementById("dorErr");
+  input = document.getElementById("dor");
   if (!regDate) {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent = "Registraion date is needed";
     return false;
   }
   err.textContent = "";
+  input.style.borderColor = "";
   //Validate date of birth
   let birthDate = document.forms["regForm"]["dob"].value;
   err = document.getElementById("dobErr");
+  input = document.getElementById("dob");
   if (!birthDate) {
     err.textContent = "Date of birth is needed";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   }
+  input.style.borderColor = "";
   err.textContent = "";
   //Validate NIN number
   let nin = document.forms["regForm"]["nin"].value;
   err = document.getElementById("ninErr");
+  input = document.getElementById("nin");
   if (!nin) {
     err.textContent = "NIN is required";
+    input.focus();
+    input.style.borderColor = "red";
     return false;
   } else {
     const validNin = ninRegex.test(nin);
     if (!validNin) {
+      input.focus();
+      input.style.borderColor = "red";
       err.textContent = "Invalid NIN number provided";
       return false;
     }
     err.textContent = "";
+    input.style.borderColor = "red";
   }
   //Validate phone number
   let phoneNumber = document.forms["regForm"]["phone"].value;
+  input = document.getElementById("phone");
   err = document.getElementById("phoneErr");
   if (!phoneNumber) {
+    input.focus();
+    input.style.borderColor = "red";
     err.textContent = "Phone number is required";
     return false;
   } else {
     const validPhone = phoneREGEX.test(phoneNumber);
     if (!validPhone) {
+      input.focus();
+      input.style.borderColor = "red";
       err.textContent = "Invalid phone number provided";
       return false;
     }
     err.textContent = "";
+    input.style.borderColor = "";
   }
   //Validate email number
   let email = document.forms["regForm"]["email"].value;
   err = document.getElementById("emailErr");
+  input = document.getElementById("email");
   if (email) {
     const validPhone = emailREGEX.test(email);
     if (!validPhone) {
+      input.focus();
+      input.style.borderColor = "red";
       err.textContent = "Invalid email address provided";
       return false;
     }
   } else {
     err.textContent = "";
+    input.style.borderColor = "";
   }
   return true;
 }

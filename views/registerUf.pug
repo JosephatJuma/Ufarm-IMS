@@ -71,18 +71,6 @@ header
               a.dropdown-item(href='#') Another news
             li
               a.dropdown-item(href='#') Something else here
-        // Icon
-        li.nav-item
-          a.nav-link.me-3.me-lg-0(href='#')
-            i.bi.bi-envelope.text-light
-        // Icon
-        li.nav-item.me-3.me-lg-0
-          a.nav-link(href='#')
-            i.bi.bi-github.text-light
-        // Icon dropdown
-        li.nav-item.dropdown
-          a#navbarDropdown.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
-            i.united.kingdom.flag.m-0
         // Avatar
         li.nav-item.dropdown.text-light
           a#navbarDropdownMenuLink.nav-link.dropdown-toggle.hidden-arrow.d-flex.align-items-center(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
@@ -109,18 +97,17 @@ main(style='margin-top: 58px')
         .card-body
           form#regForm(onsubmit='return validUrbanFarmerForm()')
             .row
-              .col-md-6.pr-1
+              .col-md-4.pr-1
                 .form-group
                   label Urban Farmer&apos;s Name
                   input#name.form-control(type='text' placeholder='Full Name' name='name')
                   p#nameErr.text-danger
-              .col-md-6.pr-1
+              .col-md-4.pr-1
                 .form-group
                   label Unique Urban Farmer Id number 
                   input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly='')
                   p#idErr.text-danger
-            .row
-              .col-md-6.pr-1
+              .col-md-4.pr-1
                 .form-group
                   .form-group
                     label Ward Name
@@ -129,20 +116,20 @@ main(style='margin-top: 58px')
                       option(value='Ward2') Ward Two
                       option(value='Ward3') Ward Two
                       option(value='Ward4') Ward Two
-                    p#genderErr.text-danger
-              .col-md-6.pl-1
+                    p#genderErr.text-danger 
+            .row
+              .col-md-4.pl-1
                 .form-group
                   label Gender
                   select#activity.form-select(aria-label='Default select example' name='activity')
                     option(value='Male') Male
                     option(value='Female') Female
-            .row
-              .col-md-6.pr-1
+              .col-md-4.pr-1
                 .form-group
                   label Date of Registration 
                   input#dor.form-control(type='date' name='dor')
                   p#dorErr.text-danger
-              .col-md-6.pr-1
+              .col-md-4.pr-1
                 .form-group
                   label Date of Birth 
                   input#dob.form-control(type='date' name='dob')
