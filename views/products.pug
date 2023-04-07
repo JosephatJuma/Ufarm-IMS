@@ -17,9 +17,9 @@ header#header
     nav.nav-menu.d-none.d-lg-block
       ul
         li
-          a(href='index.html') Home
+          a(href='/') Home
         li.active
-          a(href='products.html') Products
+          a(href='/products') Products
         li
           a(href='#') Services
         li
@@ -224,7 +224,7 @@ header#header
     #products
       .row.mx-0.gx-3
        each item in ['apple', 'banana', 'cherry', 'berry', 'pineapp','tomato', 'apple']
-        .col-lg-4.col-md-6.mb-5
+        .col-lg-4.col-md-6.mb-4
           .card.d-flex.flex-column.align-items-center
             .product-name Torn Jeans for Men
             .card-img
@@ -236,8 +236,7 @@ header#header
                 button.btn.btn-success.border.form-check-label
                   i.bi.bi-shopping-cart
                   |                     Place order
-              .d-flex.align-items-center.justify-content-center.price
-                .font-weight-bold 1200 uah
+              
         
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.js')

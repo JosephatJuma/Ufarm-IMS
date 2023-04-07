@@ -1,0 +1,191 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Register Farmer
+  link(rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(rel="stylesheet" href="/css/dashboard.css")  
+body(onload="generateFarmerId()")
+header
+  // Sidebar
+  nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
+    .position-sticky
+      .list-group.list-group-flush.mx-3.mt-4
+        a.list-group-item.list-group-item-action.py-2.ripple(href='#' aria-current='true')
+          i.bi.bi-speedometer2.fa-fw.me-3
+          span  Dashboard
+        a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
+          i.bi.bi-person-plus-fill.fa-fw.me-3
+          span Register Farmer
+        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
+          i.fas.fa-chart-line.fa-fw.me-3
+          span Analytics
+        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
+          i.fas.fa-chart-bar.fa-fw.me-3
+          span Appoint Ward
+        a.list-group-item.list-group-item-action.py-2.ripple(href='farmerOnes.html')
+          i.bi.bi-people-fill.fa-fw.me-3
+          span Farmer Ones
+        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
+          i.bi.bi-receipt.fa-fw.me-3
+          span Create Credentials
+        button.btn.list-group-item.list-group-item-action.bg-success.text-light
+          i.bi.bi-box-arrow-left.fa-fw.me-3
+          | Logout
+  // Sidebar
+  // Navbar
+  nav#main-navbar.navbar.navbar-expand-lg.navbar-light.bg-dark.fixed-top
+    // Container wrapper
+    .container-fluid
+      // Toggle button
+      button.navbar-toggler(type='button' data-mdb-toggle='collapse' data-mdb-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+        i.bi.bi-bars
+      // Brand
+      a.navbar-brand(href='#')
+        h2.text-light UFARM
+      // Search form
+      form.d-none.d-md-flex.input-group.w-auto.my-auto
+        input.form-control.rounded(autocomplete='off' type='search' placeholder='looking for anything?' style='min-width: 225px')
+        span.input-group-text.border-1.bg-success.text-white
+          i.bi.bi-search
+      // Right links
+      ul.navbar-nav.ms-auto.d-flex.flex-row
+        // Notification dropdown
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
+            i.bi.bi-bell.text-light
+            span.badge.rounded-pill.badge-notification.bg-success 1
+          ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
+            li
+              a.dropdown-item(href='#') Some news
+            li
+              a.dropdown-item(href='#') Another news
+            li
+              a.dropdown-item(href='#') Something else here
+        // Icon
+        li.nav-item
+          a.nav-link.me-3.me-lg-0(href='#')
+            i.bi.bi-envelope.text-light
+        // Icon
+        li.nav-item.me-3.me-lg-0
+          a.nav-link(href='#')
+            i.bi.bi-github.text-light
+        // Icon dropdown
+        li.nav-item.dropdown
+          a#navbarDropdown.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
+            i.united.kingdom.flag.m-0
+        // Avatar
+        li.nav-item.dropdown.text-light
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle.hidden-arrow.d-flex.align-items-center(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
+            img.rounded-circle(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' height='40' alt='Avatar' loading='lazy')
+          ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
+            li
+              a.dropdown-item(href='#') My profile
+            li
+              a.dropdown-item(href='#') Settings
+            li
+              a.dropdown-item(href='#') Logout
+        li
+          button.btn.bg-success.text-light Logout
+    // Container wrapper
+  // Navbar
+// Main Navigation
+// Main layout
+main(style='margin-top: 58px')
+  .container-fluid.pt-4
+    .col-md-11
+      .card.card-user
+        .card-header
+          h5.card-title Add Farmer One
+        .card-body
+          form#regForm(onsubmit='return validFarmOneForm()')
+            .row
+              .col-md-4.pr-1
+                .form-group
+                  label Farmer&apos;s Name
+                  input#name.form-control(type='text' placeholder='Full Name' name='name')
+                  p#nameErr.text-danger
+              .col-md-4.pr-1
+                .form-group
+                  .form-group
+                    label Ward represented
+                    select#gender.form-select(aria-label='Default select example' name='gender')
+                      option(value='Ward1') Ward One
+                      option(value='Ward2') Ward Two
+                      option(value='Ward3') Ward Two
+                      option(value='Ward4') Ward Two
+                    p#genderErr.text-danger
+              .col-md-3.pr-1
+                .form-group
+                  label Unique FO number, 
+                  input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly='')
+                  p#idErr.text-danger
+            .row
+              .col-md-4.pr-1
+                .form-group
+                  label Date of Registration 
+                  input#dor.form-control(type='date' name='dor')
+                  p#dorErr.text-danger
+              .col-md-4.pl-1
+                .form-group
+                  label Gender
+                  select#activity.form-select(aria-label='Default select example' name='activity')
+                    option(value='Male') Male
+                    option(value='Female') Female
+              .col-md-4.pr-1
+                .form-group
+                  label Date of Birth 
+                  input#dob.form-control(type='date' name='dob')
+                  p#dobErr.text-danger
+            .row
+              .col-md-4.pr-1
+                .form-group
+                  label Activities undertaken
+                  select#activity.form-select(aria-label='Default select example' name='activity')
+                    option(value='1') Horticulture
+                    option(value='2') Poultry Farming
+                    option(value='3') Dairy Farming
+              .col-md-4.pr-1
+                .form-group
+                  label NIN Number
+                  input#nin.form-control(type='text' placeholder='NIN' name='nin')
+                  p#ninErr.text-danger
+              .col-md-4.pr-1
+                .form-group
+                  label Phone Number
+                  input#phone.form-control(type='phone' placeholder='Phone Number' name='phone')
+                  p#phoneErr.text-danger
+            .row
+              h6 Residence details
+              .col-md-4.px-1
+                .form-group
+                  label Home Directions 
+                  input#address.form-control(type='text' placeholder='Address' name='address')
+                  p#addressErr.text-danger
+              .col-md-4.pl-1
+                .form-group
+                  label Residence type 
+                  input#residence.form-control(type='text' placeholder='Residence Type' name='residence')
+                  p#residenceErr.text-danger
+              .col-md-4.pr-1
+                .form-group
+                  label Period of stay in ward (Years)
+                  input#years.form-control(type='number' placeholder='Number of years in word' name='years')
+                  p#yearErr.text-danger
+            .row
+              .update.ml-auto.mr-auto
+                input.btn.btn-success.btn-round(type='submit' value='SUBMIT DETAILS')
+// Main layout
+script(src='/assets//bootstrap/js/bootstrap.min.js')
+script(src='/assets//bootstrap/js/bootstrap.bundle.js')
+script(src='/assets//bootstrap/js/bootstrap.bundle.min.js')
+script(src='/assets/bootstrap/js/bootstrap.js')
+script(src='/js/validations.js')
+script.
+  function generateFarmerId() {//gernerate a farmer id
+  let newId = 10000 + Math.floor(Math.random() * 900000);
+  let input = document.getElementById("id");
+  input.value="FO-"+newId;
+  }

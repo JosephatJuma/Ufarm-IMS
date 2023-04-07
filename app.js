@@ -5,6 +5,8 @@ const path = require("path");
 const agricOfficerRoute = require("./Routes/agricOfficerRoute");
 const farmOneRoute = require("./Routes/farmerOneRoute");
 const productsRoute = require("./Routes/productsRoute");
+const registerFoRoute = require("./Routes/registerFoRoute");
+const registerUfRoute = require("./Routes/registerUfRoute");
 
 //Templates engine
 app.set("view engine", "pug");
@@ -15,6 +17,8 @@ app.get("/", (req, res) => {
 app.use(express.static("public"));
 app.use("/admin", agricOfficerRoute);
 app.use("/farmer-one", farmOneRoute);
+app.use("/register-fo", registerFoRoute);
+app.use("/register-uf", registerUfRoute);
 
 app.listen(10000, "localhost", () => {
   console.log("Listening on port 10000");

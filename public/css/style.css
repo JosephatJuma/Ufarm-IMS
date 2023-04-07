@@ -2,7 +2,7 @@
 
 /* Basic Styles */
 body {
-  font-family: "Open Sans" sans-serif;
+  font-family: Roboto, "san-serif";
 }
 a {
   color: #5c9f24;
@@ -36,7 +36,7 @@ h6 {
   font-weight: 700;
   text-transform: uppercase;
 }
-#header .logo:hover: {
+#header .logo:hover {
   color: #fff;
 }
 #header .logo a {
