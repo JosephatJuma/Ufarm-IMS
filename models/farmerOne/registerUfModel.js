@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const registerSchema = new mongoose.Schema({
+const registerUrbanFarmer = new mongoose.Schema({
   id: { type: String },
   name: { type: String },
   ward: { type: String },
@@ -13,4 +13,4 @@ const registerSchema = new mongoose.Schema({
   email: { type: String },
 });
 
-module.exports = mongoose.model("urbanfarmer", registerSchema);
+module.exports = mongoose.model("urbanfarmer", registerUrbanFarmer);

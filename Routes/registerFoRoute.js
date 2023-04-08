@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
     console.log(req.body);
   } catch (error) {
     console.log(error);
-    res.status(400).render("/register-fo");
+    res.status(400).render("/register/fo");
   }
 });
 

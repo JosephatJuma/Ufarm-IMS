@@ -36,8 +36,8 @@ app.get("/", (req, res) => {
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", agricOfficerRoute);
 app.use("/farmer-one", farmOneRoute);
-app.use("/register-fo", registerFoRoute);
-app.use("/register-uf", registerUfRoute);
+app.use("/register/fo", registerFoRoute);
+app.use("/register/uf", registerUfRoute);
 
 app.listen(10000, "localhost", () => {
   console.log("Listening on port 10000");

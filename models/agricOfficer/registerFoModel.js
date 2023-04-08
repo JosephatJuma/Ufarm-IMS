@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const registerSchema = new mongoose.Schema({
+const registerFarmerOne = new mongoose.Schema({
   name: { type: String, trim: true },
   ward: { type: String },
   id: { type: String },
@@ -15,4 +15,4 @@ const registerSchema = new mongoose.Schema({
   period: { type: Number },
 });
 
-module.exports = mongoose.model("farmerone", registerSchema);
+module.exports = mongoose.model("farmerone", registerFarmerOne);
