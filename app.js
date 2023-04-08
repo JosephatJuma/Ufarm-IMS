@@ -11,7 +11,8 @@ const farmOneRoute = require("./routes/farmerOneRoute");
 const productsRoute = require("./routes/productsRoute");
 const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
-
+const loginRoute = require("./routes/loginRoute");
+const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 //connect controller to db
 mongoose.connect(config.database, {
   useNewUrlParser: true,
@@ -38,6 +39,8 @@ app.use("/admin", agricOfficerRoute);
 app.use("/farmer-one", farmOneRoute);
 app.use("/register/fo", registerFoRoute);
 app.use("/register/uf", registerUfRoute);
+app.use("/list/fo", allFarmerOnesRoute);
+app.use("/login", loginRoute);
 
 app.listen(10000, "localhost", () => {
   console.log("Listening on port 10000");
