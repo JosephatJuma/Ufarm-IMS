@@ -7,7 +7,7 @@ const emailREGEX =
   /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 const phoneREGEX =
   /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
-const ninRegex = /^[A-Z0-9]{14}$/i;
+const ninRegex = /^[A-Z0-9]{14}$/;
 function validFarmOneForm() {
   let input;
 
@@ -29,6 +29,32 @@ function validFarmOneForm() {
       err.textContent = "Invalid name given";
       return false;
     }
+    err.textContent = "";
+    input.style.borderColor = "";
+  }
+  //Validate Ward
+  let ward = document.forms["regForm"]["ward"].value;
+  input = document.getElementById("ward");
+  err = document.getElementById("wardErr");
+  if (!ward) {
+    err.textContent = "Farmer one's ward not selected";
+    input.focus();
+    input.style.borderColor = "red";
+    return false;
+  } else {
+    err.textContent = "";
+    input.style.borderColor = "";
+  }
+  //Validate gender
+  let gender = document.forms["regForm"]["gender"].value;
+  input = document.getElementById("gender");
+  err = document.getElementById("genderErr");
+  if (!gender) {
+    err.textContent = "Gender not selected";
+    input.focus();
+    input.style.borderColor = "red";
+    return false;
+  } else {
     err.textContent = "";
     input.style.borderColor = "";
   }
@@ -56,6 +82,19 @@ function validFarmOneForm() {
   }
   err.textContent = "";
   input.style.borderColor = "";
+  //Validate activity
+  let activity = document.forms["regForm"]["activity"].value;
+  input = document.getElementById("activity");
+  err = document.getElementById("activityErr");
+  if (!activity) {
+    err.textContent = "Activity not selected";
+    input.focus();
+    input.style.borderColor = "red";
+    return false;
+  } else {
+    err.textContent = "";
+    input.style.borderColor = "";
+  }
   //Validate NIN number
   let nin = document.forms["regForm"]["nin"].value;
   err = document.getElementById("ninErr");
@@ -167,6 +206,20 @@ function validUrbanFarmerForm() {
     err.textContent = "";
     input.style.borderColor = "";
   }
+  //Validate gender
+  let gender = document.forms["regForm"]["gender"].value;
+  input = document.getElementById("gender");
+  err = document.getElementById("genderErr");
+  if (!gender) {
+    err.textContent = "Gender not selected";
+    input.focus();
+    input.style.borderColor = "red";
+    return false;
+  } else {
+    err.textContent = "";
+    input.style.borderColor = "";
+  }
+
   //Validate date of registraion
   let regDate = document.forms["regForm"]["dor"].value;
   err = document.getElementById("dorErr");
@@ -188,9 +241,24 @@ function validUrbanFarmerForm() {
     input.focus();
     input.style.borderColor = "red";
     return false;
+  } else {
+    input.style.borderColor = "";
+    err.textContent = "";
   }
-  input.style.borderColor = "";
-  err.textContent = "";
+
+  //Validate activity
+  let activity = document.forms["regForm"]["activity"].value;
+  input = document.getElementById("activity");
+  err = document.getElementById("activityErr");
+  if (!activity) {
+    err.textContent = "Activity not selected";
+    input.focus();
+    input.style.borderColor = "red";
+    return false;
+  } else {
+    err.textContent = "";
+    input.style.borderColor = "";
+  }
   //Validate NIN number
   let nin = document.forms["regForm"]["nin"].value;
   err = document.getElementById("ninErr");

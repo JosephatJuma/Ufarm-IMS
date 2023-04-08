@@ -95,7 +95,7 @@ main(style='margin-top: 58px')
         .card-header
           h5.card-title Add Urban Farmer
         .card-body
-          form#regForm(onsubmit='return validUrbanFarmerForm()')
+          form#regForm(onsubmit='return validUrbanFarmerForm()' method="post" action="/register-fo")
             .row
               .col-md-4.pr-1
                 .form-group
@@ -111,19 +111,20 @@ main(style='margin-top: 58px')
                 .form-group
                   .form-group
                     label Ward Name
-                    select#gender.form-select(aria-label='Default select example' name='gender')
+                    select#ward.form-select(aria-label='Default select example' name='ward')
                       option(value='Ward1') Ward One
                       option(value='Ward2') Ward Two
                       option(value='Ward3') Ward Two
                       option(value='Ward4') Ward Two
-                    p#genderErr.text-danger 
             .row
               .col-md-4.pl-1
                 .form-group
                   label Gender
-                  select#activity.form-select(aria-label='Default select example' name='activity')
+                  select#gender.form-select(name='gender')
+                    option(value="" selected disabled) Select Gender
                     option(value='Male') Male
                     option(value='Female') Female
+                p#genderErr.text-danger 
               .col-md-4.pr-1
                 .form-group
                   label Date of Registration 
@@ -135,13 +136,15 @@ main(style='margin-top: 58px')
                   input#dob.form-control(type='date' name='dob')
                   p#dobErr.text-danger
             .row
-              .col-md-6.pr-1
+              .col-md-6.pl-1
                 .form-group
-                  label Activities undertaken
-                  select#activity.form-select(aria-label='Default select example' name='activity')
-                    option(value='1') Horticulture
-                    option(value='2') Poultry Farming
-                    option(value='3') Dairy Farming
+                  label Activity undertaken
+                  select#activity.form-control(name='activity')
+                    option(value="" selected disabled) Farming ctivity undertaken
+                    option(value='Horticulture') Horticulture
+                    option(value='Poultry Farming') Poultry Farming
+                    option(value='Dairy Farming') Dairy Farming
+                  p#activityErr.text-danger
               .col-md-6.pr-1
                 .form-group
                   label NIN Number
@@ -157,7 +160,7 @@ main(style='margin-top: 58px')
               .col-md-6.pl-1
                 .form-group
                   label Email Address
-                  input#email.form-control(type='email' placeholder='Email address' name='email')
+                  input#email.form-control(type='text' placeholder='Email address' name='email')
                   p#emailErr.text-danger
             .row
               .update.ml-auto.mr-auto

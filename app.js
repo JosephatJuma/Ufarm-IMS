@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-
+const mongoose = require("mongoose");
 //Routes
 const agricOfficerRoute = require("./Routes/agricOfficerRoute");
 const farmOneRoute = require("./routes/farmerOneRoute");
@@ -10,6 +10,16 @@ const productsRoute = require("./routes/productsRoute");
 const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
 
+//connect controller to db
+mongoose.connect(config.database);
+const db = mongoose.connection;
+db.once("open", () => {
+  console.log("connected to db");
+});
+
+db.on("error", (err) => {
+  console.log(console.log(err));
+});
 app.use(bodyParser.urlencoded({ extended: true })); //allow body-parser
 
 //Templates engine

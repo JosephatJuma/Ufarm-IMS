@@ -99,29 +99,31 @@ main(style='margin-top: 58px')
                 .form-group
                   .form-group
                     label Ward represented
-                    select#ward.form-select(aria-label='Default select example' name='ward')
-                      option(value='Ward1') Ward One
-                      option(value='Ward2') Ward Two
-                      option(value='Ward3') Ward Three
-                      option(value='Ward4') Ward Four
-                    p#genderErr.text-danger
+                    select#ward.form-control(name='ward')
+                      option(value="" selected disabled) Select FO's ward
+                      option(value='Ward 1') Ward one
+                      option(value='Ward 2') Ward Two
+                      option(value='Ward 3') Ward Three
+                      option(value='Ward 4') Ward Four
+                    p#wardErr.text-danger
               .col-md-3.pr-1
                 .form-group
                   label Unique FO number, 
                   input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly)
-                  p#idErr.text-danger
             .row
+              .col-md-4.pl-1
+                .form-group
+                  label Gender
+                  select#gender.form-select(name='gender')
+                    option(value="" selected disabled) Select Gender
+                    option(value='Male') Male
+                    option(value='Female') Female
+                  p#genderErr.text-danger
               .col-md-4.pr-1
                 .form-group
                   label Date of Registration 
                   input#dor.form-control(type='date' name='dor')
                   p#dorErr.text-danger
-              .col-md-4.pl-1
-                .form-group
-                  label Gender
-                  select#gender.form-select(aria-label='Default select example' name='gender')
-                    option(value='Male') Male
-                    option(value='Female') Female
               .col-md-4.pr-1
                 .form-group
                   label Date of Birth 
@@ -130,11 +132,13 @@ main(style='margin-top: 58px')
             .row
               .col-md-4.pr-1
                 .form-group
-                  label Activities undertaken
-                  select#activity.form-select(aria-label='Default select example' name='activity')
+                  label Activity undertaken
+                  select#activity.form-control(name='activity')
+                    option(value="" selected disabled) Farming ctivity undertaken
                     option(value='Horticulture') Horticulture
                     option(value='Poultry Farming') Poultry Farming
-                    option(value=' Dairy Farming')  Dairy Farming
+                    option(value='Dairy Farming') Dairy Farming
+                  p#activityErr.text-danger
               .col-md-4.pr-1
                 .form-group
                   label NIN Number
@@ -176,4 +180,9 @@ script.
   let newId = 10000 + Math.floor(Math.random() * 900000);
   let input = document.getElementById("id");
   input.value="FO-"+newId;
+  }
+  function showIdMessage() {
+  let message=documentgetElementById('message');
+  messgae.textContent="Id is auto generated"
+
   }
