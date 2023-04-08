@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+//require("dotenv").config();
+const config = require("./config/database");
 //Routes
 const agricOfficerRoute = require("./Routes/agricOfficerRoute");
 const farmOneRoute = require("./routes/farmerOneRoute");
@@ -11,7 +13,10 @@ const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
 
 //connect controller to db
-mongoose.connect(config.database);
+mongoose.connect(config.database, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 const db = mongoose.connection;
 db.once("open", () => {
   console.log("connected to db");
@@ -28,7 +33,7 @@ app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   res.render("index.pug");
 });
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", agricOfficerRoute);
 app.use("/farmer-one", farmOneRoute);
 app.use("/register-fo", registerFoRoute);
