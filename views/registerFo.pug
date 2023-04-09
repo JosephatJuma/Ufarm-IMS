@@ -13,10 +13,10 @@ header
   nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
     .position-sticky
       .list-group.list-group-flush.mx-3.mt-4
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#' aria-current='true')
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/admin')
           i.bi.bi-speedometer2.fa-fw.me-3
           span  Dashboard
-        a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
+        a.list-group-item.list-group-item-action.py-2.ripple.active(href='/register/fo')
           i.bi.bi-person-plus-fill.fa-fw.me-3
           span Register Farmer
         a.list-group-item.list-group-item-action.py-2.ripple(href='#')
@@ -25,7 +25,7 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='#')
           i.fas.fa-chart-bar.fa-fw.me-3
           span Appoint Ward
-        a.list-group-item.list-group-item-action.py-2.ripple(href='farmerOnes.html')
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo')
           i.bi.bi-people-fill.fa-fw.me-3
           span Farmer Ones
         a.list-group-item.list-group-item-action.py-2.ripple(href='#')
@@ -45,7 +45,7 @@ header
       // Brand
       a.navbar-brand(href='#')
         a.navbar-brand(href='#')
-          img(src="/assets/vectors/ufarm-logo-white.png", alt="" style="width:100px;") 
+          img(src="/assets/vectors/ufarm-logo-white.png", alt="" style="width:150px;") 
       // Search form
       // Search form
       form.d-none.d-md-flex.input-group.w-auto.my-auto
@@ -136,7 +136,7 @@ main(style='margin-top: 58px')
               .col-md-4.pr-1
                 .form-group
                   label Activity undertaken
-                  select#activity.form-control(name='activity')
+                  select#activity.form-select(name='activity')
                     option(value="" selected disabled) Farming ctivity undertaken
                     option(value='Horticulture') Horticulture
                     option(value='Poultry Farming') Poultry Farming

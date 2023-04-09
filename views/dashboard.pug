@@ -13,10 +13,10 @@ header
   nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
     .position-sticky
       .list-group.list-group-flush.mx-3.mt-4
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/admin')
+        a.list-group-item.list-group-item-action.py-2.ripple.active(href='/admin' )
           i.bi.bi-speedometer2.fa-fw.me-3
           span  Dashboard
-        a.list-group-item.list-group-item-action.py-2.ripple.active(href='/register/fo')
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo')
           i.bi.bi-person-plus-fill.fa-fw.me-3
           span Register Farmer
         a.list-group-item.list-group-item-action.py-2.ripple(href='#')
@@ -27,7 +27,7 @@ header
           span Appoint Ward
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo')
           i.bi.bi-people-fill.fa-fw.me-3
-          span Urban Farmers
+          span Farmer Ones
         a.list-group-item.list-group-item-action.py-2.ripple(href='#')
           i.bi.bi-receipt.fa-fw.me-3
           span Create Credentials
@@ -83,87 +83,10 @@ main(style='margin-top: 58px')
     .col-md-11
       .card.card-user
         .card-header
-          h5.card-title Add Urban Farmer
+          h5.card-title Dashboard
         .card-body
-          form#regForm(onsubmit='return validUrbanFarmerForm()' method="post" action="/register/uf")
-            .row
-              .col-md-4.pr-1
-                .form-group
-                  label Urban Farmer&apos;s Name
-                  input#name.form-control(type='text' placeholder='Full Name' name='name')
-                  p#nameErr.text-danger
-              .col-md-4.pr-1
-                .form-group
-                  label Unique Urban Farmer Id number 
-                  input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly='')
-                  p#idErr.text-danger
-              .col-md-4.pr-1
-                .form-group
-                  .form-group
-                    label Ward Name
-                    select#ward.form-select(aria-label='Default select example' name='ward')
-                      option(value='Ward1') Ward One
-                      option(value='Ward2') Ward Two
-                      option(value='Ward3') Ward Two
-                      option(value='Ward4') Ward Two
-            .row
-              .col-md-4.pl-1
-                .form-group
-                  label Gender
-                  select#gender.form-select(name='gender')
-                    option(value="" selected disabled) Select Gender
-                    option(value='Male') Male
-                    option(value='Female') Female
-                p#genderErr.text-danger 
-              .col-md-4.pr-1
-                .form-group
-                  label Date of Registration 
-                  input#dor.form-control(type='date' name='dor')
-                  p#dorErr.text-danger
-              .col-md-4.pr-1
-                .form-group
-                  label Date of Birth 
-                  input#dob.form-control(type='date' name='dob')
-                  p#dobErr.text-danger
-            .row
-              .col-md-6.pl-1
-                .form-group
-                  label Activity undertaken
-                  select#activity.form-select(name='activity')
-                    option(value="" selected disabled) Farming ctivity undertaken
-                    option(value='Horticulture') Horticulture
-                    option(value='Poultry Farming') Poultry Farming
-                    option(value='Dairy Farming') Dairy Farming
-                  p#activityErr.text-danger
-              .col-md-6.pr-1
-                .form-group
-                  label NIN Number
-                  input#nin.form-control(type='text' placeholder='NIN' name='nin')
-                  p#ninErr.text-danger
-            .row
-              h6 Contact details
-              .col-md-6.pr-1
-                .form-group
-                  label Phone Number
-                  input#phone.form-control(type='phone' placeholder='Phone Number' name='phone')
-                  p#phoneErr.text-danger
-              .col-md-6.pl-1
-                .form-group
-                  label Email Address
-                  input#email.form-control(type='text' placeholder='Email address' name='email')
-                  p#emailErr.text-danger
-            .row
-              .update.ml-auto.mr-auto
-                input.btn.btn-success.btn-round(type='submit' value='SUBMIT DETAILS')
-// Main layout
+      
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.bundle.js')
 script(src='/assets/bootstrap/js/bootstrap.bundle.min.js')
 script(src='/assets/bootstrap/js/bootstrap.js')
-script(src='/js/validations.js')
-script.
-  function generateFarmerId() {//gernerate a farmer id
-  let newId = 10000 + Math.floor(Math.random() * 900000);
-  let input = document.getElementById("id");
-  input.value="UF-"+newId;
-  }

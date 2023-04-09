@@ -33,7 +33,6 @@ header#header
     .btn-area
       a.btn.sign-up(href='#') Sign up
       a.btn.login(href='#') Login
-// Header ends here
 // Products Begins
 .container-fluid
   #items-header.bg-white.d-flex.align-items-center.justify-content-between.w-100
@@ -77,7 +76,7 @@ header#header
             a.page-link(href='#' aria-label='Next')
               span.font-weight-bold(aria-hidden='true') &gt;
               span.sr-only Next
-  #content.my-5
+  #content.my-5.container-fluid
     #filterbar.collapse
       .box.border-bottom
         .form-group.text-center
@@ -222,183 +221,114 @@ header#header
             label.btn.btn-success.form-check-label
               input.form-check-input(type='checkbox' checked='')
               |  108
-
-    section(style='background-color: #eee;')
-       each item in ['apple', 'banana', 'cherry', 'berry', 'pineapp','tomato', 'apple']
-        .container.py-1
-          .row.justify-content-left.mb-2
-            .col-md-12.col-xl-10
-              .card.shadow-0.border.rounded-3
-                .card-body
-                  .row
-                    .col-md-12.col-lg-3.col-xl-3.mb-4.mb-lg-0
-                      .bg-image.hover-zoom.ripple.rounded.ripple-surbice
-                        img.w-100(src='/assets/images/image1.jpg')
-                        a(href='#!')
-                          .hover-overlay
-                            .mask(style='background-color: rgba(253, 253, 253, 0.15);')
-                    .col-md-6.col-lg-6.col-xl-6
-                      h5 Quant trident shirts
-                      .d-flex.flex-row
-                        .text-danger.mb-1.me-2
-                          i.bi.bi-star-fill
-                          i.bi.bi-star-fill
-                          i.bi.bi-star-fill
-                          i.bi.bi-star-fill
-                        span 310
-                      .mt-1.mb-0.text-muted.small
-                        span 100% cotton
-                        span.text-primary  &bull; 
-                        span Light weight
-                        span.text-primary  &bull; 
-                        span
-                          | Best finish
-                          br
-                      .mb-2.text-muted.small
-                        span Unique design
-                        span.text-primary  &bull; 
-                        span For men
-                        span.text-primary  &bull; 
-                        span
-                          | Casual
-                          br
-                      p.text-truncate.mb-4.mb-md-0
-                        | There are many variations of passages of Lorem Ipsum available, but the
-                        | majority have suffered alteration in some form, by injected humour, or
-                        | randomised words which don&apos;t look even slightly believable.
-                    .col-md-6.col-lg-3.col-xl-3.border-sm-start-none.border-start
-                      .d-flex.flex-row.align-items-center.mb-1
-                        h6.mb-1.me-1 UGX.100000
-                        span.text-danger
-                          s UGX. 120000
-                      h6.text-success Free shipping
-                      .d-flex.flex-column.mt-4
-                        button.btn.btn-success.btn-sm(type='button') Details
-                        button.btn.btn-success.btn-sm.mt-2(type='button')
-                          i.bi.bi-cart
-                          | Add to cart
-    footer.bg-dark.text-center.text-white
-    // Grid container
-    .container.p-4
-    // Section: Social media
-    section.mb-4
-      // bicebook
-      a.btn.btn.btn-floating.m-1(href='#!' role='button')
-        i.bi.bi-facebook
-      // Twitter
-      a.btn.btn.btn-floating.m-1(href='#!' role='button')
-        i.bi.bi-twitter
-      // Google
-      a.btn.btn.btn-floating.m-1(href='#!' role='button')
-        i.bi.bi-google
-      // Instagram
-      a.btn.btn.btn-floating.m-1(href='#!' role='button')
-        i.bi.bi-instagram
-      // Linkedin
-      a.btn.btn.btn-floating.m-1(href='#!' role='button')
-        i.bi.bi-linkedin
-      // Github
-      a.btn.btn-outline-light.btn-floating.m-1(href='#!' role='button')
-        i.bi.bi-github
-    // Section: Social media
-    // Section: Form
+    section.container-fluid(style='background-color: #eee;')
+      -var products=[ { name: "Banana", price: 300000,out:350000 },{ name: "Apple", price: 100000,out:110000 },{ name: "Jack fruit", price: 40000,out:50000 },{name:"Tomotoes"}, {name:"Tomotoes"},{name:"Tomotoes"}]
+        each item in products
+          .container.py-1.container-fluid
+            .row.justify-content-center.mb-2
+              .col-md-12.col-xl-10
+                .card.shadow-0.border.rounded-3
+                  .card-body
+                    .row
+                      .col-md-12.col-lg-3.col-xl-3.mb-4.mb-lg-0
+                        .bg-image.hover-zoom.ripple.rounded.ripple-surbice
+                          img.w-100(src='/assets/images/image1.jpg')
+                          a(href='#!')
+                            .hover-overlay
+                              .mask(style='background-color: rgba(253, 253, 253, 0.15);')
+                      .col-md-6.col-lg-6.col-xl-6
+                        h5 #{item.name}
+                        .d-flex.flex-row
+                          .text-warning.mb-1.me-2
+                            i.bi.bi-star-fill
+                            i.bi.bi-star-fill
+                            i.bi.bi-star-fill
+                            i.bi.bi-star-fill
+                          span 310
+                        .mt-1.mb-0.text-muted.small
+                          span 100% cotton
+                          span.text-primary  &bull; 
+                          span Light weight
+                          span.text-primary  &bull; 
+                          span
+                            | Best finish
+                            br
+                        .mb-2.text-muted.small
+                          span Category
+                          span.text-primary  &bull; 
+                          span Hoticulture
+                          span.text-primary  &bull; 
+                          span
+                            | Delivery and Pickup
+                            br
+                        p.text-truncate.mb-4.mb-md-0
+                          | Description will be here
+                      .col-md-6.col-lg-3.col-xl-3.border-sm-start-none.border-start
+                        .d-flex.flex-row.align-items-center.mb-1
+                          h6.mb-1.me-1 UGX. #{item.price}
+                          span.text-danger
+                            s UGX. #{item.out}
+                        h6.text-success Free shipping
+                        .d-flex.flex-column.mt-4
+                          button.btn.btn-success.btn-sm(type='button') Details
+                          button.btn.btn-success.btn-sm.mt-2(type='button')
+                            i.bi.bi-cart
+                            | Add to cart
+  footer.bg-light.text-center.text-success
+    section.mb-10.md-16.container-fluid
+      p(style="text-align:center;")
+          | A Platform where thousands of farmers sell their products and
+          | thousanda od buyers get to know about farmers&apos; products and buy
+          | them
+          | We take pride in our commitment to sustainable farming practices and our dedication to delivering the freshest produce possible. By choosing our agricultural selling site, you can trust that you are supporting local farmers and businesses while enjoying the best quality produce available.
+        
     section
-      form(action='')
-        // Grid row
-        .row.d-flex.justify-content-center
-          // Grid column
-          .col-auto
-            p.pt-2
-              strong Sign up for our newsletter
-          // Grid column
-          // Grid column
-          .col-md-5.col-12
-            // Email input
-            .form-outline.form-white.mb-4
-              input#form5Example21.form-control(type='email')
-              label.form-label(for='form5Example21') Email address
-          // Grid column
-          // Grid column
-          .col-auto
-            // Submit button
-            button.btn.btn-success.mb-4(type='submit')
-              | Subscribe
-          // Grid column
-        // Grid row
-    // Section: Form
-    // Section: Text
-    section.mb-4
-      p
-        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        | repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        | eum harum corrupti dicta, aliquam sequi voluptate quas.
-    // Section: Text
-    // Section: Links
-    section
-      // Grid row
       .row
-        // Grid column
         .col-lg-3.col-md-6.mb-4.mb-md-0
           ul.list-unstyled.mb-0
             li
               a(href='#!')
-                 img(src="/assets/vectors/ufarm-logo.png", alt="" style="width:150px;")
+                 img(src="/assets/vectors/ufarm-logo.png", alt="" style="width:150px;")   
             li
-              a.text-white(href='#!') Link 2
+              a.text-success(href='#!') Link 3
             li
-              a.text-white(href='#!') Link 3
-            li
-              a.text-white(href='#!') Link 4
-        // Grid column
-        // Grid column
+              a.text-success(href='#!') Link 4
         .col-lg-3.col-md-6.mb-4.mb-md-0
-          h5.text-uppercase Links
+          h5.text-uppercase Social Media
+           .container.p-4
+            section.mb-4
+              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
+                i.bi.bi-twitter
+              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
+                i.bi.bi-instagram
+              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
+                i.bi.bi-linkedin
+              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
+                i.bi.bi-github
+        .col-lg-3.col-md-6.mb-4.mb-md-0
+          h5.text-uppercase Important Links
           ul.list-unstyled.mb-0
             li
-              a.text-white(href='#!') Link 1
+              a.text-dark(href='#!') Home
             li
-              a.text-white(href='#!') Link 2
+              a.text-dark(href='#!') Products
             li
-              a.text-white(href='#!') Link 3
+              a.text-dark(href='#!') About us
             li
-              a.text-white(href='#!') Link 4
-        // Grid column
-        // Grid column
+              a.text-dark(href='#!') Services
         .col-lg-3.col-md-6.mb-4.mb-md-0
-          h5.text-uppercase Links
-          ul.list-unstyled.mb-0
-            li
-              a.text-white(href='#!') Link 1
-            li
-              a.text-white(href='#!') Link 2
-            li
-              a.text-white(href='#!') Link 3
-            li
-              a.text-white(href='#!') Link 4
-        // Grid column
-        // Grid column
-        .col-lg-3.col-md-6.mb-4.mb-md-0
-          h5.text-uppercase Links
-          ul.list-unstyled.mb-0
-            li
-              a.text-white(href='#!') Link 1
-            li
-              a.text-white(href='#!') Link 2
-            li
-              a.text-white(href='#!') Link 3
-            li
-              a.text-white(href='#!') Link 4
-        // Grid column
-      // Grid row
-    // Section: Links
-    // Grid container
-    // Copyright
-    .text-center.p-3(style='background-color: rgba(0, 0, 0, 0.2);')
-    | &copy; 2020 Copyright:
-    a.text-white(href='https://mdbootstrap.com/') MDBootstrap.com
-    // Copyright
-    // Footer                   
-        
+          h5.text-uppercase Subscribe
+          form(action='')
+              strong Sign up for our newsletter
+              .form-group
+                label.form-label Email address
+                input#email.form-control(type='email' name="email")
+              .form-group
+                button.btn.btn-success.mb-4(type='submit')
+                  | Subscribe
+    .text-center.p-3
+      | &copy; 2020 Copyright: 
+      a.text-success(href='https://mdbootstrap.com/') Ufarm                         
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.js')
 script(src='/assets/products.js')
