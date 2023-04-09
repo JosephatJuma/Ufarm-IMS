@@ -10,7 +10,8 @@ const phoneREGEX =
 const ninRegex = /^[A-Z0-9]{14}$/;
 function validFarmOneForm() {
   let input;
-
+  let alert = "";
+  document.getElementById("errAlert").innerHTML = alert;
   //Validate Name
   let name = document.forms["regForm"]["name"].value;
   let err = "";
@@ -174,8 +175,14 @@ function validFarmOneForm() {
   if (yearsOfStay <= 10) {
     input.focus();
     input.style.borderColor = "red";
-    err.textContent =
-      "The Farmer must have lived in the area for more than 10 years";
+    err.textContent = "Years must be more than 10";
+    alert = `<div class="alert bg-danger alert-dismissible show" role="alert" fade style="display:flex;justify-content:space-between;">
+              <p class="text-white"> <strong>Alert: </strong> The Farmer must have lived in the area for more than 10 years!</strong></p>
+              <button class="btn text-white" type="button" onclick="return hideAlert()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              </div>`;
+    document.getElementById("errAlert").innerHTML = alert;
     return false;
   }
   err.textContent = "";

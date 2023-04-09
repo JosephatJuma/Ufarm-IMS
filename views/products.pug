@@ -12,7 +12,8 @@ head
 header#header
   .container-fluid.d-flex.align-items-center.header-content
     h1.logo.mr-auto
-      a(href='home.html') UFARM
+      a(href='home.html') 
+        img(src="/assets/vectors/ufarm-logo-white.png", alt="" style="width:150px;")
     // Nava Menu
     nav.nav-menu.d-none.d-lg-block
       ul
@@ -36,11 +37,11 @@ header#header
 // Products Begins
 .container-fluid
   #items-header.bg-white.d-flex.align-items-center.justify-content-between.w-100
-    button#filter-btn.btn.btn-hide.text-uppercase(type='button' data-toggle='collapse' data-target='#filterbar' aria-expanded='false' aria-controls='filterbar' onclick='changeBtnTxt()')
-      span#filter-angle.fas.fa-angle-left
+    button#filter-btn.btn.btn-hide.text-uppercase(type='button' data-toggle='collapse' data-target='#filterbar' aria-expanded='bilse' aria-controls='filterbar' onclick='changeBtnTxt()')
+      span#filter-angle.bis.bi-angle-left
       span#btn-txt Hide filters
     nav.navbar.navbar-expand-lg.navbar-light.pl-lg-0.pl-auto
-      button#icon.navbar-toggler(type='button' data-toggle='collapse' data-target='#mynav' aria-controls='mynav' aria-expanded='false' aria-label='Toggle navigation' onclick='chnageIcon()')
+      button#icon.navbar-toggler(type='button' data-toggle='collapse' data-target='#mynav' aria-controls='mynav' aria-expanded='bilse' aria-label='Toggle navigation' onclick='chnageIcon()')
         span.navbar-toggler-icon
       #mynav.collapse.navbar-collapse
         ul.navbar-nav.d-lg-flex.align-items-lg-center
@@ -100,8 +101,8 @@ header#header
       .box.border-bottom
         .box-label.text-uppercase.d-flex.align-items-center
           | Outerwear
-          button#out.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box' aria-expanded='false' aria-controls='inner-box' onclick='outerFilter()')
-            span.fas.fa-plus
+          button#out.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box' aria-expanded='bilse' aria-controls='inner-box' onclick='outerFilter()')
+            span.bis.bi-plus
         #inner-box.collapse.mt-2.mr-1
           .my-1
             label.tick
@@ -146,8 +147,8 @@ header#header
       .box.border-bottom
         .box-label.text-uppercase.d-flex.align-items-center
           | season
-          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box2' aria-expanded='false' aria-controls='inner-box2')
-            span.fas.fa-plus
+          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box2' aria-expanded='bilse' aria-controls='inner-box2')
+            span.bis.bi-plus
         #inner-box2.collapse.mt-2.mr-1
           .my-1
             label.tick
@@ -177,8 +178,8 @@ header#header
       .box.border-bottom
         .box-label.text-uppercase.d-flex.align-items-center
           | price
-          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#price' aria-expanded='false' aria-controls='price')
-            span.fas.fa-plus
+          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#price' aria-expanded='bilse' aria-controls='price')
+            span.bis.bi-plus
         #price.collapse
           .middle
             .multi-range-slider
@@ -199,8 +200,8 @@ header#header
       .box
         .box-label.text-uppercase.d-flex.align-items-center
           | size
-          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#size' aria-expanded='false' aria-controls='size')
-            span.fas.fa-plus
+          button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#size' aria-expanded='bilse' aria-controls='size')
+            span.bis.bi-plus
         #size.collapse
           .btn-group.d-flex.align-items-center.flex-wrap(data-toggle='buttons')
             label.btn.btn-success.form-check-label
@@ -224,14 +225,14 @@ header#header
 
     section(style='background-color: #eee;')
        each item in ['apple', 'banana', 'cherry', 'berry', 'pineapp','tomato', 'apple']
-        .container.py-2
-          .row.justify-content-left.mb-3
+        .container.py-1
+          .row.justify-content-left.mb-2
             .col-md-12.col-xl-10
               .card.shadow-0.border.rounded-3
                 .card-body
                   .row
                     .col-md-12.col-lg-3.col-xl-3.mb-4.mb-lg-0
-                      .bg-image.hover-zoom.ripple.rounded.ripple-surface
+                      .bg-image.hover-zoom.ripple.rounded.ripple-surbice
                         img.w-100(src='/assets/images/image1.jpg')
                         a(href='#!')
                           .hover-overlay
@@ -276,7 +277,127 @@ header#header
                         button.btn.btn-success.btn-sm.mt-2(type='button')
                           i.bi.bi-cart
                           | Add to cart
-                    
+    footer.bg-dark.text-center.text-white
+    // Grid container
+    .container.p-4
+    // Section: Social media
+    section.mb-4
+      // bicebook
+      a.btn.btn.btn-floating.m-1(href='#!' role='button')
+        i.bi.bi-facebook
+      // Twitter
+      a.btn.btn.btn-floating.m-1(href='#!' role='button')
+        i.bi.bi-twitter
+      // Google
+      a.btn.btn.btn-floating.m-1(href='#!' role='button')
+        i.bi.bi-google
+      // Instagram
+      a.btn.btn.btn-floating.m-1(href='#!' role='button')
+        i.bi.bi-instagram
+      // Linkedin
+      a.btn.btn.btn-floating.m-1(href='#!' role='button')
+        i.bi.bi-linkedin
+      // Github
+      a.btn.btn-outline-light.btn-floating.m-1(href='#!' role='button')
+        i.bi.bi-github
+    // Section: Social media
+    // Section: Form
+    section
+      form(action='')
+        // Grid row
+        .row.d-flex.justify-content-center
+          // Grid column
+          .col-auto
+            p.pt-2
+              strong Sign up for our newsletter
+          // Grid column
+          // Grid column
+          .col-md-5.col-12
+            // Email input
+            .form-outline.form-white.mb-4
+              input#form5Example21.form-control(type='email')
+              label.form-label(for='form5Example21') Email address
+          // Grid column
+          // Grid column
+          .col-auto
+            // Submit button
+            button.btn.btn-success.mb-4(type='submit')
+              | Subscribe
+          // Grid column
+        // Grid row
+    // Section: Form
+    // Section: Text
+    section.mb-4
+      p
+        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        | repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        | eum harum corrupti dicta, aliquam sequi voluptate quas.
+    // Section: Text
+    // Section: Links
+    section
+      // Grid row
+      .row
+        // Grid column
+        .col-lg-3.col-md-6.mb-4.mb-md-0
+          ul.list-unstyled.mb-0
+            li
+              a(href='#!')
+                 img(src="/assets/vectors/ufarm-logo.png", alt="" style="width:150px;")
+            li
+              a.text-white(href='#!') Link 2
+            li
+              a.text-white(href='#!') Link 3
+            li
+              a.text-white(href='#!') Link 4
+        // Grid column
+        // Grid column
+        .col-lg-3.col-md-6.mb-4.mb-md-0
+          h5.text-uppercase Links
+          ul.list-unstyled.mb-0
+            li
+              a.text-white(href='#!') Link 1
+            li
+              a.text-white(href='#!') Link 2
+            li
+              a.text-white(href='#!') Link 3
+            li
+              a.text-white(href='#!') Link 4
+        // Grid column
+        // Grid column
+        .col-lg-3.col-md-6.mb-4.mb-md-0
+          h5.text-uppercase Links
+          ul.list-unstyled.mb-0
+            li
+              a.text-white(href='#!') Link 1
+            li
+              a.text-white(href='#!') Link 2
+            li
+              a.text-white(href='#!') Link 3
+            li
+              a.text-white(href='#!') Link 4
+        // Grid column
+        // Grid column
+        .col-lg-3.col-md-6.mb-4.mb-md-0
+          h5.text-uppercase Links
+          ul.list-unstyled.mb-0
+            li
+              a.text-white(href='#!') Link 1
+            li
+              a.text-white(href='#!') Link 2
+            li
+              a.text-white(href='#!') Link 3
+            li
+              a.text-white(href='#!') Link 4
+        // Grid column
+      // Grid row
+    // Section: Links
+    // Grid container
+    // Copyright
+    .text-center.p-3(style='background-color: rgba(0, 0, 0, 0.2);')
+    | &copy; 2020 Copyright:
+    a.text-white(href='https://mdbootstrap.com/') MDBootstrap.com
+    // Copyright
+    // Footer                   
         
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.js')

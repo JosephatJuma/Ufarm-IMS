@@ -44,7 +44,9 @@ header
         i.bi.bi-bars
       // Brand
       a.navbar-brand(href='#')
-        h2.text-light UFARM
+        a.navbar-brand(href='#')
+          img(src="/assets/vectors/ufarm-logo-white.png", alt="" style="width:100px;") 
+      // Search form
       // Search form
       form.d-none.d-md-flex.input-group.w-auto.my-auto
         input.form-control.rounded(autocomplete='off' type='search' placeholder='looking for anything?' style='min-width: 225px')
@@ -88,6 +90,7 @@ main(style='margin-top: 58px')
         .card-header
           h5.card-title Add Farmer One
         .card-body
+          .errAlert#errAlert
           form#regForm(onsubmit='return validFarmOneForm()' method="post" action="/register/fo")
             .row
               .col-md-4.pr-1
@@ -181,8 +184,7 @@ script.
   let input = document.getElementById("id");
   input.value="FO-"+newId;
   }
-  function showIdMessage() {
-  let message=documentgetElementById('message');
-  messgae.textContent="Id is auto generated"
-
+  function hideAlert() {
+  let alert=""
+  document.getElementById("errAlert").innerHTML = alert;
   }

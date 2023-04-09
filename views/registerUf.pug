@@ -44,14 +44,13 @@ header
         i.bi.bi-bars
       // Brand
       a.navbar-brand(href='#')
-        //
-          <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-          height="25"
-          alt="MDB Logo"
-          loading="lazy"
-          />
-        h2.text-light UFARM
+        
+          img(src="/assets/vectors/ufarm-logo-white.png"
+          width="100"
+          alt="U-Farm Logo"
+          loading="lazy")
+          
+       
       // Search form
       form.d-none.d-md-flex.input-group.w-auto.my-auto
         input.form-control.rounded(autocomplete='off' type='search' placeholder='looking for anuthing?' style='min-width: 225px')
@@ -139,7 +138,7 @@ main(style='margin-top: 58px')
               .col-md-6.pl-1
                 .form-group
                   label Activity undertaken
-                  select#activity.form-control(name='activity')
+                  select#activity.form-select(name='activity')
                     option(value="" selected disabled) Farming ctivity undertaken
                     option(value='Horticulture') Horticulture
                     option(value='Poultry Farming') Poultry Farming
