@@ -80,11 +80,101 @@ header
 // Main layout
 main(style='margin-top: 58px')
   .container-fluid.pt-4
-    .col-md-11
+    .col-md-12
       .card.card-user
         .card-header
           h5.card-title Dashboard
         .card-body
+          .row
+            .col-lg-3.col-md-6.col-sm-6
+              .card.card-stats
+                .card-body
+                  .row
+                    .col-5.col-md-4
+                      .icon-big.text-center.icon-warning
+                        i.bi.bi-geo-fill.text-success
+                    .col-7.col-md-8
+                      .numbers
+                        p.card-category 
+                          |  Wards
+                        .d-flex.justify-content-center
+                          .spinner-border(role='status')
+                          
+                        |                        
+                        h1.card-title 
+                          |  20                      
+                .card-footer
+                  hr
+                  .stats
+                    i.bi.bi-arrow-clockwise
+                    |                     Update Now
+            .col-lg-3.col-md-6.col-sm-6
+              .card.card-stats
+                .card-body
+                  .row
+                    .col-5.col-md-4
+                      .icon-big.text-center.icon-warning
+                        i.bi.bi-people-fill.text-success
+                    .col-7.col-md-8
+                      .numbers
+                        p.card-category 
+                          |   Farmer ones                      
+                        .d-flex.justify-content-center
+                          .spinner-border(role='status' )
+                          
+                        |                      
+                        h1.card-title 
+                          |  12             
+                .card-footer
+                  hr
+                  .stats
+                    i.bi.bi-calendar
+                    | Last day
+            .col-lg-3.col-md-6.col-sm-6
+              .card.card-stats
+                .card-body
+                  .row
+                    .col-5.col-md-4
+                      .icon-big.text-center.icon-success
+                        i.bi.bi-people.text-success
+                    .col-7.col-md-8
+                      .numbers
+                        p.card-category 
+                          |  Urban farmers           
+                        .d-flex.justify-content-center
+                          .spinner-border(role='status' )
+                          
+                        |                   
+                        h1.card-title 
+                          |  30                
+                .card-footer
+                  hr
+                  .stats
+                    i.bi.bi-clock-o
+                    |    In the last hour
+            .col-lg-3.col-md-6.col-sm-6
+              .card.card-stats
+                .card-body
+                  .row
+                    .col-5.col-md-4
+                      .icon-big.text-center.icon-warning
+                        i.bi.bi-briefcase.text-success
+                    .col-7.col-md-8
+                      .numbers
+                        p.card-category 
+                         |    Products                    
+                        .d-flex.justify-content-center
+                          .spinner-border(role='status' )
+                          
+                        |                      
+                        h1.card-title 
+                            |         100               
+                .card-footer
+                  hr
+                  .stats
+                    i.bi.bi-arrow-clockwise
+                      | Update now
+
       
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.bundle.js')
