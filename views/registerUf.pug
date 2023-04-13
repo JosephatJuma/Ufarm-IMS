@@ -119,12 +119,12 @@ main(style='margin-top: 58px')
               .col-md-4.pr-1
                 .form-group
                   label Date of Registration 
-                  input#dor.form-control(type='date' name='dor')
+                  input#dor.form-control(type='date' name='dor' value=new Date().toISOString().substr(0, 10))
                   p#dorErr.text-danger
               .col-md-4.pr-1
                 .form-group
                   label Date of Birth 
-                  input#dob.form-control(type='date' name='dob')
+                  input#dob.form-control(type='date' name='dob' value="1970-01-16")
                   p#dobErr.text-danger
             .row
               .col-md-6.pl-1

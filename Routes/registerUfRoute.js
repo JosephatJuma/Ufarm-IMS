@@ -5,6 +5,7 @@ router.get("/", (req, res) => {
   res.render("registerUf.pug");
 });
 router.post("/", async (req, res) => {
+  console.log(req.body);
   try {
     const register = new Register(req.body);
     await register.save();
