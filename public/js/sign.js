@@ -180,3 +180,6 @@ const toggleHide = () => {
       : '<i class="bi bi-eye-slash"/>';
   document.getElementById("hide").innerHTML = icon;
 };
+const hideAlert = () => {
+  document.getElementById("error").innerHTML = "";
+};

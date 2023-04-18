@@ -58,11 +58,12 @@ body
         .login-form
           h2.text-center.mb-4.text-white User Login
           if message
-            .alert.bg-danger.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between; height:50px; align-items:center;')
-              p.text-white
-                strong Alert: #{message}
-              button.btn.text-white(type='button' onclick='return hideAlert()')
-                span(aria-hidden='true') &times;
+            #error 
+              .alert.bg-danger.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between; height:50px; align-items:center;')
+                p.text-white
+                  strong Alert: #{message}
+                button.btn.bg-dark.text-white(type='button' onclick='return hideAlert()')
+                  span(aria-hidden='true') &times;
           form#form(onsubmit="return login();" action="/login" method="post")
             .form-group
               label.text-white(for='id') User ID:
@@ -71,7 +72,7 @@ body
             
             .form-group
               label.text-white(for='password') Password:
-              .d-none.d-md-flex.input-group.w-auto.my-auto
+              .d-md-flex.input-group.w-auto.my-auto
                 input#password.form-control(type='password' placeholder='Enter password' name="password" oninput="return validatePwd();" value=password)
                 span#show.input-group-text.border-0.bg-dark.bg.text-white.custom-cursor(onclick="return toggleShowPassword();")
                   i.bi.bi-eye
