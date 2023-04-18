@@ -1,4 +1,4 @@
-//Regular Expression
+//Regular Expressions
 const nameREGEX =
   /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/;
 const passGEX =
@@ -8,6 +8,7 @@ const emailREGEX =
 const phoneREGEX =
   /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
 const ninRegex = /^[A-Z0-9]{14}$/;
+
 function validFarmOneForm() {
   let input;
   let alert = "";
@@ -173,16 +174,18 @@ function validFarmOneForm() {
     return false;
   }
   if (yearsOfStay <= 10) {
-    input.focus();
-    input.style.borderColor = "red";
-    err.textContent = "Years must be more than 10";
-    alert = `<div class="alert bg-danger alert-dismissible show" role="alert" fade style="display:flex;justify-content:space-between;">
-              <p class="text-white"> <strong>Alert: </strong> The Farmer must have lived in the area for more than 10 years!</strong></p>
-              <button class="btn text-white" type="button" onclick="return hideAlert()">
-                <span aria-hidden="true">&times;</span>
-              </button>
+    // input.focus();
+    // input.style.borderColor = "red";
+    //err.textContent = "Years must be more than 10";
+    alert = `<div class="alert bg-danger alert-dismissible show " role="alert" fade style="display:flex;justify-content:space-between;">
+                  <p class="text-white"> <strong>Alert: </strong> The Farmer must have lived in the area for more than 10 years!</strong></p>
+                  <button class="btn text-white" type="button" onclick="return hideAlert()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
               </div>`;
     document.getElementById("errAlert").innerHTML = alert;
+    err.textContent = "";
+    input.style.borderColor = "";
     return false;
   }
   err.textContent = "";
@@ -329,6 +332,7 @@ function validUrbanFarmerForm() {
 function validateProduct() {
   let input;
   let err;
+  //validate product name
   let name = document.forms["regForm"]["product_name"].value;
   err = document.getElementById("nameErr");
   input = document.getElementById("product_name");
@@ -338,6 +342,7 @@ function validateProduct() {
     err.textContent = "Product name is required!";
     return false;
   }
+  //validate payment mode
   err.textContent = "";
   input.style.borderColor = "";
   let payment_mode = document.forms["regForm"]["payment_mode"].value;
@@ -349,6 +354,7 @@ function validateProduct() {
     err.textContent = "Payment mode must be specified!";
     return false;
   }
+  //validate date
   err.textContent = "";
   input.style.borderColor = "";
   let date = document.forms["regForm"]["date"].value;
@@ -360,6 +366,7 @@ function validateProduct() {
     err.textContent = "Please pick the date!";
     return false;
   }
+  //validate unit price
   err.textContent = "";
   input.style.borderColor = "";
   let unit_price = document.forms["regForm"]["unit_price"].value;
@@ -371,6 +378,7 @@ function validateProduct() {
     err.textContent = "Please set the unit price for the product!";
     return false;
   }
+  //validate delivery mode
   err.textContent = "";
   input.style.borderColor = "";
   let delivery_mode = document.forms["regForm"]["delivery_mode"].value;
@@ -382,6 +390,7 @@ function validateProduct() {
     err.textContent = "Please set the unit price for the product!";
     return false;
   }
+  //validate quantity
   err.textContent = "";
   input.style.borderColor = "";
   let quantity = document.forms["regForm"]["quantity"].value;
@@ -393,6 +402,7 @@ function validateProduct() {
     err.textContent = "Set the quantity of the product!";
     return false;
   }
+  //validate address
   err.textContent = "";
   input.style.borderColor = "";
   let location = document.forms["regForm"]["location"].value;
@@ -404,6 +414,7 @@ function validateProduct() {
     err.textContent = "Set the direction of the product!";
     return false;
   }
+  //validate produce type
   err.textContent = "";
   input.style.borderColor = "";
   let produce_type = document.forms["regForm"]["produce_type"].value;
@@ -415,6 +426,7 @@ function validateProduct() {
     err.textContent = "Please specify the produce type!";
     return false;
   }
+  //validate image
   err.textContent = "";
   input.style.borderColor = "";
   let image = document.forms["regForm"]["image"].value;

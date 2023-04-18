@@ -59,7 +59,7 @@ header
         li.nav-item.dropdown
           a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
             i.bi.bi-bell.text-light
-            span.badge.rounded-pill.badge-notification.bg-warning.text-success 1
+            span.badge.rounded-pill.badge-notification.bg-success.text-white 10
           ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
             li
               a.dropdown-item(href='#') Some news
@@ -78,8 +78,6 @@ header
               a.dropdown-item(href='#') Settings
             li
               a.dropdown-item(href='#') Logout
-        li
-          button.btn.bg-success.text-light Logout
     // Container wrapper
   // Navbar
 // Main Navigation
@@ -126,12 +124,12 @@ main(style='margin-top: 58px')
               .col-md-4.pr-1
                 .form-group
                   label Date of Registration 
-                  input#dor.form-control(type='date' name='dor')
+                  input#dor.form-control(type='date' name='dor' value=new Date().toISOString().substr(0,10))
                   p#dorErr.text-danger
               .col-md-4.pr-1
                 .form-group
                   label Date of Birth 
-                  input#dob.form-control(type='date' name='dob')
+                  input#dob.form-control(type='date' name='dob' )
                   p#dobErr.text-danger
             .row
               .col-md-4.pr-1

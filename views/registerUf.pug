@@ -46,7 +46,7 @@ header
           loading="lazy")
       form.d-none.d-md-flex.input-group.w-auto.my-auto
         input.form-control.rounded(autocomplete='off' type='search' placeholder='looking for anuthing?' style='min-width: 225px')
-        span.input-group-text.border-0
+        span.input-group-text.bg-success.border-0.text-white
           i.bi.bi-search
       // Right links
       ul.navbar-nav.ms-auto.d-flex.flex-row
@@ -73,8 +73,6 @@ header
               a.dropdown-item(href='#') Settings
             li
               a.dropdown-item(href='#') Logout
-        li
-          button.btn.bg-success.text-light Logout
     // Container wrapper
   // Navbar
 // Main Navigation
@@ -124,7 +122,7 @@ main(style='margin-top: 58px')
               .col-md-4.pr-1
                 .form-group
                   label Date of Birth 
-                  input#dob.form-control(type='date' name='dob' value="1970-01-16")
+                  input#dob.form-control(type='date' name='dob')
                   p#dobErr.text-danger
             .row
               .col-md-6.pl-1
