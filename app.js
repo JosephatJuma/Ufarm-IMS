@@ -11,6 +11,7 @@ const farmOneRoute = require("./routes/farmerOneRoute");
 const productsRoute = require("./routes/productsRoute");
 const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
+const registerRoute = require("./routes/registerRoute");
 const loginRoute = require("./routes/loginRoute");
 const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 const addProductRoute = require("./routes/addProductRoute");
@@ -42,6 +43,7 @@ app.use("/register/fo", registerFoRoute);
 app.use("/register/uf", registerUfRoute);
 app.use("/list/fo", allFarmerOnesRoute);
 app.use("/login", loginRoute);
+app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);
 app.listen(10000, "localhost", () => {
   console.log("Listening on port 10000");

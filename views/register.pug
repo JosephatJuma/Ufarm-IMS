@@ -44,34 +44,81 @@ body
           loading="lazy")
       ul.navbar-nav.ms-auto.d-flex.flex-row
         li.nav-item.dropdown
-          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle(href='/')
+          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle(href='/login')
             button.btn.btn-success
-              i.bi.bi-person.text-light
-              | Register
+              i.bi.bi-box-arrow-right.text-light
+              | Sign In
           
   .container
     .row.justify-content-center
-      .col-md-5
+      .col-md-8
         .login-form
-          h2.text-center.mb-4.text-white User Login
+          h2.text-center.mb-4.text-white User Registration
           if message
             .alert.bg-danger.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between;')
               p.text-white
                 strong Alert: #{message}
               button.btn.text-white(type='button' onclick='return hideAlert()')
                 span(aria-hidden='true') &times;
-          form#form(onsubmit="return login();" action="/login" method="post")
-            .form-group
-              label.text-white(for='id') User ID:
-              input#id.form-control(type='text' placeholder='Enter user ID' name="id" oninput="return validateId();" value= id)
-              p#idErr
-            .form-group
-              label.text-white(for='password') Password:
-              input#password.form-control(type='password' placeholder='Enter password' name="password" oninput="return validatePwd();" value=password)
-              p#passwordErr
-            button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:200px;") LOGIN
-            a(href="/")
-                 .btn.btn-success.btn-block.mb-6(style="margin-top:20px; width:200px;") REGISTER
+          form#regForm(onsubmit='return validUrbanFarmerForm()' method="post" action="/register/uf")
+            .row
+             .col-md-4.pr-1
+                .form-group
+                  label.text-white Full Name
+                  input#name.form-control(type='text' placeholder='Full Name' name='name')
+                  p#nameErr.text-danger
+             .col-md-4.pr-1
+                .form-group
+                  label.text-white User ID
+                  input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly='')
+                  p#idErr.text-danger
+             .col-md-4.pr-1
+                .form-group
+                  label.text-white Gender
+                  select#gender.form-select(name='gender')
+                    option(value="" selected disabled) Select Gender
+                    option(value='Male') Male
+                    option(value='Female') Female
+                    p#genderErr.text-danger   
+            .row
+              .col-md-4.pr-1
+                .form-group
+                  label.text-white Date of Registration 
+                  input#dor.form-control(type='date' name='dor' value=new Date().toISOString().substr(0, 10))
+                  p#dorErr.text-danger
+              .col-md-4.pr-1
+                .form-group
+                  label.text-white Date of Birth 
+                  input#dob.form-control(type='date' name='dob')
+                  p#dobErr.text-danger
+              .col-md-4.pl-1
+                .form-group
+                  label.text-white Address
+                  input#nin.form-control(type='text' placeholder='Address' name='address')
+                  p#addressErr.text-danger
+                  p#activityErr.text-danger 
+            .row
+              .col-md-4.pr-1
+                .form-group
+                  label.text-white Phone Number
+                  input#phone.form-control(type='phone' placeholder='Phone Number' name='phone')
+                  p#phoneErr.text-danger
+              .col-md-4.pl-1
+                .form-group
+                  label.text-white Email Address
+                  input#email.form-control(type='text' placeholder='Email address' name='email')
+                  p#emailErr.text-danger
+              .col-md-4.pr-1
+                .form-group
+                  label.text-white Password
+                  input#password.form-control(type='password' placeholder='Set a password' name='password')
+                  p#ninErr.text-danger
+            .row 
+              .col-md-6.pr-1    
+                button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:100%;") REGISTER
+              .col-md-6.pr-1  
+                a(href="/login")
+                  .btn.btn-success.btn-block.mb-6(style="margin-top:20px; width:100%;") LOGIN
   footer.fixed-bottom.text-white
     .container.align-items-center
       p This is my footer.

@@ -44,7 +44,7 @@ body
           loading="lazy")
       ul.navbar-nav.ms-auto.d-flex.flex-row
         li.nav-item.dropdown
-          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle(href='/')
+          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle(href='/register')
             button.btn.btn-success
               i.bi.bi-person.text-light
               | Register
@@ -70,7 +70,7 @@ body
               input#password.form-control(type='password' placeholder='Enter password' name="password" oninput="return validatePwd();" value=password)
               p#passwordErr
             button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:200px;") LOGIN
-            a(href="/")
+            a(href="/register")
                  .btn.btn-success.btn-block.mb-6(style="margin-top:20px; width:200px;") REGISTER
   footer.fixed-bottom.text-white
     .container.align-items-center
