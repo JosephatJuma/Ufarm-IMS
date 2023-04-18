@@ -9,9 +9,11 @@ html(lang="en")
         link(rel="shortcut icon", href="/assets/vectors/ufarm-logo.png", type="image/x-icon")
         style.
                 body {
-                background-image: url('/assets/images/banner1.jpg');
+                background-image: url('/assets/images/farmer.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
+                font-family: Roboto, "san-serif";
+                
                 }
                 .login-form {
                 background-color: #5c9f24c0;
@@ -24,22 +26,55 @@ html(lang="en")
                 border-color: #007bff;
                 box-shadow: none;
                 }
-                
-.container
-  .row.justify-content-center
-    .col-md-5
-      .login-form
-        h2.text-center.mb-4 Login
-        form#form(onsubmit="return login();" action="/login" method="post")
-          .form-group
-            label.text-white(for='id') User ID:
-            input#id.form-control(type='text' placeholder='Enter user ID' name="id" oninput="return validateId();")
-            p#idErr
-          .form-group
-            label.text-white(for='password') Password:
-            input#password.form-control(type='password' placeholder='Enter password' name="password" oninput="return validatePwd();")
-            p#passwordErr
-          button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:200px;") LOGIN
+                footer {
+                  background-color:'#5c9f24c0';
+                  align-items:center;
+                  
+                }
+
+body 
+  nav#main-navbar.navbar.navbar-expand-lg.navbar-light.bg-dark.fixed-top
+    .container-fluid
+      button.navbar-toggler(type='button' data-mdb-toggle='collapse' data-mdb-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+        i.bi.bi-bars
+      a.navbar-brand(href='#') 
+          img(src="/assets/vectors/ufarm-logo-white.png"
+          width="100"
+          alt="U-Farm Logo"
+          loading="lazy")
+      ul.navbar-nav.ms-auto.d-flex.flex-row
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle(href='/')
+            button.btn.btn-success
+              i.bi.bi-person.text-light
+              | Register
+          
+  .container
+    .row.justify-content-center
+      .col-md-5
+        .login-form
+          h2.text-center.mb-4.text-white User Login
+          if message
+            .alert.bg-danger.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between;')
+              p.text-white
+                strong Alert: #{message}
+              button.btn.text-white(type='button' onclick='return hideAlert()')
+                span(aria-hidden='true') &times;
+          form#form(onsubmit="return login();" action="/login" method="post")
+            .form-group
+              label.text-white(for='id') User ID:
+              input#id.form-control(type='text' placeholder='Enter user ID' name="id" oninput="return validateId();" value= id)
+              p#idErr
+            .form-group
+              label.text-white(for='password') Password:
+              input#password.form-control(type='password' placeholder='Enter password' name="password" oninput="return validatePwd();" value=password)
+              p#passwordErr
+            button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:200px;") LOGIN
+            a(href="/")
+                 .btn.btn-success.btn-block.mb-6(style="margin-top:20px; width:200px;") REGISTER
+  footer.fixed-bottom.text-white
+    .container.align-items-center
+      p This is my footer.
 script.
   function validateId(){
     let id = document.forms["form"]["id"].value; 
@@ -48,11 +83,12 @@ script.
     if(id!=="" && id.length<=4){    
       err.textContent="Id must be over 5 character long"
       err.style.color="black"
-      return;
+      return false;
       } else{
         err.textContent=''
-      err.style.color="" 
+        err.style.color="" 
       }
+  return true;
   } 
   function validatePwd(){
     let password = document.forms["form"]["password"].value; 
@@ -61,15 +97,15 @@ script.
     if(password!=="" && password.length<=7){    
       err.textContent="Password must be 8 characters long"
       err.style.color="black"
-      return;
+      return false;
       } else{
         err.textContent=''
-      err.style.color="" 
+        err.style.color="" 
       }
+       return true;
   } 
   const login=()=>{
     validateId(); 
-    validatePwd()
   }
   
 

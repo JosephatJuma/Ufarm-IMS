@@ -6,8 +6,23 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
-  res.send(req.body);
+  if (req.body.id != "UF-111664") {
+    const message = "Wrong ID";
+    res.render("login.pug", {
+      message: message,
+      id: req.body.id,
+      password: req.body.password,
+    });
+  } else if (req.body.password != "12345678") {
+    const message = "Wrong Password";
+    res.render("login.pug", {
+      message: message,
+      id: req.body.id,
+      password: req.body.password,
+    });
+  } else {
+    res.redirect("/admin");
+  }
 });
 
 module.exports = router;
