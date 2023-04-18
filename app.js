@@ -11,7 +11,7 @@ const farmOneRoute = require("./routes/farmerOneRoute");
 const productsRoute = require("./routes/productsRoute");
 const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
-const registerRoute = require("./routes/registerRoute");
+const registerRoute = require("./routes/clientRegisterRoute");
 const loginRoute = require("./routes/loginRoute");
 const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 const addProductRoute = require("./routes/addProductRoute");
@@ -21,9 +21,13 @@ mongoose.connect(config.database, {
   useUnifiedTopology: true,
 });
 const db = mongoose.connection;
-db.once("open", () => {
-  console.log("connected to db");
-});
+try {
+  db.once("open", () => {
+    console.log("connected to db");
+  });
+} catch (error) {
+  console.log("Error");
+}
 
 db.on("error", (err) => {
   console.log(console.log(err));

@@ -108,21 +108,23 @@ function validateUserForm() {
       err.textContent = "Invalid email address provided";
       return false;
     }
-  } else {
-    err.textContent = "";
-    input.style.borderColor = "";
   }
-
+  err.textContent = "";
+  input.style.borderColor = "";
   //Validate Password
   let password = document.forms["regForm"]["password"].value;
+  let confirmPassword = document.forms["regForm"]["confirm"].value;
   input = document.getElementById("password");
   err = document.getElementById("passwordErr");
+
   if (!password) {
     input.focus();
     input.style.borderColor = "red";
     err.textContent = "Password is required";
     return false;
   } else {
+    err.textContent = "";
+    input.style.borderColor = "";
     const validPassword = passGEX.test(password);
     if (!validPassword) {
       input.focus();
@@ -130,11 +132,51 @@ function validateUserForm() {
       err.textContent =
         "Password must have atleast 1 uppercase, 1 lowercase letter, number, and speacial characters";
       return false;
+    } else if (!confirmPassword) {
+      err.textContent = "";
+      input.style.borderColor = "";
+      input = document.getElementById("confirm");
+      err = document.getElementById("confirmErr");
+      input.focus();
+      input.style.borderColor = "red";
+      err.textContent = "You must confirm password";
+      return false;
+    } else if (confirmPassword !== password) {
+      err.textContent = "";
+      input.style.borderColor = "";
+      input = document.getElementById("confirm");
+      err = document.getElementById("confirmErr");
+      input.focus();
+      input.style.borderColor = "red";
+      err.textContent = "Passwords do not match";
+      return false;
     }
-    err.textContent = "";
-    input.style.borderColor = "";
   }
   err.textContent = "";
   input.style.borderColor = "";
   return true;
 }
+
+const toggleShowPassword = () => {
+  const passwordInput = document.getElementById("password");
+  const type =
+    passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+  let icon =
+    type === "password"
+      ? '<i class= "bi bi-eye"/>'
+      : '<i class= "bi bi-eye-slash"/>';
+  document.getElementById("show").innerHTML = icon;
+};
+
+const toggleHide = () => {
+  const confirmPassword = document.getElementById("confirm");
+  const type =
+    confirmPassword.getAttribute("type") === "password" ? "text" : "password";
+  confirmPassword.setAttribute("type", type);
+  const icon =
+    type === "password"
+      ? '<i class="bi bi-eye"/>'
+      : '<i class="bi bi-eye-slash"/>';
+  document.getElementById("hide").innerHTML = icon;
+};

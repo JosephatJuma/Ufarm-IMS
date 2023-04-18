@@ -26,6 +26,9 @@ html(lang="en")
                 border-color: #007bff;
                 box-shadow: none;
                 }
+                .custom-cursor {
+                  cursor: pointer;
+                }
                 footer {
                   background-color:'#5c9f24c0';
                   align-items:center;
@@ -83,11 +86,6 @@ body(onload="return generateUserId();")
             .row
               .col-md-4.pr-1
                 .form-group
-                  label.text-white Date of Registration 
-                  input#dor.form-control(type='date' name='dor' value=new Date().toISOString().substr(0, 10) readonly)
-                  p#dorErr.text-dark
-              .col-md-4.pr-1
-                .form-group
                   label.text-white Date of Birth 
                   input#dob.form-control(type='date' name='dob')
                   p#dobErr.text-dark
@@ -96,12 +94,12 @@ body(onload="return generateUserId();")
                   label.text-white Address
                   input#address.form-control(type='text' placeholder='Address' name='address')
                   p#addressErr.text-dark
-            .row
               .col-md-4.pr-1
                 .form-group
                   label.text-white Phone Number
                   input#phone.form-control(type='phone' placeholder='Phone Number' name='phone')
                   p#phoneErr.text-dark
+            .row
               .col-md-4.pl-1
                 .form-group
                   label.text-white Email Address
@@ -110,8 +108,19 @@ body(onload="return generateUserId();")
               .col-md-4.pr-1
                 .form-group
                   label.text-white Password
-                  input#password.form-control(type='password' placeholder='Set a password' name='password')
-                  p#passwordErr.text-dark
+                  .d-none.d-md-flex.input-group.w-auto.my-auto
+                    input#password.form-control(type='password' placeholder='Set a password' name='password')
+                    span#show.input-group-text.border-0.bg-dark.text-white.custom-cursor(onclick="return toggleShowPassword();")
+                        i.bi.bi-eye
+                  p#passwordErr.text-dark 
+              .col-md-4.pr-1
+                .form-group
+                  label.text-white Confirm password
+                  .d-none.d-md-flex.input-group.w-auto.my-auto 
+                    input#confirm.form-control(type='password' placeholder='Confirm password' name='confirm')
+                    span#hide.input-group-text.border-0.bg-dark.bg.text-white.custom-cursor(onclick="return toggleHide();")
+                      i.bi.bi-eye
+                    p#confirmErr.text-dark
             .row 
               .col-md-6.pr-1    
                 button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:100%;") REGISTER
@@ -128,6 +137,7 @@ script.
   let input = document.getElementById("id");
   input.value="U-"+newId;
   }
+  
   
 
 
