@@ -324,3 +324,109 @@ function validUrbanFarmerForm() {
   }
   return true;
 }
+
+//validate add product form
+function validateProduct() {
+  let input;
+  let err;
+  let name = document.forms["regForm"]["product_name"].value;
+  err = document.getElementById("nameErr");
+  input = document.getElementById("product_name");
+  if (!name) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Product name is required!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let payment_mode = document.forms["regForm"]["payment_mode"].value;
+  err = document.getElementById("paymentErr");
+  input = document.getElementById("payment_mode");
+  if (!payment_mode) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Payment mode must be specified!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let date = document.forms["regForm"]["date"].value;
+  err = document.getElementById("dateErr");
+  input = document.getElementById("date");
+  if (!date) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Please pick the date!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let unit_price = document.forms["regForm"]["unit_price"].value;
+  err = document.getElementById("priceErr");
+  input = document.getElementById("unit_price");
+  if (!unit_price) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Please set the unit price for the product!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let delivery_mode = document.forms["regForm"]["delivery_mode"].value;
+  err = document.getElementById("deliveryErr");
+  input = document.getElementById("delivery_mode");
+  if (!delivery_mode) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Please set the unit price for the product!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let quantity = document.forms["regForm"]["quantity"].value;
+  err = document.getElementById("quantityErr");
+  input = document.getElementById("quantity");
+  if (!quantity) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Set the quantity of the product!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let location = document.forms["regForm"]["location"].value;
+  err = document.getElementById("locationErr");
+  input = document.getElementById("location");
+  if (!location) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Set the direction of the product!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let produce_type = document.forms["regForm"]["produce_type"].value;
+  err = document.getElementById("typeErr");
+  input = document.getElementById("produce_type");
+  if (!produce_type) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Please specify the produce type!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  let image = document.forms["regForm"]["image"].value;
+  err = document.getElementById("imageErr");
+  input = document.getElementById("image");
+  if (!image) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Please select the image of the product!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
+  return true;
+}
