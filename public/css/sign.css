@@ -1,0 +1,24 @@
+body {
+  background-image: url("/assets/images/farmer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Roboto, "san-serif";
+}
+.login-form {
+  background-color: #5c9f24c0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  margin-top: 100px;
+}
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: none;
+}
+.custom-cursor {
+  cursor: pointer;
+}
+footer {
+  background-color: "#5c9f24c0";
+  align-items: center;
+}
