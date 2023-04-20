@@ -11,18 +11,18 @@ router.post("/", async (req, res) => {
   try {
     //register client
     const register = new Register(req.body);
-    await register.save();
-
-    //create account for client
-    const account = new Account({
-      id: req.body.id,
-      role: "client",
-      phone: req.body.phone,
-      password: req.body.password,
+    await register.save().then(() => {
+      //create account for client
+      const account = new Account({
+        id: req.body.id,
+        role: "client",
+        phone: req.body.phone,
+        password: req.body.password,
+      });
+      account.save().then(() => {
+        res.redirect("/login"); //now login
+      });
     });
-
-    await account.save();
-    res.redirect("/login"); //now login
   } catch (error) {
     console.log(error);
   }
