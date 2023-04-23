@@ -26,13 +26,13 @@ body(onload="return generateUserId();")
               i.bi.bi-box-arrow-right.text-light
               | Sign In       
   .container
-    .row.justify-content-center
+    .row.justify-content-center.text-dark
       .col-md-8
         .login-form
-          h2.text-center.mb-4.text-white User Registration
+          h2.text-center.mb-4 User Registration
           if message
-            .alert.bg-danger.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between;')
-              p.text-white
+            .alert.bg-white.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between;')
+              p.text-danger
                 strong Alert: #{message}
               button.btn.text-white(type='button' onclick='return hideAlert()')
                 span(aria-hidden='true') &times;
@@ -40,64 +40,64 @@ body(onload="return generateUserId();")
             .row
              .col-md-4.pr-1
                 .form-group
-                  label.text-white Full Name
+                  label Full Name
                   input#name.form-control(type='text' placeholder='Full Name' name='name')
-                  p#nameErr.text-dark
+                  p#nameErr.text-danger
              .col-md-4.pr-1
                 .form-group
-                  label.text-white User ID
+                  label User ID
                   input#id.form-control(type='text' placeholder='Unique Id' name='id' readonly='')
                   p#idErr.text-dark
              .col-md-4.pr-1
                 .form-group
-                  label.text-white Gender
+                  label Gender
                   select#gender.form-select(name='gender')
                     option(value="" selected disabled) Select Gender
                     option(value='Male') Male
                     option(value='Female') Female
-                  p#genderErr.text-dark   
+                  p#genderErr.text-danger   
             .row
               .col-md-4.pr-1
                 .form-group
-                  label.text-white Date of Birth 
+                  label Date of Birth 
                   input#dob.form-control(type='date' name='dob')
-                  p#dobErr.text-dark
+                  p#dobErr.text-danger
               .col-md-4.pl-1
                 .form-group
-                  label.text-white Address
+                  label Address
                   input#address.form-control(type='text' placeholder='Address' name='address')
-                  p#addressErr.text-dark
+                  p#addressErr.text-danger
               .col-md-4.pr-1
                 .form-group
-                  label.text-white Phone Number
+                  label Phone Number
                   input#phone.form-control(type='phone' placeholder='Phone Number' name='phone')
-                  p#phoneErr.text-dark
+                  p#phoneErr.text-danger
             .row
               .col-md-4.pl-1
                 .form-group
-                  label.text-white Email Address
+                  label Email Address
                   input#email.form-control(type='text' placeholder='Email address' name='email')
-                  p#emailErr.text-dark
+                  p#emailErr.text-danger
               .col-md-4.pr-1
                 .form-group
-                  label.text-white Password
+                  label Password
                   .d-md-flex.input-group.w-auto.my-auto
                     input#password.form-control(type='password' placeholder='Set a password' name='password')
                     span#show.input-group-text.border-0.bg-dark.text-white.custom-cursor(onclick="return toggleShowPassword();")
                         i.bi.bi-eye
-                  p#passwordErr.text-dark 
+                  p#passwordErr.text-danger 
               .col-md-4.pr-1
                 .form-group
-                  label.text-white Confirm password
+                  label Confirm password
                   .d-md-flex.input-group.w-auto.my-auto
                     input#confirm.form-control(type='password' placeholder='Confirm password' name='confirm')
                     span#hide.input-group-text.border-0.bg-dark.bg.text-white.custom-cursor(onclick="return toggleHide();")
                         i.bi.bi-eye
-                  p#confirmErr.text-dark
+                  p#confirmErr.text-danger
             .row 
               .col-md-6.pr-1    
                 button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin-top:20px; width:100%;") REGISTER
-              .col-md-6.pr-1  
+              //.col-md-6.pr-1  
                 a(href="/login")
                   .btn.btn-success.btn-block.mb-6(style="margin-top:20px; width:100%;") LOGIN
     footer.fixed-bottom.text-white

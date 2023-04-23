@@ -26,10 +26,10 @@ html(lang="en")
               | Register
           
    .container
-    .row.justify-content-center
+    .row.justify-content-center.text-dark
       .col-md-6
         .login-form
-          h2.text-center.mb-4.text-white User Login
+          h2.text-center.mb-4 User Login
           if message
             #error 
               .alert.bg-danger.alert-dismissible.show.fade(role='alert' fade='' style='display:flex;justify-content:space-between; height:50px; align-items:center;')
@@ -39,19 +39,19 @@ html(lang="en")
                   span(aria-hidden='true') &times;
           form#form(onsubmit="return login();" action="/login" method="post")
             .form-group
-              label.text-white(for='id') User ID:
+              label(for='id') User ID:
               input#id.form-control(type='text' placeholder='Enter user ID' name="id" oninput="return validateId();" value= id)
-              p#idErr
+              p#idErr.text-danger
             
             .form-group
-              label.text-white(for='password') Password:
+              label(for='password') Password:
               .d-md-flex.input-group.w-auto.my-auto
                 input#password.form-control(type='password' placeholder='Enter password' name="password" oninput="return validatePwd();" value=password)
                 span#show.input-group-text.border-0.bg-dark.bg.text-white.custom-cursor(onclick="return toggleShowPassword();")
                   i.bi.bi-eye
-              p#passwordErr
+              p#passwordErr.text-danger
             button.btn.btn-dark.btn-block.mb-6(type='submit' style="margin:10px; width:200px;") LOGIN
-            a(href="/register")
+            //a(href="/register")
                  .btn.btn-success.btn-block.mb-6(style="margin:10px; width:200px;") REGISTER
     footer.fixed-bottom.text-white.footer
       .container.align-items-center(style="justify-content:space-between; display:flex;")
