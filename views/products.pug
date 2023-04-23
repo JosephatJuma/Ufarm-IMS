@@ -223,7 +223,7 @@ header#header
               input.form-check-input(type='checkbox' checked='')
               |  108
     section.container-fluid(style='background-color: #eee;')
-      -var products=[ { name: "Banana", price: 300000,out:350000 },{ name: "Apple", price: 100000,out:110000 },{ name: "Jack fruit", price: 40000,out:50000 },{name:"Tomotoes"}, {name:"Tomotoes"},{name:"Tomotoes"}]
+      if products
         each item in products
           .container.py-1.container-fluid
             .row.justify-content-center.mb-2
@@ -238,40 +238,45 @@ header#header
                             .hover-overlay
                               .mask(style='background-color: rgba(253, 253, 253, 0.15);')
                       .col-md-6.col-lg-6.col-xl-6
-                        h5 #{item.name}
+                        h5 #{item.product_name}
                         .d-flex.flex-row
                           .text-warning.mb-1.me-2
                             i.bi.bi-star-fill
                             i.bi.bi-star-fill
                             i.bi.bi-star-fill
                             i.bi.bi-star-fill
-                          span 310
                         .mt-1.mb-0.text-muted.small
-                          span 100% cotton
-                          span.text-primary  &bull; 
-                          span Light weight
+                          span Quantity
                           span.text-primary  &bull; 
                           span
-                            | Best finish
+                            | #{item.quantity}
                             br
                         .mb-2.text-muted.small
-                          span Category
-                          span.text-primary  &bull; 
-                          span Hoticulture
+                          span Location
                           span.text-primary  &bull; 
                           span
-                            | Delivery and Pickup
+                            | #{item.location}
+                            br
+                        .mb-2.text-muted.small
+                          span Date Added
+                          span.text-primary  &bull; 
+                          span
+                            | #{item.date}
+                            br
+                        .mb-2.text-muted.small
+                          span Product Type
+                          span.text-primary  &bull; 
+                          span
+                            | #{item.produce_type}
                             br
                         p.text-truncate.mb-4.mb-md-0
                           | Description will be here
                       .col-md-6.col-lg-3.col-xl-3.border-sm-start-none.border-start
                         .d-flex.flex-row.align-items-center.mb-1
-                          h6.mb-1.me-1 UGX. #{item.price}
-                          span.text-danger
-                            s UGX. #{item.out}
-                        h6.text-success Free shipping
+                          h6.mb-1.me-1 Unit Price: UGX. #{item.unit_price}
+                        h6.mb-1.me-1 Price: UGX. #{item.unit_price*item.quantity}
+                        h6.text-success Delivery Mode: #{item.delivery_mode}
                         .d-flex.flex-column.mt-4
-                          button.btn.btn-success.btn-sm(type='button') Details
                           button.btn.btn-success.btn-sm.mt-2(type='button')
                             i.bi.bi-cart
                             | Add to cart

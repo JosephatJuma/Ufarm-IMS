@@ -20,12 +20,9 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo')
           i.bi.bi-person-plus-fill.fa-fw.me-3
           span Register Farmer
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
-          i.fas.fa-chart-line.fa-fw.me-3
-          span Analytics
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
-          i.fas.fa-chart-bar.fa-fw.me-3
-          span Appoint Ward
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/add-product/')
+          i.bi-file-earmark-plus-fill.fa-fw.me-3
+          span Add product
         a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
           i.bi.bi-people-fill.fa-fw.me-3
           span Farmer Ones
@@ -86,7 +83,7 @@ main(style='margin-top: 58px')
         .card
           .card-header
             h4.card-title
-              |  All Farmer ones
+              | All Farmer ones
           .card-body
               table.table.table-responsive.table-bordered.table-rounded
                 thead.text-white.bg-success
@@ -112,16 +109,9 @@ main(style='margin-top: 58px')
                           td #{farmer_one.address}
                           td #{farmer_one.phone}
                           td #{farmer_one.activity}
-                          
                           td.text-right
                               button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
-                                i.bi.bi-pencil-square
-                              button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
-                                i.bi.bi-trash
-                              button.btn.bg-warning.text-white.justify-content-between(style="margin:5px;")
-                                i.bi-file-lock-fill
-              //- .d-flex.justify-content-center
-              //-   .spinner-border.text-success(role='status' style=' width: 2rem; height: 2rem')
+                                i.bi.bi-three-dots-vertical.text-white
 // Main layout
 script(src='./bootstrap/js/bootstrap.min.js')
 script(src='./bootstrap/js/bootstrap.bundle.js')

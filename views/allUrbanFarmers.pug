@@ -20,18 +20,15 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo')
           i.bi.bi-person-plus-fill.fa-fw.me-3
           span Register Farmer
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
-          i.fas.fa-chart-line.fa-fw.me-3
-          span Analytics
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
-          i.fas.fa-chart-bar.fa-fw.me-3
-          span Appoint Ward
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/add-product/')
+          i.bi-file-earmark-plus-fill.fa-fw.me-3
+          span Add product
         a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
           i.bi.bi-people-fill.fa-fw.me-3
           span Urban Farmers
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo')
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
           i.bi.bi-receipt.fa-fw.me-3
-          span Create Credentials
+          span Products
         button.btn.list-group-item.list-group-item-action.bg-success.text-light
           i.bi.bi-box-arrow-left.fa-fw.me-3
           | Logout
@@ -89,7 +86,7 @@ main(style='margin-top: 58px')
               |  All Registered Urban Farmers
           .card-body
               table.table.table-responsive.table-bordered.table-rounded
-                thead.text-white.bg-dark
+                thead.text-white.bg-success
                   th Image
                   th Id
                   th Name
@@ -115,13 +112,7 @@ main(style='margin-top: 58px')
                           
                           td.text-right
                               button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
-                                i.bi.bi-pencil-square
-                              button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
-                                i.bi.bi-trash
-                              button.btn.bg-warning.text-white.justify-content-between(style="margin:5px;")
-                                i.bi-file-lock-fill
-              //- .d-flex.justify-content-center
-              //-   .spinner-border.text-success(role='status' style=' width: 2rem; height: 2rem')
+                                i.bi.bi-three-dots-vertical.text-white
 // Main layout
 script(src='./bootstrap/js/bootstrap.min.js')
 script(src='./bootstrap/js/bootstrap.bundle.js')

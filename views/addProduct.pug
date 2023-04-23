@@ -21,11 +21,8 @@ header
           i.bi.bi-person-plus-fill.fa-fw.me-3
           span Register Farmer
         a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
-          i.fas.fa-chart-line.fa-fw.me-3
+          i.bi-file-earmark-plus-fill.fa-fw.me-3
           span Add product
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
-          i.fas.fa-chart-bar.fa-fw.me-3
-          span Appoint Ward
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo')
           i.bi.bi-people-fill.fa-fw.me-3
           span Urban Farmers
@@ -136,7 +133,7 @@ main(style='margin-top: 58px')
               .col-md-4.pr-1
                 .form-group
                   label Quantity, 
-                  input#quantity.form-control(type='text' placeholder='Quantity' name='quantity')
+                  input#quantity.form-control(type='number' placeholder='Quantity' name='quantity')
                   p#quantityErr.text-danger
               .col-md-4.pr-1
                 .form-group

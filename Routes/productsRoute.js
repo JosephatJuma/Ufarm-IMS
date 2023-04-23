@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
-
-router.get("/", (req, res) => {
-  res.render("products.pug");
+const Product = require("../models/urbanFarmer/addProductModel");
+router.get("/", async (req, res) => {
+  let products = await Product.find();
+  if (products.length > 0) {
+    res.render("products.pug", { products: products });
+  } else {
+    res.render("products.pug", { message: "There are no products cureently" });
+  }
 });
 
 module.exports = router;

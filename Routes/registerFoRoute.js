@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
       account.save().then(() => {
         res.redirect("/admin");
         console.log("Done");
-        console.log(account);
+       
       });
     });
   } catch (error) {

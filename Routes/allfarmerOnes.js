@@ -19,6 +19,7 @@ router.get("/fo", async (req, res) => {
 router.get("/uf", async (req, res) => {
   try {
     const list = await UrbanFarmer.find();
+    console.log(list);
     if (list.length > 0) {
       res.render("allUrbanFarmers.pug", { urban_farmers: list });
     } else {
