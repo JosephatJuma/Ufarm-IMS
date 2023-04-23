@@ -29,9 +29,9 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo')
           i.bi.bi-people-fill.fa-fw.me-3
           span Farmer Ones
-        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
           i.bi.bi-receipt.fa-fw.me-3
-          span Create Credentials
+          span Products
         button.btn.list-group-item.list-group-item-action.bg-success.text-light
           i.bi.bi-box-arrow-left.fa-fw.me-3
           | Logout
@@ -73,9 +73,7 @@ header
               a.dropdown-item(href='#') Settings
             li
               a.dropdown-item(href='#') Logout
-    // Container wrapper
-  // Navbar
-// Main Navigation
+  
 // Main layout
 main(style='margin-top: 58px')
   .container-fluid.pt-4
@@ -85,7 +83,7 @@ main(style='margin-top: 58px')
           h5.card-title Dashboard
         .card-body
           .row
-            .col-lg-3.col-md-6.col-sm-6
+            .col-lg-3.col-md-4.col-sm-6(style="margin:5px;")
               .card.card-stats
                 .card-body
                   .row
@@ -97,67 +95,80 @@ main(style='margin-top: 58px')
                     .col-7.col-md-8
                       .numbers
                         p.card-category 
-                          |  Wards
-                        .d-flex.justify-content-center
-                          .spinner-border.text-success(role='status')
-                          
-                        |                        
+                          |  Wards                          
                         h1.card-title 
-                          |  20                      
+                          |   #{wards}                       
                 .card-footer
                   hr
                   .stats
                     i.bi.bi-arrow-clockwise
                     |                     Update Now
-            .col-lg-3.col-md-6.col-sm-6
+            .col-lg-3.col-md-4.col-sm-6(style="margin:5px;")
               .card.card-stats
                 .card-body
                   .row
                     .col-5.col-md-4
                       .icon-big.text-center.icon-warning
                         i.bi.bi-people-fill.text-success
-                        button.btn.btn-success 
-                         i.bi.bi-three-dots-vertical.text-white
+                        a(href="list/fo")
+                          button.btn.btn-success 
+                           i.bi.bi-three-dots-vertical.text-white
                     .col-7.col-md-8
                       .numbers
                         p.card-category 
                           |   Farmer ones                      
-                        .d-flex.justify-content-center
-                          .spinner-border.text-success(role='status' )
-                          
-                        |                      
+                        //- .d-flex.justify-content-center
+                        //-   .spinner-border.text-success(role='status' )                     
                         h1.card-title 
-                          |  12             
+                          |  #{farmer_ones}             
                 .card-footer
                   hr
                   .stats
                     i.bi.bi-calendar
                     | Last day
-            .col-lg-3.col-md-6.col-sm-6
+            .col-lg-3.col-md-4.col-sm-6(style="margin:5px;")
               .card.card-stats
                 .card-body
                   .row
                     .col-5.col-md-4
                       .icon-big.text-center.icon-success
                         i.bi.bi-people.text-success
-                        button.btn.btn-success 
-                         i.bi.bi-three-dots-vertical.text-white
+                        a(href="list/uf")
+                          button.btn.btn-success 
+                           i.bi.bi-three-dots-vertical.text-white
                     .col-7.col-md-8
                       .numbers
                         p.card-category 
-                          |  Urban farmers           
-                        .d-flex.justify-content-center
-                          .spinner-border.text-success(role='status' )
-                          
-                        |                   
+                          |  Urban farmers                             
                         h1.card-title 
-                          |  30                
+                          |  #{urban_farmers}                
                 .card-footer
                   hr
                   .stats
                     i.bi.bi-clock-o
                     |    In the last hour
-            .col-lg-3.col-md-6.col-sm-6
+            .col-lg-3.col-md-4.col-sm-6(style="margin:5px;")
+              .card.card-stats
+                .card-body
+                  .row
+                    .col-5.col-md-4
+                      .icon-big.text-center.icon-warning
+                        i.bi.bi-briefcase.text-success
+                      a(href="list/products")
+                          button.btn.btn-success 
+                            i.bi.bi-three-dots-vertical.text-white
+                    .col-7.col-md-8
+                      .numbers
+                        p.card-category 
+                         |    Products                                        
+                        h1.card-title 
+                            |  #{products}                
+                .card-footer
+                  hr
+                  .stats
+                    i.bi.bi-arrow-clockwise
+                      | Update now
+            .col-lg-3.col-md-4.col-sm-6(style="margin:5px;")
               .card.card-stats
                 .card-body
                   .row
@@ -169,13 +180,9 @@ main(style='margin-top: 58px')
                     .col-7.col-md-8
                       .numbers
                         p.card-category 
-                         |    Products                    
-                        .d-flex.justify-content-center
-                          .spinner-border.text-success(role='status' )
-                          
-                        |                      
+                         |    Customers                                       
                         h1.card-title 
-                            |         100               
+                            |   #{customers}                
                 .card-footer
                   hr
                   .stats

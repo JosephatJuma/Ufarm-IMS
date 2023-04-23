@@ -8,7 +8,7 @@ head
   link(rel='stylesheet' href='/assets//bootstrap/css/bootstrap-grid.rtl.min.css.map')
   link(rel="shortcut icon", href="/assets/vectors/ufarm-logo.png", type="image/x-icon")
   link(rel="stylesheet" href="/css/dashboard.css") 
-  title Farmer One-List
+  title Urban Farmers List
 header
   // Sidebar
   nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
@@ -28,10 +28,10 @@ header
           span Appoint Ward
         a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
           i.bi.bi-people-fill.fa-fw.me-3
-          span Farmer Ones
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
+          span Urban Farmers
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo')
           i.bi.bi-receipt.fa-fw.me-3
-          span Products
+          span Create Credentials
         button.btn.list-group-item.list-group-item-action.bg-success.text-light
           i.bi.bi-box-arrow-left.fa-fw.me-3
           | Logout
@@ -86,10 +86,10 @@ main(style='margin-top: 58px')
         .card
           .card-header
             h4.card-title
-              |  All Farmer ones
+              |  All Registered Urban Farmers
           .card-body
               table.table.table-responsive.table-bordered.table-rounded
-                thead.text-white.bg-success
+                thead.text-white.bg-dark
                   th Image
                   th Id
                   th Name
@@ -99,19 +99,19 @@ main(style='margin-top: 58px')
                   th Date Booked
                   th.text-right Action
                 tbody
-                  if farmers_ones
-                      each farmer_one in farmers_ones
+                  if urban_farmers
+                      each urban_farmer in urban_farmers
                         tr
                           td
                             img(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' width="50px")
                           td 
                             span.badge.badge-success.text-white.bg-success
-                              | #{farmer_one.id}
-                          td #{farmer_one.name}
-                          td #{farmer_one.ward}
-                          td #{farmer_one.address}
-                          td #{farmer_one.phone}
-                          td #{farmer_one.activity}
+                              | #{urban_farmer.id}
+                          td #{urban_farmer.name}
+                          td #{urban_farmer.ward}
+                          td #{urban_farmer.address}
+                          td #{urban_farmer.phone}
+                          td #{urban_farmer.activity}
                           
                           td.text-right
                               button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")

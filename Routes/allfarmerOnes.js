@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
+const Product = require("../models/urbanFarmer/addProductModel");
 
 router.get("/fo", async (req, res) => {
   try {
@@ -14,16 +15,34 @@ router.get("/fo", async (req, res) => {
   }
 });
 
+//urban farmers list
 router.get("/uf", async (req, res) => {
   try {
     const list = await UrbanFarmer.find();
     if (list.length > 0) {
-      res.send({ urban_farmers: list });
+      res.render("allUrbanFarmers.pug", { urban_farmers: list });
     } else {
-      res.send("Do Data found");
+      res.render("allUrbanFarmers.pug", {
+        message: "No urban farmers registered yet",
+      });
     }
+  } catch (error) {
+    console.log(error);
+  }
+});
 
-    console.log(list);
+//products list
+router.get("/products", async (req, res) => {
+  try {
+    const products = await Product.find();
+    if (products.length > 0) {
+      res.render("allProducts.pug", { products: products });
+    } else {
+      res.render("allUrbanFarmers.pug", {
+        message: "No Products",
+      });
+    }
+    console.log(products);
   } catch (error) {
     console.log(error);
   }

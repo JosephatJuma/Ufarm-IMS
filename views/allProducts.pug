@@ -8,7 +8,7 @@ head
   link(rel='stylesheet' href='/assets//bootstrap/css/bootstrap-grid.rtl.min.css.map')
   link(rel="shortcut icon", href="/assets/vectors/ufarm-logo.png", type="image/x-icon")
   link(rel="stylesheet" href="/css/dashboard.css") 
-  title Farmer One-List
+  title Products List
 header
   // Sidebar
   nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
@@ -26,10 +26,10 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='#')
           i.fas.fa-chart-bar.fa-fw.me-3
           span Appoint Ward
-        a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
+        a.list-group-item.list-group-item-action.py-2.ripple(href='#')
           i.bi.bi-people-fill.fa-fw.me-3
           span Farmer Ones
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
+        a.list-group-item.list-group-item-action.py-2.ripple.active(href='/list/products')
           i.bi.bi-receipt.fa-fw.me-3
           span Products
         button.btn.list-group-item.list-group-item-action.bg-success.text-light
@@ -86,40 +86,43 @@ main(style='margin-top: 58px')
         .card
           .card-header
             h4.card-title
-              |  All Farmer ones
+              |  All Uploaded Products
           .card-body
               table.table.table-responsive.table-bordered.table-rounded
-                thead.text-white.bg-success
+                thead.text-white.bg-dark
                   th Image
                   th Id
                   th Name
-                  th Ward
-                  th Address
-                  th Phone Number
-                  th Date Booked
+                  th Quantity
+                  th Unit Price
+                  th Location
+                  th Product Type
+                  th Delivery Mode
+                  th Farmer ID
                   th.text-right Action
                 tbody
-                  if farmers_ones
-                      each farmer_one in farmers_ones
+                  if products
+                      each product in products
                         tr
                           td
                             img(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' width="50px")
                           td 
                             span.badge.badge-success.text-white.bg-success
-                              | #{farmer_one.id}
-                          td #{farmer_one.name}
-                          td #{farmer_one.ward}
-                          td #{farmer_one.address}
-                          td #{farmer_one.phone}
-                          td #{farmer_one.activity}
+                              | #{product.id}
+                          td #{product.product_name}
+                          td #{product.quantity}
+                          td #{product.unit_price}
+                          td #{product.location}
+                          td #{product.produce_type}
+                          td #{product.delivery_mode}
+                          td Farmer ID 
                           
                           td.text-right
                               button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
                                 i.bi.bi-pencil-square
                               button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
                                 i.bi.bi-trash
-                              button.btn.bg-warning.text-white.justify-content-between(style="margin:5px;")
-                                i.bi-file-lock-fill
+                              
               //- .d-flex.justify-content-center
               //-   .spinner-border.text-success(role='status' style=' width: 2rem; height: 2rem')
 // Main layout
