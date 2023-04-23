@@ -12,7 +12,7 @@ const registerFarmerOne = new mongoose.Schema({
   phone: { type: String, trim: true },
   address: { type: String },
   residence: { type: String },
-  period: { type: Number },
+  years: { type: Number },
 });
 
 module.exports = mongoose.model("farmerone", registerFarmerOne);

@@ -41,3 +41,7 @@ header {
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+.sidebar .logout {
+  margin-top: 40px;
+  border-radius: 5px;
+}

@@ -29,7 +29,7 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
           i.bi.bi-receipt.fa-fw.me-3
           span Products
-        button.btn.list-group-item.list-group-item-action.bg-success.text-light
+        button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout
           i.bi.bi-box-arrow-left.fa-fw.me-3
           | Logout
   // Sidebar
@@ -87,6 +87,14 @@ main(style='margin-top: 58px')
           h5.card-title Add Farmer One
         .card-body
           .errAlert#errAlert
+          if message 
+            #error
+              .alert.bg-danger.alert-dismissible.show(style="display:flex;justify-content:space-between;")
+                    p.text-white
+                      strong Failed: 
+                      | #{message}
+                    button.btn.text-white(onclick="return hideError();")
+                      span &times;        
           form#regForm(onsubmit='return validFarmOneForm()' method="post" action="/register/fo")
             .row
               .col-md-4.pr-1
@@ -183,4 +191,8 @@ script.
   function hideAlert() {
   let alert=""
   document.getElementById("errAlert").innerHTML = alert;
+  }
+  function hideError() {
+  let alert=""
+  document.getElementById("error").innerHTML = alert;
   }

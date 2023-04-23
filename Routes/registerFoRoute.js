@@ -9,6 +9,22 @@ router.get("/", (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    const ward_already = await Register.findOne({ ward: req.body.ward });
+    const nin_already = await Register.findOne({ nin: req.body.nin });
+    //Check if ward is already represented
+    if (ward_already) {
+      res.render("registerFo.pug", {
+        message: "Ward is already represented by another farmer one",
+      });
+      return;
+    }
+    //Check if nin is already registered
+    else if (nin_already) {
+      res.render("registerFo.pug", {
+        message: "User with same NIN already registered",
+      });
+      return;
+    }
     //register farmer one
     const register = new Register(req.body);
     await register.save().then(() => {
@@ -21,7 +37,6 @@ router.post("/", async (req, res) => {
       account.save().then(() => {
         res.redirect("/admin");
         console.log("Done");
-       
       });
     });
   } catch (error) {

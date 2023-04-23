@@ -223,6 +223,9 @@ header#header
               input.form-check-input(type='checkbox' checked='')
               |  108
     section.container-fluid(style='background-color: #eee;')
+      if message
+         .container.py-1.container-fluid
+            p(style="margin-left:40%;") #{message}
       if products
         each item in products
           .container.py-1.container-fluid

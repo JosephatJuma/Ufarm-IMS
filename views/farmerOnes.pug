@@ -29,7 +29,7 @@ header
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
           i.bi.bi-receipt.fa-fw.me-3
           span Products
-        button.btn.list-group-item.list-group-item-action.bg-success.text-light
+        button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout
           i.bi.bi-box-arrow-left.fa-fw.me-3
           | Logout
   // Sidebar
@@ -110,8 +110,9 @@ main(style='margin-top: 58px')
                           td #{farmer_one.phone}
                           td #{farmer_one.activity}
                           td.text-right
-                              button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
-                                i.bi.bi-three-dots-vertical.text-white
+                              a(href='/list/farmer-one?id=' + farmer_one.id)
+                                button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
+                                  i.bi.bi-three-dots-vertical.text-white
 // Main layout
 script(src='./bootstrap/js/bootstrap.min.js')
 script(src='./bootstrap/js/bootstrap.bundle.js')

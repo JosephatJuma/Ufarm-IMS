@@ -19,7 +19,7 @@ router.get("/fo", async (req, res) => {
 router.get("/uf", async (req, res) => {
   try {
     const list = await UrbanFarmer.find();
-    console.log(list);
+    //console.log(list);
     if (list.length > 0) {
       res.render("allUrbanFarmers.pug", { urban_farmers: list });
     } else {
@@ -47,6 +47,11 @@ router.get("/products", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+router.get("/farmer-one", async (req, res) => {
+  const userId = req.query.id;
+  const details = await Farmer1.findOne({ id: userId });
+  res.send({ details });
 });
 
 module.exports = router;
