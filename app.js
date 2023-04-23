@@ -45,7 +45,7 @@ app.use("/admin", agricOfficerRoute);
 app.use("/farmer-one", farmOneRoute);
 app.use("/register/fo", registerFoRoute);
 app.use("/register/uf", registerUfRoute);
-app.use("/list/fo", allFarmerOnesRoute);
+app.use("/list", allFarmerOnesRoute);
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);

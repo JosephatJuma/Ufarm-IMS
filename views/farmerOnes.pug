@@ -92,33 +92,36 @@ main(style='margin-top: 58px')
                 thead.text-white.bg-dark
                   th Image
                   th Id
-                  th Dates
-                  th Trip
-                  th Price
+                  th Name
+                  th Ward
+                  th Address
+                  th Phone Number
                   th Date Booked
                   th.text-right Action
                 tbody
-                //- each item in ['apple', 'banana', 'cherry', 'berry', 'pineapp','tomato', 'apple']
-                     tr
-                        td
-                        img(src='')
-                        td id
-                        td
-                        span.badge.badge-success.text-white
-                            | reg date
-                        br
-                        span.badge.badge-success.text-white
-                            | Date
-                        td Name
-                        td Address
-                        td.text-right Ward
-                        td.text-right
-                            button.btn.bg-success.text-white.justify-content-between
-                             i.bi.bi-pencil-square
-                            button.btn.bg-danger.text-white.justify-content-between
-                             i.bi.bi-trash
-              .d-flex.justify-content-center
-                .spinner-border.text-success(role='status' style=' width: 2rem; height: 2rem')
+                  if farmers_ones
+                      each farmer_one in farmers_ones
+                        tr
+                          td
+                            img(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' width="50px")
+                          td 
+                            span.badge.badge-success.text-white.bg-success
+                              | #{farmer_one.id}
+                          td #{farmer_one.name}
+                          td #{farmer_one.ward}
+                          td #{farmer_one.address}
+                          td #{farmer_one.phone}
+                          td #{farmer_one.activity}
+                          
+                          td.text-right
+                              button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
+                                i.bi.bi-pencil-square
+                              button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
+                                i.bi.bi-trash
+                              button.btn.bg-warning.text-white.justify-content-between(style="margin:5px;")
+                                i.bi-file-lock-fill
+              //- .d-flex.justify-content-center
+              //-   .spinner-border.text-success(role='status' style=' width: 2rem; height: 2rem')
 // Main layout
 script(src='./bootstrap/js/bootstrap.min.js')
 script(src='./bootstrap/js/bootstrap.bundle.js')
