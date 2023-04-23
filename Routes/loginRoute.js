@@ -7,20 +7,12 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  //check user availability in db
   const user = await Account.findOne({ id: req.body.id });
-
   if (user) {
     const validPass = await bcrypt.compare(req.body.password, user.password);
-    if (req.body.id != user.id) {
-      const message = "Wrong ID";
-      res.render("login.pug", {
-        message: message,
-        id: req.body.id,
-        password: req.body.password,
-      });
-      return;
-    } else if (!validPass) {
-      const message = "Wrong Password";
+    if (!validPass) {
+      const message = "Wrong Password!";
       res.render("login.pug", {
         message: message,
         id: req.body.id,
@@ -35,7 +27,7 @@ router.post("/", async (req, res) => {
     }
   } else {
     res.render("login.pug", {
-      message: "No user found with credentials given",
+      message: "No user found with the id provided!",
       id: req.body.id,
       password: req.body.password,
     });
