@@ -16,6 +16,7 @@ const registerRoute = require("./routes/clientRegisterRoute");
 const loginRoute = require("./routes/loginRoute");
 const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 const addProductRoute = require("./routes/addProductRoute");
+const successRoute = require("./routes/successRoute");
 //connect controller to db
 mongoose.connect(config.database, {
   useNewUrlParser: true,
@@ -51,6 +52,7 @@ app.use("/list", allFarmerOnesRoute);
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);
+app.use("/success", successRoute);
 app.listen(10000, "localhost", () => {
   console.log("Listening on port 10000");
   app.use("/products", productsRoute);

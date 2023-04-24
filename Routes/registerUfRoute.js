@@ -7,6 +7,15 @@ router.get("/", (req, res) => {
 });
 router.post("/", async (req, res) => {
   try {
+    const nin_already = await Register.findOne({ nin: req.body.nin });
+
+    //Check if nin is already registered
+    if (nin_already) {
+      res.render("registerUf.pug", {
+        message: "User with same NIN already registered",
+      });
+      return;
+    }
     //register urban farmer
     const register = new Register(req.body);
     await register.save().then(() => {
@@ -17,8 +26,10 @@ router.post("/", async (req, res) => {
         phone: req.body.phone,
       });
       account.save().then(() => {
-        res.redirect("/admin"); //redirection page to be created
-        console.log(account);
+        res.render("success.pug", {
+          message: "Product successfully added",
+          page: "register/uf",
+        });
       });
     });
   } catch (error) {

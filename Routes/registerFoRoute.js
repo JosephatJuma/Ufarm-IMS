@@ -35,8 +35,10 @@ router.post("/", async (req, res) => {
         phone: req.body.phone,
       });
       account.save().then(() => {
-        res.redirect("/admin");
-        console.log("Done");
+        res.render("success.pug", {
+          message: "Product successfully added",
+          page: "register/fo",
+        });
       });
     });
   } catch (error) {

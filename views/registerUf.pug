@@ -81,6 +81,14 @@ main(style='margin-top: 58px')
         .card-header
           h5.card-title Add Urban Farmer
         .card-body
+          if message 
+              #error
+                .alert.bg-danger.alert-dismissible.show(style="display:flex;justify-content:space-between;")
+                      p.text-white
+                        strong Failed: 
+                        | #{message}
+                      button.btn.text-white(onclick="return hideError();")
+                        span &times; 
           form#regForm(onsubmit='return validUrbanFarmerForm()' method="post" action="/register/uf")
             .row
               .col-md-4.pr-1
@@ -162,4 +170,8 @@ script.
   let newId = 10000 + Math.floor(Math.random() * 900000);
   let input = document.getElementById("id");
   input.value="UF-"+newId;
+  }
+  function hideError() {
+  let alert=""
+  document.getElementById("error").innerHTML = alert;
   }

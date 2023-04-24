@@ -30,7 +30,10 @@ router.post("/", upload.single("image"), async (req, res) => {
   try {
     const product = new Product(product_fields);
     product.save();
-    res.redirect("/");
+    res.render("success.pug", {
+      message: "Product successfully added",
+      page: "add-product",
+    });
   } catch (error) {
     console.log(error);
   }
