@@ -102,7 +102,7 @@ main(style='margin-top: 58px')
                       each product in products
                         tr
                           td
-                            img(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' width="50px")
+                            img(src=`/assets/uploads/${product.image}` width="50px" )
                           td 
                             span.badge.badge-success.text-white.bg-success
                               | #{product.id}

@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+
 //require("dotenv").config();
 const config = require("./config/database");
 //Routes
@@ -40,6 +41,7 @@ app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   res.render("index.pug");
 });
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", agricOfficerRoute);
 app.use("/farmer-one", farmOneRoute);
