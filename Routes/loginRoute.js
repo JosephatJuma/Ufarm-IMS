@@ -1,4 +1,5 @@
 const express = require("express");
+//const session=require("express-session")
 const router = express.Router();
 const Account = require("../models/account/accountModel");
 const bcrypt = require("bcryptjs");
@@ -19,10 +20,16 @@ router.post("/", async (req, res) => {
         password: req.body.password,
       });
     } else {
-      if (user.role === "client") {
-        res.redirect("/products");
-      } else {
+      if (user.role === "agric officer") {
+        req.session.user = user;
         res.redirect("/admin");
+      } else if (user.role === "farmer one") {
+        req.session.user = user;
+        res.redirect("/admin");
+      } else {
+        req.session.user = user;
+        //req.session.authenticated = true;
+        res.redirect("/products");
       }
     }
   } else {

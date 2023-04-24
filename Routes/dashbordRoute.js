@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const requireAuth = require("../middleware/auth");
+
 const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
 const Client = require("../models/client/clientRegisterModel");
 const Product = require("../models/urbanFarmer/addProductModel");
-router.get("/", async (req, res) => {
+
+router.get("/", requireAuth, async (req, res) => {
   try {
     uf = await UrbanFarmer.find();
     fo = await Farmer1.find();

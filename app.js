@@ -3,17 +3,29 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const session = require("express-session");
+//configure express sessiom
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    secret: "seceret-key",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 //require("dotenv").config();
 const config = require("./config/database");
 //Routes
-const agricOfficerRoute = require("./Routes/agricOfficerRoute");
+const dashboard = require("./routes/dashbordRoute");
 const farmOneRoute = require("./routes/farmerOneRoute");
 const productsRoute = require("./routes/productsRoute");
 const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
 const registerRoute = require("./routes/clientRegisterRoute");
 const loginRoute = require("./routes/loginRoute");
+const logout = require("./routes/logout");
 const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 const addProductRoute = require("./routes/addProductRoute");
 const successRoute = require("./routes/successRoute");
@@ -44,12 +56,13 @@ app.get("/", (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/admin", agricOfficerRoute);
+app.use("/admin", dashboard);
 app.use("/farmer-one", farmOneRoute);
 app.use("/register/fo", registerFoRoute);
 app.use("/register/uf", registerUfRoute);
 app.use("/list", allFarmerOnesRoute);
 app.use("/login", loginRoute);
+app.use("/logout", logout);
 app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);
 app.use("/success", successRoute);
