@@ -35,7 +35,7 @@ router.post("/", requireAuth, upload.single("image"), async (req, res) => {
       page: "add-product",
     });
   } catch (error) {
-    console.log(error);
+    res.send({ error });
   }
 });
 

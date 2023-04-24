@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const requireAuth = require("../middleware/auth");
+
 const Register = require("../models/agricOfficer/registerFoModel");
 const Account = require("../models/account/accountModel");
 
-router.get("/", (req, res) => {
+router.get("/", requireAuth, (req, res) => {
   res.render("registerFo.pug");
 });
 
-router.post("/", async (req, res) => {
+router.post("/", requireAuth, async (req, res) => {
   try {
     const ward_already = await Register.findOne({ ward: req.body.ward });
     const nin_already = await Register.findOne({ nin: req.body.nin });
@@ -42,7 +44,6 @@ router.post("/", async (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error);
     res.status(400).render("/register/fo");
   }
 });

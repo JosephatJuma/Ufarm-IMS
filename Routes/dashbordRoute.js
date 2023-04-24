@@ -13,14 +13,21 @@ router.get("/", requireAuth, async (req, res) => {
     fo = await Farmer1.find();
     c = await Client.find();
     p = await Product.find();
-  } catch (error) {}
-  res.render("dashboard", {
-    urban_farmers: uf.length,
-    farmer_ones: fo.length,
-    wards: 4,
-    products: p.length,
-    customers: c.length,
-  });
+    //only users with privileges should access dashbord
+    if (req.session.user.role !== "client") {
+      res.render("dashboard", {
+        urban_farmers: uf.length,
+        farmer_ones: fo.length,
+        wards: 4,
+        products: p.length,
+        customers: c.length,
+      });
+    } else {
+      res.redirect("/products");
+    }
+  } catch (error) {
+    res.send({ error });
+  }
 });
 
 module.exports = router;

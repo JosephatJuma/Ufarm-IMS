@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const requireAuth = require("../middleware/auth");
+
 const Register = require("../models/farmerOne/registerUfModel");
 const Account = require("../models/account/accountModel");
-router.get("/", (req, res) => {
+router.get("/", requireAuth, (req, res) => {
   res.render("registerUf.pug");
 });
-router.post("/", async (req, res) => {
+router.post("/", requireAuth, async (req, res) => {
   try {
     const nin_already = await Register.findOne({ nin: req.body.nin });
 

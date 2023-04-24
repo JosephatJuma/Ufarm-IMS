@@ -1,10 +1,24 @@
 const express = require("express");
-//const session=require("express-session")
 const router = express.Router();
 const Account = require("../models/account/accountModel");
 const bcrypt = require("bcryptjs");
 router.get("/", (req, res) => {
-  res.render("login.pug");
+  //check session availabilty
+  if (req.session.user) {
+    if (
+      req.session.user.role === "agric officer" ||
+      req.session.user.role === "urban farmer" ||
+      req.session.user.role === "farmer one"
+    ) {
+      res.redirect("/admin");
+    } else {
+      res.redirect("/admin");
+    }
+  }
+  //if no session is available
+  else {
+    res.render("login.pug");
+  }
 });
 
 router.post("/", async (req, res) => {

@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const requireAuth = require("../middleware/auth");
+
 const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
 const Product = require("../models/urbanFarmer/addProductModel");
 
-router.get("/fo", async (req, res) => {
+router.get("/fo", requireAuth, async (req, res) => {
   try {
     let list = await Farmer1.find();
-    console.log(list);
     res.render("farmerOnes.pug", { farmers_ones: list });
   } catch (error) {
     console.log(error);
@@ -16,10 +17,9 @@ router.get("/fo", async (req, res) => {
 });
 
 //urban farmers list
-router.get("/uf", async (req, res) => {
+router.get("/uf", requireAuth, async (req, res) => {
   try {
     const list = await UrbanFarmer.find();
-    //console.log(list);
     if (list.length > 0) {
       res.render("allUrbanFarmers.pug", { urban_farmers: list });
     } else {
@@ -33,7 +33,7 @@ router.get("/uf", async (req, res) => {
 });
 
 //products list
-router.get("/products", async (req, res) => {
+router.get("/products", requireAuth, async (req, res) => {
   try {
     const products = await Product.find();
     if (products.length > 0) {
@@ -43,12 +43,11 @@ router.get("/products", async (req, res) => {
         message: "No Products",
       });
     }
-    console.log(products);
   } catch (error) {
-    console.log(error);
+    res.send({ error });
   }
 });
-router.get("/farmer-one", async (req, res) => {
+router.get("/farmer-one", requireAuth, async (req, res) => {
   const userId = req.query.id;
   const details = await Farmer1.findOne({ id: userId });
   res.send({ details });
