@@ -1,0 +1,30 @@
+
+nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
+    .position-sticky
+    
+      .list-group.list-group-flush.mx-3.mt-4
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/admin' class= page==="dashboard" ? 'active' : '' )
+          i.bi.bi-speedometer2.fa-fw.me-3
+          span  Dashboard
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo' class= page==="reg-fo" ? 'active' : '')
+          i.bi.bi-person-plus-fill.fa-fw.me-3
+          span Register FO
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/register/uf' class= page==="reg-uf" ? 'active' : '')
+          i.bi.bi-person-plus-fill.fa-fw.me-3
+          span Register UF
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/add-product/' class= page==="add-product" ? 'active' : '')
+          i.bi-file-earmark-plus-fill.fa-fw.me-3
+          span Add product
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo' class= page==="list-fo" ? 'active' : '')
+          i.bi.bi-people-fill.fa-fw.me-3
+          span Farmer Ones
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/uf' class= page==="list-uf" ? 'active' : '')
+          i.bi.bi-people-fill.fa-fw.me-3
+          span Urban Farmers
+        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products' class= page==="list-products" ? 'active' : '')
+          i.bi.bi-receipt.fa-fw.me-3
+          span Products
+        form(action="/logout" method="POST")
+            button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout
+              i.bi.bi-box-arrow-left.fa-fw.me-3
+              | Logout

@@ -10,73 +10,10 @@ head
   link(rel="stylesheet" href="/css/dashboard.css") 
   title Urban Farmers List
 header
+- let page = "list-uf"
   // Sidebar
-  nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
-    .position-sticky
-      .list-group.list-group-flush.mx-3.mt-4
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/admin')
-          i.bi.bi-speedometer2.fa-fw.me-3
-          span  Dashboard
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo')
-          i.bi.bi-person-plus-fill.fa-fw.me-3
-          span Register Farmer
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/add-product/')
-          i.bi-file-earmark-plus-fill.fa-fw.me-3
-          span Add product
-        a.list-group-item.list-group-item-action.py-2.ripple.active(href='#')
-          i.bi.bi-people-fill.fa-fw.me-3
-          span Urban Farmers
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products')
-          i.bi.bi-receipt.fa-fw.me-3
-          span Products
-        form(action="/logout" method="POST")
-            button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout
-              i.bi.bi-box-arrow-left.fa-fw.me-3
-              | Logout
-  // Sidebar
-  // Navbar
-  nav#main-navbar.navbar.navbar-expand-lg.navbar-light.bg-dark.fixed-top
-    // Container wrapper
-    .container-fluid
-      // Toggle button
-      button.navbar-toggler(type='button' data-mdb-toggle='collapse' data-mdb-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
-        i.bi.bi-bars
-      // Brand
-      a.navbar-brand(href='#')
-        img(src="/assets/vectors/ufarm-logo-white.png", alt="" style="width:150px;") 
-      // Search form
-      form.d-none.d-md-flex.input-group.w-auto.my-auto
-        input.form-control.rounded(autocomplete='off' type='search' placeholder='looking for anuthing?' style='min-width: 225px')
-        span.input-group-text.border-0
-          i.bi.bi-search
-      // Right links
-      ul.navbar-nav.ms-auto.d-flex.flex-row
-        // Notification dropdown
-        li.nav-item.dropdown
-          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
-            i.bi.bi-bell.text-light
-            span.badge.rounded-pill.badge-notification.bg-success 
-              | 1
-          ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
-            li
-              a.dropdown-item(href='#') Some news
-            li
-              a.dropdown-item(href='#') Another news
-            li
-              a.dropdown-item(href='#') Something else here
-       
-        li.nav-item.dropdown.text-light
-          a#navbarDropdownMenuLink.nav-link.dropdown-toggle.hidden-arrow.d-flex.align-items-center(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
-            img.rounded-circle(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' height='40' alt='Avatar' loading='lazy')
-          ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
-            li
-              a.dropdown-item(href='#') My profile
-            li
-              a.dropdown-item(href='#') Settings
-            li
-              a.dropdown-item(href='#') Logout
-            li
-              button.btn.bg-success.text-light Logout
+  include ./includes/sidebar.pug
+  include ./includes/navbar.pug 
 main(style='margin-top: 58px')
   .container-fluid.pt-4
     .row

@@ -36,14 +36,14 @@ router.post("/", async (req, res) => {
     } else {
       if (user.role === "agric officer") {
         req.session.user = user;
-        res.redirect("/admin");
+        res.redirect("/admin?user=" + true);
       } else if (user.role === "farmer one") {
         req.session.user = user;
-        res.redirect("/admin");
+        res.redirect("/admin?user=" + true);
       } else {
         req.session.user = user;
         //req.session.authenticated = true;
-        res.redirect("/products");
+        res.redirect("/products?user=" + true);
       }
     }
   } else {

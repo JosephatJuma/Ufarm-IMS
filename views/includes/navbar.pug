@@ -1,0 +1,38 @@
+nav#main-navbar.navbar.navbar-expand-lg.navbar-light.bg-dark.fixed-top
+    .container-fluid
+      button.navbar-toggler(type='button' data-mdb-toggle='collapse' data-mdb-target='#sidebarMenu' aria-controls='sidebarMenu' aria-expanded='false' aria-label='Toggle navigation')
+        i.bi.bi-bars
+      a.navbar-brand(href='#') 
+          img(src="/assets/vectors/ufarm-logo-white.png"
+          width="150"
+          alt="U-Farm Logo"
+          loading="lazy")
+      form.d-none.d-md-flex.input-group.w-auto.my-auto
+        input.form-control.rounded(autocomplete='off' type='search' placeholder='looking for anuthing?' style='min-width: 225px')
+        span.input-group-text.bg-success.border-0.text-white
+          i.bi.bi-search
+      // Right links
+      ul.navbar-nav.ms-auto.d-flex.flex-row
+        // Notification dropdown
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.me-3.me-lg-0.dropdown-toggle.hidden-arrow(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
+            i.bi.bi-bell.text-light
+            span.badge.rounded-pill.badge-notification.bg-success 1
+          ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
+            li
+              a.dropdown-item(href='#') Some news
+            li
+              a.dropdown-item(href='#') Another news
+            li
+              a.dropdown-item(href='#') Something else here
+        // Avatar
+        li.nav-item.dropdown.text-light
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle.hidden-arrow.d-flex.align-items-center(href='#' role='button' data-mdb-toggle='dropdown' aria-expanded='false')
+            img.rounded-circle(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' height='40' alt='Avatar' loading='lazy')
+          ul.dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdownMenuLink')
+            li
+              a.dropdown-item(href='#') My profile
+            li
+              a.dropdown-item(href='#') Settings
+            li
+              a.dropdown-item(href='#') Logout
