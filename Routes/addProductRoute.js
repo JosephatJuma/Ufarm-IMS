@@ -26,9 +26,9 @@ router.get("/", requireAuth, (req, res) => {
 router.post("/", requireAuth, upload.single("image"), async (req, res) => {
   const filename = req.file.filename;
   const product_fields = req.body;
-  const fid = req.session.user.id;
   product_fields.image = filename;
-  product_fields.farmer_id = fid;
+  product_fields.is_approved = false;
+  product_fields.farmer_details = req.session.user;
   try {
     const product = new Product(product_fields);
     product.save();

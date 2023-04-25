@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/urbanFarmer/addProductModel");
 router.get("/", async (req, res) => {
-  let products = await Product.find();
+  let products = await Product.find({ is_approved: true });
   if (products.length > 0) {
     res.render("products.pug", { products: products });
   } else {

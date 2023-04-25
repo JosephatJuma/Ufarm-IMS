@@ -10,7 +10,8 @@ const addProduct = new mongoose.Schema({
   location: { type: String },
   produce_type: { type: String },
   delivery_mode: { type: String },
-  farmer_id: { type: String },
   image: { type: String },
+  is_approved: { type: Boolean },
+  farmer_details: { type: Object },
 });
 module.exports = mongoose.model("product", addProduct);

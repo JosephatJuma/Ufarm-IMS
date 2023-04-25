@@ -34,6 +34,7 @@ main(style='margin-top: 58px')
                   th Product Type
                   th Delivery Mode
                   th Farmer ID
+                  th Aproved
                   th.text-right Action
                 tbody
                   if products
@@ -51,10 +52,16 @@ main(style='margin-top: 58px')
                           td #{product.produce_type}
                           td #{product.delivery_mode}
                           td #{product.farmer_id}
-                          
+                          td 
+
+                              if product.is_approved
+                                    i.bi.bi-check-circle-fill.text-success(style="margin:5px; font-size:20px;") 
+                              else
+                                    i.bi.bi-x-circle-fill.text-success(style="margin:5px; font-size:20px;")
                           td.text-right
                               button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
-                                i.bi.bi-three-dots-vertical.text-white                
+                                i.bi.bi-three-dots-vertical.text-white
+                                           
                           //- .d-flex.justify-content-center
                           //-   .spinner-border.text-success(role='status' style=' width: 2rem; height: 2rem')
 // Main layout

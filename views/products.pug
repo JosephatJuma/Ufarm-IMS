@@ -258,63 +258,9 @@ include ./includes/header.pug
                         h6.text-success Delivery Mode: #{item.delivery_mode}
                         .d-flex.flex-column.mt-4
                           button.btn.btn-success.btn-sm.mt-2(type='button')
-                            i.bi.bi-cart
-                            | Add to cart
-  footer.bg-light.text-center.text-success
-    section.mb-10.md-16.container-fluid
-      p(style="text-align:center;")
-          | A Platform where thousands of farmers sell their products and
-          | thousanda od buyers get to know about farmers&apos; products and buy
-          | them
-          | We take pride in our commitment to sustainable farming practices and our dedication to delivering the freshest produce possible. By choosing our agricultural selling site, you can trust that you are supporting local farmers and businesses while enjoying the best quality produce available.
-        
-    section
-      .row
-        .col-lg-3.col-md-6.mb-4.mb-md-0
-          ul.list-unstyled.mb-0
-            li
-              a(href='#!')
-                 img(src="/assets/vectors/ufarm-logo.png", alt="" style="width:180px;")   
-            li
-              a.text-success(href='#!') Link 3
-            li
-              a.text-success(href='#!') Link 4
-        .col-lg-3.col-md-6.mb-4.mb-md-0
-          h5.text-uppercase.text-dark Social Media
-           .container.p-4
-            section.mb-4
-              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
-                i.bi.bi-twitter
-              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
-                i.bi.bi-instagram
-              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
-                i.bi.bi-linkedin
-              a.btn.btn-success.btn-floating.m-1(href='#!' role='button')
-                i.bi.bi-github
-        .col-lg-3.col-md-6.mb-4.mb-md-0
-          h5.text-uppercase.text-dark Important Links
-          ul.list-unstyled.mb-0
-            li
-              a.text-success(href='#!') Home
-            li
-              a.text-success(href='#!') Products
-            li
-              a.text-success(href='#!') About us
-            li
-              a.text-success(href='#!') Services
-        .col-lg-3.col-md-6.mb-4.mb-md-0
-          h5.text-uppercase.text-dark Subscribe
-          form(action='')
-              strong Sign up for our newsletter
-              .form-group
-                label.form-label Email address
-                input#email.form-control(type='email' name="email")
-              .form-group
-                button.btn.btn-success.mb-4(type='submit')
-                  | Subscribe
-    .text-center.p-3
-      | &copy; 2023 Copyright: 
-      a.text-success(href='https://mdbootstrap.com/') Ufarm                         
+                            i.bi.bi-bookmark-plus
+                            | Order now
+  include ./includes/footer.pug                        
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.js')
 script(src='/assets/products.js')
