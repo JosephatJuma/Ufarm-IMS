@@ -39,18 +39,55 @@ router.get("/products", requireAuth, async (req, res) => {
     if (products.length > 0) {
       res.render("allProducts.pug", { products: products });
     } else {
-      res.render("allUrbanFarmers.pug", {
-        message: "No Products",
+      res.render("allProducts.pug", {
+        message: "No Products have been uploaded",
       });
     }
   } catch (error) {
     res.send({ error });
   }
 });
-router.get("/farmer-one", requireAuth, async (req, res) => {
-  const userId = req.query.id;
-  const details = await Farmer1.findOne({ id: userId });
+router.get("/farmer-one/:id", requireAuth, async (req, res) => {
+  const details = await Farmer1.findOne({ id: req.params.id });
   res.send({ details });
+});
+
+router.get("/delete/:id", requireAuth, async (req, res) => {
+  const details = await Product.deleteOne({ id: req.params.id });
+  res.render("success.pug", {
+    message: "Product successfully Deleted",
+    page: "list/products",
+  });
+});
+
+//edit product
+router.get("/edit/:id", requireAuth, async (req, res) => {
+  const details = await Product.findOne({ id: req.params.id });
+  res.send({ details });
+});
+
+//approve product
+router.get("/approve/:id", requireAuth, async (req, res) => {
+  const filter = { id: req.params.id };
+  const update = { $set: { is_approved: true } };
+  await Product.updateOne(filter, update).then(() => {
+    res.render("success.pug", {
+      message: "Product has been successfully Approved",
+      page: "list/products",
+    });
+  });
+});
+
+//Dissaprove product
+router.get("/disapprove/:id", requireAuth, async (req, res) => {
+  const filter = { id: req.params.id };
+  const update = { $set: { is_approved: false } };
+  await Product.updateOne(filter, update).then(() => {
+    res.render("success.pug", {
+      message: "Product has been successfully Disapproved",
+      page: "list/products",
+    });
+  });
 });
 
 module.exports = router;

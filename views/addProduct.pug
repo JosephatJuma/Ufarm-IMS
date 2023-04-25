@@ -22,6 +22,7 @@ main(style='margin-top: 58px')
         .card-header
           h5.card-title Add new product
         .card-body
+          #spinner
           form#regForm(onsubmit='return validateProduct()' method="post" action="/add-product" enctype="multipart/form-data")
             .row
               .col-md-4.pr-1

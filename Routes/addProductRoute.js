@@ -28,7 +28,10 @@ router.post("/", requireAuth, upload.single("image"), async (req, res) => {
   const product_fields = req.body;
   product_fields.image = filename;
   product_fields.is_approved = false;
-  product_fields.farmer_details = req.session.user;
+  product_fields.farmer_details = {
+    id: req.session.user.id,
+    phone: req.session.user.phone,
+  };
   try {
     const product = new Product(product_fields);
     product.save();
@@ -42,3 +45,5 @@ router.post("/", requireAuth, upload.single("image"), async (req, res) => {
 });
 
 module.exports = router;
+
+// https://meet.google.com/vxr-giuo-cnf

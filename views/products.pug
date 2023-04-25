@@ -257,7 +257,12 @@ include ./includes/header.pug
                         h6.mb-1.me-1 Price: UGX. #{item.unit_price*item.quantity}
                         h6.text-success Delivery Mode: #{item.delivery_mode}
                         .d-flex.flex-column.mt-4
+                        a(href=`tel:${item.farmer}`)
                           button.btn.btn-success.btn-sm.mt-2(type='button')
+                            i.bi.bi-telephone-fill
+                              - let farmer=JSON.stringify(item.farmer_details)
+                                  | Call
+                        button.btn.btn-success.btn-sm.mt-2(type='button')
                             i.bi.bi-bookmark-plus
                             | Order now
   include ./includes/footer.pug                        

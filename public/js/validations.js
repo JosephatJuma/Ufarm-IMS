@@ -440,5 +440,13 @@ function validateProduct() {
   }
   err.textContent = "";
   input.style.borderColor = "";
+  let loader = `<button class="btn btn-success" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Uploading
+                </button>`;
+  document.getElementById("spinner").innerHTML = loader;
+  const form = document.getElementById("regForm");
+  form.style.display = "none";
+
   return true;
 }
