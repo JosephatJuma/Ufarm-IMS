@@ -37,7 +37,8 @@ router.post("/", requireAuth, upload.single("image"), async (req, res) => {
     product.save();
     res.render("success.pug", {
       message: "Product successfully added",
-      page: "add-product",
+      go_to_page: "add-product",
+      page: "add-products",
     });
   } catch (error) {
     res.send({ error });

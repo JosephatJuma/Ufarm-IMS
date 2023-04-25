@@ -56,7 +56,8 @@ router.get("/delete/:id", requireAuth, async (req, res) => {
   const details = await Product.deleteOne({ id: req.params.id });
   res.render("success.pug", {
     message: "Product successfully Deleted",
-    page: "list/products",
+    go_to_page: "list/products",
+    page: "list-products",
   });
 });
 
@@ -73,7 +74,8 @@ router.get("/approve/:id", requireAuth, async (req, res) => {
   await Product.updateOne(filter, update).then(() => {
     res.render("success.pug", {
       message: "Product has been successfully Approved",
-      page: "list/products",
+      go_to_page: "list/products",
+      page: "list-products",
     });
   });
 });
@@ -85,7 +87,8 @@ router.get("/disapprove/:id", requireAuth, async (req, res) => {
   await Product.updateOne(filter, update).then(() => {
     res.render("success.pug", {
       message: "Product has been successfully Disapproved",
-      page: "list/products",
+      go_to_page: "list/products",
+      page: "list-products",
     });
   });
 });

@@ -65,28 +65,40 @@ main(style='margin-top: 58px')
                               .dropdown
                                   button#dropdownMenuButton.btn.btn-success.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                                     i.bi.bi-three-dots-vertical.text-white
-                                  .dropdown-menu(aria-labelledby='dropdownMenuButton')
-                                    a(href="/list/delete/" + product.id) 
-                                        button.btn.btn-danger.action-btn(type="submit")
-                                          i.bi.bi-file-x-fill.text-white
-                                          | Delete     
-                                    a(href="/list/edit/" + product.id) 
-                                        button.btn.btn-dark.action-btn(type="submit")
-                                         i.bi.bi-pencil-square.text-white
+                                  .dropdown-menu.text-dark(aria-labelledby='dropdownMenuButton')
+                                    a.dropdown-item(href="#" data-toggle="modal" data-target="#alertDelete") 
+                                          i.bi.bi-file-x-fill
+                                          | Delete 
+                                      
+                                    a.dropdown-item(href="/list/edit/" + product.id) 
+                                         i.bi.bi-pencil-square
                                          | Edit
                                     if product.is_approved
-                                        a(href="/list/disapprove/" + product.id) 
-                                           button.btn.btn-success.action-btn(type="submit")
-                                            i.bi.bi-file-excel-fill.text-white
-                                            | Disaprove           
+                                        a.dropdown-item(href="/list/disapprove/" + product.id) 
+                                            i.bi.bi-file-excel-fill
+                                            | Disaprove       
                                     else 
-                                        a(href="/list/approve/" + product.id) 
-                                            button.btn.btn-success.action-btn(type="submit")
-                                              i.bi.bi-file-check-fill.text-white
-                                              | Approve  
+                                        a.dropdown-item(href="/list/approve/" + product.id) 
+                                              i.bi.bi-file-check-fill
+                                              | Approve
+                                  //model
+                                  #alertDelete.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertDeleteLabel' aria-hidden='true')
+                                    .modal-dialog(role='document')
+                                      .modal-content
+                                        .modal-header
+                                          h5.modal-title Are you sure you want to delete #{product.product_name}?
+                                          button.close.btn.btn-success(type='button' data-dismiss='modal' aria-label='Close')
+                                            span(aria-hidden='true') &times;
+                                        .modal-body
+                                          | if you click delete button the product with id #{product.id} will be deleted permanently from the database
+                                        .modal-footer
+                                          button.btn.btn-secondary(type='button' data-dismiss='modal') Cancel
+                                          a(href="/list/delete/" + product.id)
+                                            button.btn.btn-danger(type='button') Delete  
                                       
-             
-// Main layout
+            
+  
+
 script(src='./bootstrap/js/bootstrap.min.js')
 script(src='./bootstrap/js/bootstrap.bundle.js')
 script(src='./bootstrap/js/bootstrap.bundle.min.js')
