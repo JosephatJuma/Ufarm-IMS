@@ -10,6 +10,7 @@ const addProduct = new mongoose.Schema({
   location: { type: String },
   produce_type: { type: String },
   delivery_mode: { type: String },
+  payment_mode: { type: String },
   image: { type: String },
   is_approved: { type: Boolean },
   farmer_details: { type: Object },

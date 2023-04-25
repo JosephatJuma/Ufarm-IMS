@@ -52,6 +52,7 @@ router.get("/farmer-one/:id", requireAuth, async (req, res) => {
   res.send({ details });
 });
 
+//delete product
 router.get("/delete/:id", requireAuth, async (req, res) => {
   const details = await Product.deleteOne({ id: req.params.id });
   res.render("success.pug", {
@@ -64,7 +65,14 @@ router.get("/delete/:id", requireAuth, async (req, res) => {
 //edit product
 router.get("/edit/:id", requireAuth, async (req, res) => {
   const details = await Product.findOne({ id: req.params.id });
-  res.send({ details });
+  res.render("editProduct.pug", { product_details: details });
+});
+
+//post edited product
+router.get("/edit-product", requireAuth, async (req, res) => {
+  // const details = await Product.findOne({ id: req.params.id });
+  //res.render("editProduct.pug", { product_details: details });
+  res.send("Seen");
 });
 
 //approve product
