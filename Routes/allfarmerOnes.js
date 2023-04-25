@@ -69,10 +69,11 @@ router.get("/edit/:id", requireAuth, async (req, res) => {
 });
 
 //post edited product
-router.get("/edit-product", requireAuth, async (req, res) => {
+router.post("/edit-product", requireAuth, async (req, res) => {
   // const details = await Product.findOne({ id: req.params.id });
   //res.render("editProduct.pug", { product_details: details });
-  res.send("Seen");
+  console.log(req.body);
+  res.json(req.body);
 });
 
 //approve product
