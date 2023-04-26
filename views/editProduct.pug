@@ -94,7 +94,9 @@ main(style='margin-top: 58px')
               .col-md-8.pl-1
                 .form-group
                   label Upadate image
-                  input#image.form-control(type='file' placeholder='Select image' name='image')
+                  br
+                  img(src=`/assets/uploads/${product_details.image}` onclick="return setFile();" width="50px")
+                  input#image.form-control(type='file' placeholder='Select image' name='image' value=product_details.image )
                   p#imageErr.text-danger
             .row
               .update.ml-auto.mr-auto
@@ -106,4 +108,13 @@ script(src='/assets/bootstrap/js/bootstrap.bundle.min.js')
 script(src='/assets/bootstrap/js/bootstrap.js')
 script(src='/js/validations.js')
 script.
+    function setFile() {
+  // get the file input element
+  var fileInput = document.getElementById('image');
+  // create a new File object
+  var file = new File(['file contents'], 'filename.txt');
+  // set the value of the file input element to the new File object
+  fileInput.files = [file];
+  }
+
  

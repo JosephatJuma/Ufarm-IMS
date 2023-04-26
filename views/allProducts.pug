@@ -65,55 +65,53 @@ main(style='margin-top: 58px')
                               .dropdown
                                   button#dropdownMenuButton.btn.btn-success.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                                     i.bi.bi-three-dots-vertical.text-white
-                                  .dropdown-menu.text-dark(aria-labelledby='dropdownMenuButton')
+                                  .dropdown-menu.text-dark.border-success(aria-labelledby='dropdownMenuButton')
                                     a.dropdown-item(href="#" data-toggle='modal' data-target='#exampleModalLong') 
-                                          i.bi.bi-three-dots
-                                          | View 
+                                          i.bi.bi-three-dots-vertical
+                                          p View 
                                     a.dropdown-item(href="#" data-toggle="modal" data-target="#alertDelete") 
                                           i.bi.bi-file-x-fill
-                                          | Delete    
+                                          p Delete    
                                     a.dropdown-item(href="/list/edit/" + product.id) 
                                          i.bi.bi-pencil-square
-                                         | Edit
+                                         p Edit
                                     if product.is_approved
                                         a.dropdown-item(href="/list/disapprove/" + product.id) 
                                             i.bi.bi-file-excel-fill
-                                            | Disaprove       
+                                            p Disaprove       
                                     else 
                                         a.dropdown-item(href="/list/approve/" + product.id) 
                                               i.bi.bi-file-check-fill
-                                              | Approve
+                                              p Approve
                           
-                          #alertDelete.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertDeleteLabel' aria-hidden='true')
-                                  .modal-dialog(role='document')
-                                    .modal-content
-                                      .modal-header
-                                        h5.modal-title Are you sure you want to delete #{product.product_name}?
-                                        button.close.btn.btn-success(type='button' data-dismiss='modal' aria-label='Close')
-                                          span(aria-hidden='true') &times;
-                                      .modal-body
-                                        | if you click delete button the product with id #{product.id} will be deleted permanently from the database
-                                      .modal-footer
-                                        button.btn.btn-secondary(type='button' data-dismiss='modal') Cancel
-                                        a(href="/list/delete/" + product.id)
-                                          button.btn.btn-danger(type='button') Delete
-                                          // Button trigger modal
-                              
-                          
-                          #exampleModalLong.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
-                                  .modal-dialog(role='document')
-                                    .modal-content
-                                      .modal-header
-                                        h5#exampleModalLongTitle.modal-title Product Details
-                                        button.close.btn(type='button' data-dismiss='modal' aria-label='Close')
-                                          span(aria-hidden='true' style="font-size:20px;") &times;
-                                      .modal-body
-                                      img(src=`/assets/uploads/${product.image}`, alt="", srcset="")
-                                      p #{product.product_name}
-                                      .modal-footer
-                                        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
-                                        a(href=`/list/edit/${product.id}`) 
-                                          button.btn.btn-primary(type='button') Edit
+                        #alertDelete.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertDeleteLabel' aria-hidden='true')
+                          .modal-dialog()
+                            .modal-content
+                              .modal-header
+                                h5.modal-title Are you sure you want to delete #{product.product_name}?
+                                button.close.btn(type='button' data-dismiss='modal' aria-label='Close')
+                                  span(aria-hidden='true' style="font-size:20px;") &times;
+                              .modal-body
+                                | if you click delete button the product with id #{product.id} will be deleted permanently from the database
+                              .modal-footer
+                                button.btn.btn-success(type='button' data-dismiss='modal') Cancel
+                                a(href="/list/delete/" + product.id)
+                                  button.btn.btn-danger(type='button') Delete
+                                  // Button trigger modal
+                        #exampleModalLong.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
+                          .modal-dialog()
+                            .modal-content
+                              .modal-header
+                                h5#exampleModalLongTitle.modal-title Product Details
+                                button.close.btn(type='button' data-dismiss='modal' aria-label='Close')
+                                  span(aria-hidden='true' style="font-size:20px;") &times;
+                              .modal-body
+                              img(src=`/assets/uploads/${product.image}`, alt="", srcset="")
+                              p #{product.product_name}
+                              .modal-footer
+                                button.btn.btn-success(type='button' data-dismiss='modal') Close
+                                a(href=`/list/edit/${product.id}`) 
+                                  button.btn.btn-dark(type='button') Edit
   
                                       
             

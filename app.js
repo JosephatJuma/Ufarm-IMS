@@ -4,7 +4,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
-//configure express sessiom
+
+//configure express-session
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
@@ -16,7 +17,9 @@ app.use(
 );
 
 //require("dotenv").config();
+//db configuration file
 const config = require("./config/database");
+
 //Routes
 const dashboard = require("./routes/dashbordRoute");
 const farmOneRoute = require("./routes/farmerOneRoute");
@@ -29,6 +32,7 @@ const logout = require("./routes/logout");
 const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 const addProductRoute = require("./routes/addProductRoute");
 const successRoute = require("./routes/successRoute");
+
 //connect controller to db
 mongoose.connect(config.database, {
   useNewUrlParser: true,
@@ -48,14 +52,17 @@ db.on("error", (err) => {
 });
 app.use(bodyParser.urlencoded({ extended: true })); //allow body-parser
 
-//Templates engine
+//Template engine
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
+
+//public route
 app.get("/", (req, res) => {
   res.render("index.pug");
 });
 
-app.use(express.static(path.join(__dirname, "public")));
+//other routes
+app.use(express.static(path.join(__dirname, "public"))); //set public dir for assests
 app.use("/admin", dashboard);
 app.use("/farmer-one", farmOneRoute);
 app.use("/register/fo", registerFoRoute);
@@ -66,6 +73,7 @@ app.use("/logout", logout);
 app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);
 app.use("/success", successRoute);
+
 app.listen(10000, "localhost", () => {
   console.log("Listening on port 10000");
   app.use("/products", productsRoute);

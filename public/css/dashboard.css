@@ -48,12 +48,16 @@ header {
 .dropdown-menu {
   justify-content: space-between;
 }
-.action-btn {
-  width: 100%;
-  border-radius: 0px;
-  justify-content: space-between;
+.dropdown-item {
+  /* justify-content: space-between; */
   padding: 0%;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-width: 20px;
+  border-color: green;
 }
-.action-btn i {
-  font-size: 20px;
+.dropdown-item p {
+  text-align: left;
+  align-self: flex-start;
 }
