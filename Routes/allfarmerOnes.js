@@ -5,6 +5,7 @@ const requireAuth = require("../middleware/auth");
 const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
 const Product = require("../models/urbanFarmer/addProductModel");
+const Account = require("../models/account/accountModel");
 
 router.get("/fo", requireAuth, async (req, res) => {
   try {
@@ -48,8 +49,12 @@ router.get("/products", requireAuth, async (req, res) => {
   }
 });
 router.get("/farmer-one/:id", requireAuth, async (req, res) => {
+  const account = await Account.findOne({ id: req.params.id });
   const details = await Farmer1.findOne({ id: req.params.id });
-  res.send({ details });
+  res.render("farmerDetails.pug", {
+    farmer_details: details,
+    farmer_account: account,
+  });
 });
 
 //delete product
