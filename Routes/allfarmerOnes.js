@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const requireAuth = require("../middleware/auth");
-
+const bcrypt = require("bcryptjs");
 const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
 const Product = require("../models/urbanFarmer/addProductModel");
@@ -48,12 +48,40 @@ router.get("/products", requireAuth, async (req, res) => {
     res.send({ error });
   }
 });
+
+//get farmer details
 router.get("/farmer-one/:id", requireAuth, async (req, res) => {
   const account = await Account.findOne({ id: req.params.id });
   const details = await Farmer1.findOne({ id: req.params.id });
   res.render("farmerDetails.pug", {
     farmer_details: details,
     farmer_account: account,
+    page: "list-fo",
+  });
+});
+
+//get farmer details
+router.get("/urban-farmer/:id", requireAuth, async (req, res) => {
+  const account = await Account.findOne({ id: req.params.id });
+  const details = await UrbanFarmer.findOne({ id: req.params.id });
+  res.render("farmerDetails.pug", {
+    farmer_details: details,
+    farmer_account: account,
+    page: "list-uf",
+  });
+});
+
+//assign password to farmer
+router.post("/assign-password", requireAuth, async (req, res) => {
+  const salt = await bcrypt.genSalt(10);
+  const hashPassword = await bcrypt.hash(req.body.password, salt);
+  const filter = { id: req.body.id };
+  const update = { $set: { password: hashPassword } };
+  await Account.updateOne(filter, update);
+  res.render("success.pug", {
+    message: "Farmer passwrod has be created",
+    go_to_page: "admin",
+    page: "admin",
   });
 });
 

@@ -10,7 +10,7 @@ head
   link(rel="stylesheet" href="/css/dashboard.css") 
   title Farmer One-List
 header
-- let page = "list-fo"
+
   // Sidebar
   include ./includes/sidebar.pug
   include ./includes/navbar.pug 
@@ -23,20 +23,38 @@ main(style='margin-top: 58px')
             h4.card-title
              | #{farmer_details.name}
           .card-body           
-            h5.card-title #{farmer_details.id}
-            p.card-text #{farmer_account.password}
+            h5.card-title Farmer ID: #{farmer_details.id}
+            table.table.table-responsive.table-bordered.table-rounded
+                thead.text-white.bg-secondary
+                  th Description
+                  th Details  
+                tbody
+                tr 
+                    td Registration date 
+                    td #{farmer_details.dor}
+                tr 
+                    td Date of Birth
+                    td #{farmer_details.dob}
+                tr
+                    td  Phone Number date 
+                    td #{farmer_details.phone}
+                tr
+                    td  Ppassword Assigned
+                    td
+                        if !farmer_account.password 
+                            i.bi.bi-x-circle-fill.text-success
+                        else 
+                            i.bi.bi-check-circle-fill.text-success.size
             if !farmer_account.password 
-                a.btn.btn-success(href='#' data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo") Assign password
-                    a(href='/list/farmer-one/' + farmer_details.id)
-               
-
+                a.btn.btn-success(href="#" data-toggle="modal" data-target="#asignPass" data-whatever="@mdo") Assign password
             else 
-                a.btn.btn-success(href='#') Change password
-                    a(href='/list/farmer-one/' + farmer_details.id)
+                a.btn.btn-warning.text-white(href='#') Deny Access 
             button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
-             i.bi.bi-three-dots-vertical.text-white
+             i.bi.bi-pencil.text-white Updade
+            button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
+             i.bi.bi-pencil.text-white Delete
     // Modal
-#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+#asignPass.modal.fade(tabindex='-1' role='dialog' aria-labelledby='asignPassLabel' aria-hidden='true')
   .modal-dialog(role='document')
     .modal-content
       .modal-header
@@ -44,7 +62,7 @@ main(style='margin-top: 58px')
         button.close.btn(type='button' data-dismiss='modal' aria-label='Close')
           span(aria-hidden='true') &times;
       .modal-body
-        form#credentials(onsubmit="return validateCredentailsForm();")
+        form#credentials(onsubmit="return validateCredentailsForm();" method="POST" action="/list/assign-password")
             small#passErr.text-danger
             .form-group
                 label(for='id') #{farmer_details.name}'s ID
