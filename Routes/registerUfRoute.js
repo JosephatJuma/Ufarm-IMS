@@ -29,8 +29,9 @@ router.post("/", requireAuth, async (req, res) => {
       });
       account.save().then(() => {
         res.render("success.pug", {
-          message: "Product successfully added",
-          page: "register/uf",
+          message: "Urban farmer successfully registered",
+          go_to_page: "register/uf",
+          page: "list-uf",
         });
       });
     });

@@ -38,8 +38,9 @@ router.post("/", requireAuth, async (req, res) => {
       });
       account.save().then(() => {
         res.render("success.pug", {
-          message: "Product successfully added",
-          page: "register/fo",
+          message: "Farmer One successfully registered",
+          go_to_page: "register/fo",
+          page: "list-fo",
         });
       });
     });
