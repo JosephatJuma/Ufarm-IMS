@@ -31,7 +31,7 @@ router.post("/", requireAuth, async (req, res) => {
         res.render("success.pug", {
           message: "Urban farmer successfully registered",
           go_to_page: "register/uf",
-          page: "list-uf",
+          page: "list-u",
         });
       });
     });

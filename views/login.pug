@@ -37,7 +37,8 @@ html(lang="en")
                   strong Alert: #{message}
                 button.btn.bg-dark.text-white(type='button' onclick='return hideAlert()')
                   span(aria-hidden='true') &times;
-          form#form(onsubmit="return login();" action="/login" method="post")
+            #loader
+          form#form(onsubmit="return validateLoginForm();" action="/login" method="post")
             .form-group
               label(for='id') User ID:
               input#id.form-control(type='text' placeholder='Enter user ID' name="id" oninput="return validateId();" value= id)
@@ -71,38 +72,8 @@ html(lang="en")
            | &copy; 2023 Copyright: Ufarm
   
 script(src='/js/sign.js')
-script.
-  function validateId(){
-    let id = document.forms["form"]["id"].value; 
-    let input = document.getElementById('id');
-    let err= document.getElementById("idErr");
-    if(id!=="" && id.length<=4){    
-      err.textContent="Id must be over 5 character long"
-      err.style.color="black"
-      return false;
-      } else{
-        err.textContent=''
-        err.style.color="" 
-      }
-  return true;
-  } 
-  function validatePwd(){
-    let password = document.forms["form"]["password"].value; 
-    let input = document.getElementById('password');
-    let err= document.getElementById("passwordErr");
-    if(password!=="" && password.length<=7){    
-      err.textContent="Password must be 8 characters long"
-      err.style.color="black"
-      return false;
-      } else{
-        err.textContent=''
-        err.style.color="" 
-      }
-       return true;
-  } 
-  const login=()=>{
-    validateId(); 
-  }
+
+ 
   
 
 

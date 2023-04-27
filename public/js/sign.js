@@ -180,6 +180,34 @@ const toggleHide = () => {
       : '<i class="bi bi-eye-slash"/>';
   document.getElementById("hide").innerHTML = icon;
 };
+
+//hide alert message
 const hideAlert = () => {
   document.getElementById("error").innerHTML = "";
 };
+
+function validateLoginForm() {
+  let id = document.forms["form"]["id"].value;
+  //let input = document.getElementById('id');
+  let err = document.getElementById("idErr");
+  let password = document.forms["form"]["password"].value;
+  let idInput = document.getElementById("id");
+  let passInput = document.getElementById("password");
+  //let err = document.getElementById("passwordErr");
+  if (id == "") {
+    err.textContent = "Id must be given";
+    idInput.style.borderColor = "red";
+    return false;
+  } else if (password === "") {
+    err = document.getElementById("passwordErr");
+    err.textContent = "Password can't be empty";
+    passInput.style.borderColor = "red";
+    return false;
+  } else {
+    err.textContent = "";
+    err.style.color = "";
+  }
+  document.getElementById("loader").innerHTML =
+    '<div class="d-flex.justify-content-center"><div class="spinner-border.text-success" role="status" ></div></div>');
+  return true;
+}
