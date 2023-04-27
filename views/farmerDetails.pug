@@ -17,14 +17,17 @@ header
 main(style='margin-top: 58px')
   .container-fluid.pt-4
     .row
-      .col-md-12
+      .col-md-9
         .card
           .card-header
             h4.card-title
              | #{farmer_details.name}
           .card-body           
-            h5.card-title Farmer ID: #{farmer_details.id}
-            table.table.table-responsive.table-bordered.table-rounded
+            h5.card-title
+              a(href="/admin") Admin
+              | Farmer one 
+              | Farmer ID: #{farmer_details.id}
+            table.table.table-responsive.table-bordered.table-rounded.bg-light
                 thead.text-white.bg-secondary
                   th Description
                   th Details  
@@ -52,9 +55,9 @@ main(style='margin-top: 58px')
             button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
              i.bi.bi-pencil.text-white Updade
             button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
-             i.bi.bi-pencil.text-white Delete
-    // Modal
-#asignPass.modal.fade(tabindex='-1' role='dialog' aria-labelledby='asignPassLabel' aria-hidden='true')
+             i.bi.bi-trash.text-white Delete
+// Modal
+#asignPass.modal.fade(tabindex='-1' role='dialog' aria-labelledby='asignPassLabel' aria-hidden='true' style="background-color:#000000c0")
   .modal-dialog(role='document')
     .modal-content
       .modal-header

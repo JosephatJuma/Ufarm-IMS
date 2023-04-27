@@ -208,6 +208,6 @@ function validateLoginForm() {
     err.style.color = "";
   }
   document.getElementById("loader").innerHTML =
-    '<div class="d-flex.justify-content-center"><div class="spinner-border.text-success" role="status" ></div></div>');
+    '<div class="d-flex.justify-content-center"><div class="spinner-border.text-success" role="status" ></div></div>';
   return true;
 }
