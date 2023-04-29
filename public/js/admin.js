@@ -12,6 +12,7 @@ function validateCredentailsForm() {
   if (password == "") {
     input.style.borderColor = "red";
     err.textContent = "Password can't be empty!";
+    document.getElementById("error").style.display = "block";
     return false;
   } else if (passGEX.test(password) !== true) {
     input.style.borderColor = "red";
@@ -32,4 +33,8 @@ function validateCredentailsForm() {
     err.textContent = "";
   }
   return true;
+}
+function hideError() {
+  let error = document.getElementById("error");
+  error.style.display = "none";
 }

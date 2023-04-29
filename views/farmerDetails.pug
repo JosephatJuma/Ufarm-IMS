@@ -66,7 +66,10 @@ main(style='margin-top: 58px')
           span(aria-hidden='true') &times;
       .modal-body
         form#credentials(onsubmit="return validateCredentailsForm();" method="POST" action="/list/assign-password")
-            small#passErr.text-danger
+            .alert.alert-secondary.text#error(role='alert' style="display:none; justify-content:space-between;")
+              small#passErr.text-danger
+              button.btn(onclick="return hideError();") 
+                i.bi.bi-x-circle 
             .form-group
                 label(for='id') #{farmer_details.name}'s ID
                 input#id.form-control(type='text' name="id" value=`${farmer_details.id}` readonly)
@@ -91,6 +94,8 @@ main(style='margin-top: 58px')
 // Main layout
 include ./includes/scripts.pug 
 script(src="/js/admin.js") 
+
+ 
 
   
 
