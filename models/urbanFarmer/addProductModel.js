@@ -5,6 +5,7 @@ const addProduct = new mongoose.Schema({
   product_name: { type: String },
   date: { type: String },
   unit_price: { type: Number },
+  quantity_metrics: { type: String },
   quantity: { type: String },
   ward: { type: String },
   location: { type: String },

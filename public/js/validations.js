@@ -410,7 +410,17 @@ function validateProduct() {
   err.textContent = "";
   input.style.borderColor = "";
   let quantity = document.forms["regForm"]["quantity"].value;
+  let metrics = document.forms["regForm"]["quantity_metrics"].value;
   err = document.getElementById("quantityErr");
+  input = document.getElementById("quantity_metrics");
+  if (!metrics) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Select metrics for product quantity!";
+    return false;
+  }
+  err.textContent = "";
+  input.style.borderColor = "";
   input = document.getElementById("quantity");
   if (!quantity) {
     input.focus();

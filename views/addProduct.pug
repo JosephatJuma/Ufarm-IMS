@@ -75,7 +75,7 @@ main(style='margin-top: 58px')
               .col-md-4.pr-1
                 label Quantity,
                 div(style='display:flex;')
-                  select#quantity_type.form-select(name='quantity_type')
+                  select#quantity_metrics.form-select(name='quantity_metrics')
                     option(value="" selected disabled) Select Metrics
                     option(value="Kilograms") Kilograms
                     option(value='Trays') Trays
@@ -124,4 +124,7 @@ script.
   let newId = 10000 + Math.floor(Math.random() * 900000);
   let input = document.getElementById("id");
   input.value="P-"+newId;
+  }
+  function formIsFocused(){
+    alert("yes")
   }
