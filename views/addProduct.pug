@@ -74,7 +74,7 @@ main(style='margin-top: 58px')
                   p#deliveryErr.text-danger
               .col-md-4.pr-1
                 label Quantity,
-                div(style='display:flex;')
+                fieldset(style='display:flex;')
                   select#quantity_metrics.form-select(name='quantity_metrics')
                     option(value="" selected disabled) Select Metrics
                     option(value="Kilograms") Kilograms
@@ -87,10 +87,7 @@ main(style='margin-top: 58px')
                   .col-md-4.pr-1
                     .form-group 
                       input#quantity.form-control(type='number' placeholder='Quantity' name='quantity')
-                p#quantityErr.text-danger
-                  
-                    
-                 
+                p#quantityErr.text-danger   
               .col-md-4.pr-1
                 .form-group
                   label Directions
@@ -125,6 +122,4 @@ script.
   let input = document.getElementById("id");
   input.value="P-"+newId;
   }
-  function formIsFocused(){
-    alert("yes")
-  }
+  
