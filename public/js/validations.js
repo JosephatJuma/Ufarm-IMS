@@ -76,10 +76,18 @@ function validFarmOneForm() {
   let birthDate = document.forms["regForm"]["dob"].value;
   err = document.getElementById("dobErr");
   input = document.getElementById("dob");
+  let birthYear = new Date(birthDate).getFullYear();
+  let currentYear = new Date().getFullYear();
   if (!birthDate) {
     input.focus();
     input.style.borderColor = "red";
     err.textContent = "Date of birth is needed";
+    return false;
+  }
+  if (currentYear - birthYear < 10) {
+    input.focus();
+    input.style.borderColor = "red";
+    err.textContent = "Farmer one can not be younger than 10 years!";
     return false;
   }
   err.textContent = "";
@@ -246,10 +254,18 @@ function validUrbanFarmerForm() {
   let birthDate = document.forms["regForm"]["dob"].value;
   err = document.getElementById("dobErr");
   input = document.getElementById("dob");
+  let currentYear = new Date().getFullYear();
+  let birthYear = new Date(birthDate).getFullYear();
   if (!birthDate) {
     err.textContent = "Date of birth is needed";
     input.focus();
     input.style.borderColor = "red";
+    return false;
+  } else if (currentYear - birthYear < 10) {
+    input.focus();
+    input.style.borderColor = "red";
+    //input.style.backgroundColor = "red";
+    err.textContent = "Urban farmer can not be younger than 10 years!";
     return false;
   } else {
     input.style.borderColor = "";
