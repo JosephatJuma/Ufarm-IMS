@@ -73,10 +73,24 @@ main(style='margin-top: 58px')
                     option(value='Home Delivery') Home Delivery
                   p#deliveryErr.text-danger
               .col-md-4.pr-1
-                .form-group
-                  label Quantity, 
-                  input#quantity.form-control(type='number' placeholder='Quantity' name='quantity')
-                  p#quantityErr.text-danger
+                label Quantity,
+                div(style='display:flex;')
+                  select#quantity_type.form-select(name='quantity_type')
+                    option(value="" selected disabled) Select Metrics
+                    option(value="Kilograms") Kilograms
+                    option(value='Trays') Trays
+                    option(value='Numbers') Numbers
+                    option(value='Baskets') Baskets
+                    option(value='Sacks') Sacks
+                    option(value='Tans') Tans
+                    option(value='Litres') Litres
+                  .col-md-4.pr-1
+                    .form-group 
+                      input#quantity.form-control(type='number' placeholder='Quantity' name='quantity')
+                p#quantityErr.text-danger
+                  
+                    
+                 
               .col-md-4.pr-1
                 .form-group
                   label Directions
