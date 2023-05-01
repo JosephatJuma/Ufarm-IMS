@@ -10,5 +10,8 @@ router.get("/", async (req, res) => {
     res.render("products.pug", { message: "There are no products cureently" });
   }
 });
+router.get("/cart/", (req, res) => {
+  res.render("cart.pug");
+});
 
 module.exports = router;
