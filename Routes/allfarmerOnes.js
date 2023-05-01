@@ -6,7 +6,8 @@ const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
 const Product = require("../models/urbanFarmer/addProductModel");
 const Account = require("../models/account/accountModel");
-
+const fs = require("fs");
+const path = require("path");
 router.get("/fo", requireAuth, async (req, res) => {
   try {
     let list = await Farmer1.find();
@@ -87,11 +88,24 @@ router.post("/assign-password", requireAuth, async (req, res) => {
 
 //delete product
 router.get("/delete/:id", requireAuth, async (req, res) => {
-  const details = await Product.deleteOne({ id: req.params.id });
-  res.render("success.pug", {
-    message: "Product successfully Deleted",
-    go_to_page: "list/products",
-    page: "list-products",
+  const product_id = req.params.id;
+  const product = await Product.findOne({ id: product_id });
+  //delete the file
+  fs.unlink(
+    path.join(__dirname, `../public/assets/uploads/${product.image}`),
+    (err) => {
+      if (err) {
+        res.send(err.message);
+      }
+      console.log("File was deleted");
+    }
+  );
+  await Product.deleteOne({ id: product_id }).then(() => {
+    res.render("success.pug", {
+      message: "Product successfully Deleted",
+      go_to_page: "list/products",
+      page: "list-products",
+    });
   });
 });
 

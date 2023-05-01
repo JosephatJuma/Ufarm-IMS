@@ -96,7 +96,7 @@ main(style='margin-top: 58px')
                               .modal-footer
                                 button.btn.btn-success(type='button' data-dismiss='modal') Cancel
                                 a(href="/list/delete/" + product.id)
-                                  button.btn.btn-danger(type='button') Delete
+                                  button.btn.btn-danger(type='button' onclick="return deletingProduct();") Delete
                                   // Button trigger modal
                         #exampleModalLong.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLongTitle' aria-hidden='true')
                           .modal-dialog()
@@ -112,4 +112,6 @@ main(style='margin-top: 58px')
                                 button.btn.btn-success(type='button' data-dismiss='modal') Close
                                 a(href=`/list/edit/${product.id}`) 
                                   button.btn.btn-dark(type='button') Edit
-include ./includes/scripts.pug 
+include ./includes/scripts.pug
+
+    
