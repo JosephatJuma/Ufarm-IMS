@@ -25,17 +25,23 @@ main(style='margin-top: 58px')
         .card-body
           .row
             if user_role == "agric officer"  
-              include ./includes/components/ward.pug  
+              include ./includes/components/agric-officer/ward.pug  
             if user_role == "agric officer"  
-              include ./includes/components/fo.pug            
+              include ./includes/components/agric-officer/fo.pug            
             if user_role === "agric officer"  
-              include ./includes/components/uf.pug
+              include ./includes/components/agric-officer/uf.pug
+            if user_role === "farmer one"  
+              include ./includes/components/farmer-one/uf.pug
             if user_role == "agric officer"
-              include ./includes/components/products.pug   
+              include ./includes/components/agric-officer/products.pug   
             if user_role == "agric officer" 
-              include ./includes/components/customers.pug 
+              include ./includes/components/agric-officer/customers.pug
+
+            //Urban farmer
             if user_role == "urban farmer"  
-              include ./includes/components/orders.pug  
+              include ./includes/components/urban-farmer/products.pug 
+            if user_role == "urban farmer"  
+              include ./includes/components/urban-farmer/orders.pug  
            
       include ./includes/alert-logout.pug      
 include ./includes/scripts.pug
