@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get("/", requireAuth, (req, res) => {
-  res.render("addProduct.pug");
+  res.render("addProduct.pug", { user_role: req.session.user.role });
 });
 
 router.post("/", requireAuth, upload.single("image"), async (req, res) => {
@@ -39,6 +39,7 @@ router.post("/", requireAuth, upload.single("image"), async (req, res) => {
       message: "Product successfully added",
       go_to_page: "add-product",
       page: "add-products",
+      user_role: req.session.user.role,
     });
   } catch (error) {
     res.send({ error });
