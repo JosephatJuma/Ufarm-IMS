@@ -6,7 +6,14 @@ const Register = require("../models/agricOfficer/registerFoModel");
 const Account = require("../models/account/accountModel");
 
 router.get("/", requireAuth, (req, res) => {
-  res.render("registerFo.pug", { user_role: req.session.user.role });
+  if (req.session.user.role !== "agric officer") {
+    res.render("failure.pug", {
+      message: "You are not alloed to register farmer one",
+      user_role: req.session.user.role,
+    });
+  } else {
+    res.render("registerFo.pug", { user_role: req.session.user.role });
+  }
 });
 
 router.post("/", requireAuth, async (req, res) => {
