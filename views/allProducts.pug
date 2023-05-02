@@ -75,14 +75,15 @@ main(style='margin-top: 58px')
                                     a.dropdown-item(href="/list/edit/" + product.id) 
                                          i.bi.bi-pencil-square.me-3
                                          p Edit
-                                    if product.is_approved
-                                        a.dropdown-item(href="/list/disapprove/" + product.id) 
-                                            i.bi.bi-file-excel-fill.me-3
-                                            p Disaprove       
-                                    else 
-                                        a.dropdown-item(href="/list/approve/" + product.id) 
-                                              i.bi.bi-file-check-fill.me-3
-                                              p Approve
+                                    if user_role =="agric officer" || user_role == "farmer one"
+                                      if product.is_approved
+                                          a.dropdown-item(href="/list/disapprove/" + product.id) 
+                                              i.bi.bi-file-excel-fill.me-3
+                                              p Disaprove       
+                                      else 
+                                          a.dropdown-item(href="/list/approve/" + product.id) 
+                                                i.bi.bi-file-check-fill.me-3
+                                                p Approve
                           
                         #alertDelete.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertDeleteLabel' aria-hidden='true')
                           .modal-dialog()

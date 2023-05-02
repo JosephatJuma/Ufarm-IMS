@@ -8,32 +8,60 @@ const Product = require("../models/urbanFarmer/addProductModel");
 const Account = require("../models/account/accountModel");
 const fs = require("fs");
 const path = require("path");
+
+//all farmer ones list
 router.get("/fo", requireAuth, async (req, res) => {
   try {
     let list = await Farmer1.find();
-    res.render("farmerOnes.pug", {
-      farmers_ones: list,
-      user_role: req.session.user.role,
-    });
-  } catch (error) {
-    console.log(error);
-    res.send("No Data found");
-  }
-});
-
-//urban farmers list
-router.get("/uf", requireAuth, async (req, res) => {
-  try {
-    const list = await UrbanFarmer.find();
-    if (list.length > 0) {
-      res.render("allUrbanFarmers.pug", {
-        urban_farmers: list,
+    if (req.session.user.role !== "agric officer") {
+      res.render("failure.pug", {
+        message: "You can not access the list of farmer ones",
+        go_to_page: "admin",
         user_role: req.session.user.role,
       });
     } else {
-      res.render("allUrbanFarmers.pug", {
-        message: "No urban farmers registered yet",
+      if (list.length > 0) {
+        res.render("farmerOnes.pug", {
+          farmers_ones: list,
+          user_role: req.session.user.role,
+        });
+      } else {
+        res.render("farmerOnes.pug", {
+          message: "There are no farmer ones registered yet",
+          user_role: req.session.user.role,
+        });
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    res.send("Error occured");
+  }
+});
+
+//all urban farmers list
+router.get("/uf", requireAuth, async (req, res) => {
+  try {
+    const list = await UrbanFarmer.find();
+    if (
+      req.session.user.role == "agric officer" ||
+      req.session.user.role == "farmer one"
+    ) {
+      if (list.length > 0) {
+        res.render("allUrbanFarmers.pug", {
+          urban_farmers: list,
+          user_role: req.session.user.role,
+        });
+      } else {
+        res.render("allUrbanFarmers.pug", {
+          message: "No urban farmers registered yet",
+          user_role: req.session.user.role,
+        });
+      }
+    } else {
+      res.render("failure.pug", {
+        message: "You can not access urban farmers list",
         user_role: req.session.user.role,
+        go_to_page: "admin",
       });
     }
   } catch (error) {
@@ -41,7 +69,7 @@ router.get("/uf", requireAuth, async (req, res) => {
   }
 });
 
-//products list
+//all products list
 router.get("/products", requireAuth, async (req, res) => {
   try {
     const products = await Product.find();

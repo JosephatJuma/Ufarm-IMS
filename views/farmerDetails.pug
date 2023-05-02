@@ -24,8 +24,8 @@ main(style='margin-top: 58px')
              | #{farmer_details.name}
           .card-body           
             h5.card-title
-              a(href="/admin") Admin
-              | Farmer one 
+              a(href="/admin") Admin 
+              | &gt; Farmer one &gt;
               | Farmer ID: #{farmer_details.id}
             table.table.table-responsive.table-bordered.table-rounded.bg-light
                 thead.text-white.bg-secondary
@@ -42,7 +42,10 @@ main(style='margin-top: 58px')
                     td  Phone Number date 
                     td #{farmer_details.phone}
                 tr
-                    td  Ppassword Assigned
+                    td  Ward
+                    td #{farmer_details.ward}
+                tr
+                    td  Password Assigned
                     td
                         if !farmer_account.password 
                             i.bi.bi-x-circle-fill.text-success
@@ -54,7 +57,7 @@ main(style='margin-top: 58px')
                 a.btn.btn-warning.text-white(href='#') Deny Access 
             button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
              i.bi.bi-pencil.text-white Updade
-            button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;")
+            button.btn.bg-danger.text-white.justify-content-between(style="margin:5px;" disabled='')
              i.bi.bi-trash.text-white Delete
 // Modal
 #asignPass.modal.fade(tabindex='-1' role='dialog' aria-labelledby='asignPassLabel' aria-hidden='true' style="background-color:#000000c0")
@@ -94,8 +97,10 @@ main(style='margin-top: 58px')
 // Main layout
 include ./includes/scripts.pug 
 script(src="/js/admin.js") 
-
- 
+script.
+  function hideError(){
+    document.getElementById("error").style.display = "none";
+  }
 
   
 

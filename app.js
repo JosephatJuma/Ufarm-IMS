@@ -22,7 +22,7 @@ const config = require("./config/database");
 
 //Routes
 const dashboard = require("./routes/dashbordRoute");
-const farmOneRoute = require("./routes/farmerOneRoute");
+const wardsRoute = require("./routes/wardsRoute");
 const productsRoute = require("./routes/productsRoute");
 const registerFoRoute = require("./routes/registerFoRoute");
 const registerUfRoute = require("./routes/registerUfRoute");
@@ -64,7 +64,7 @@ app.get("/", (req, res) => {
 //other routes
 app.use(express.static(path.join(__dirname, "public"))); //set public dir for assests
 app.use("/admin", dashboard);
-app.use("/farmer-one", farmOneRoute);
+app.use("/wards", wardsRoute);
 app.use("/register/fo", registerFoRoute);
 app.use("/register/uf", registerUfRoute);
 app.use("/list", allFarmerOnesRoute);

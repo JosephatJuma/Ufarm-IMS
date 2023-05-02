@@ -6,13 +6,14 @@ const Farmer1 = require("../models/agricOfficer/registerFoModel");
 const UrbanFarmer = require("../models/farmerOne/registerUfModel");
 const Client = require("../models/client/clientRegisterModel");
 const Product = require("../models/urbanFarmer/addProductModel");
-
+const Ward = require("../models/agricOfficer/wardModel");
 router.get("/", requireAuth, async (req, res) => {
   try {
     let uf = await UrbanFarmer.find();
     let fo = await Farmer1.find();
     let c = await Client.find();
     let p = await Product.find();
+    let wards = await Ward.find();
     let farmer_products = await Product.find({
       "farmer_details.id": req.session.user.id,
     });
@@ -22,7 +23,7 @@ router.get("/", requireAuth, async (req, res) => {
       res.render("dashboard", {
         urban_farmers: uf.length,
         farmer_ones: fo.length,
-        wards: 4,
+        wards: wards.length,
         products: p.length,
         customers: c.length,
         user_role: req.session.user.role,

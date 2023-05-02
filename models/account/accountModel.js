@@ -4,5 +4,6 @@ const Account = new mongoose.Schema({
   phone: { type: String },
   password: { type: String },
   role: { type: String },
+  ward: { type: String },
 });
 module.exports = mongoose.model("account", Account);

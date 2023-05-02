@@ -23,6 +23,9 @@ main(style='margin-top: 58px')
             h4.card-title
               |  All Registered Urban Farmers
           .card-body
+           if message 
+                p #{message}
+           if urban_farmers
               table.table.table-responsive.table-bordered.table-rounded
                 thead.text-white.bg-success
                   th Image
@@ -34,7 +37,6 @@ main(style='margin-top: 58px')
                   th Date Booked
                   th.text-right Action
                 tbody
-                  if urban_farmers
                       each urban_farmer in urban_farmers
                         tr
                           td

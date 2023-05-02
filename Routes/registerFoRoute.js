@@ -4,8 +4,9 @@ const requireAuth = require("../middleware/auth");
 
 const Register = require("../models/agricOfficer/registerFoModel");
 const Account = require("../models/account/accountModel");
-
-router.get("/", requireAuth, (req, res) => {
+const Ward = require("../models/agricOfficer/wardModel");
+router.get("/", requireAuth, async (req, res) => {
+  const wards = await Ward.find();
   if (req.session.user.role !== "agric officer") {
     res.render("failure.pug", {
       message: "You are not alloed to register farmer one",
@@ -13,11 +14,18 @@ router.get("/", requireAuth, (req, res) => {
       go_to_page: "admin",
     });
   } else {
-    res.render("registerFo.pug", { user_role: req.session.user.role });
+    res.render("registerFo.pug", {
+      user_role: req.session.user.role,
+      wards: wards,
+    });
   }
 });
 
 router.post("/", requireAuth, async (req, res) => {
+  //assign word to this farmer by updating word
+  const filter = { name: req.body.ward };
+  const update = { $set: { farmerone_details: req.body } };
+  await Ward.updateOne(filter, update);
   try {
     const ward_already = await Register.findOne({ ward: req.body.ward });
     const nin_already = await Register.findOne({ nin: req.body.nin });

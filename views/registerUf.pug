@@ -46,11 +46,7 @@ main(style='margin-top: 58px')
                 .form-group
                   .form-group
                     label Ward Name
-                    select#ward.form-select(aria-label='Default select example' name='ward')
-                      option(value='Ward1') Ward One
-                      option(value='Ward2') Ward Two
-                      option(value='Ward3') Ward Two
-                      option(value='Ward4') Ward Two
+                    input#ward.form-control(aria-label='Default select example' name='ward' value=ward.name readonly)
             .row
               .col-md-4.pl-1
                 .form-group

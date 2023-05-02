@@ -1,0 +1,76 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
+  link(rel='stylesheet' href='/assets//bootstrap/css/bootstrap-grid.rtl.min.css.map')
+  link(rel="shortcut icon", href="/assets/vectors/ufarm-logo.png", type="image/x-icon")
+  link(rel="stylesheet" href="/css/dashboard.css") 
+  title Wards
+header
+- let page = "wards"
+  // Sidebar
+  include ./includes/sidebar.pug
+  include ./includes/navbar.pug 
+main(style='margin-top: 58px')
+  .container-fluid.pt-4
+    .row
+      .col-md-12
+        .card
+          .card-header
+            h4.card-title
+              | All Wards
+          .card-body
+            if message 
+                p #{message}
+                
+            if wards
+                table.table.table-responsive.table-bordered.table-rounded
+                  thead.text-white.bg-success
+                    th Id
+                    th Name
+                    th Represenative
+                    th.text-right Action
+                  tbody
+                        each ward in wards
+                          tr
+                            td 
+                              span.badge.badge-success.text-white.bg-success
+                                | #{ward.id}
+                            td #{ward.name}
+                            td
+                              if ward.farmerone_details
+                                p #{ward.farmerone_details.name}
+                              else 
+                                p NONE
+                            td.text-right
+                                a(href='/wards/' + ward.id)
+                                  button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
+                                    i.bi.bi-three-dots-vertical.text-white
+            button.btn.btn-success(data-toggle="modal" data-target="#exampleModal" class= wards.length>3 ? "disabled":"")
+                    i.bi.bi-file-plus-fill.text-white(data-toggle="modal" data-target="#exampleModal")
+                    | Add new Ward
+    #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+            .modal-dialog
+             .modal-content
+                .modal-header
+                    h5#exampleModalLabel.modal-title Add new ward
+                    button.close.btn.text-secondary(type='button' data-dismiss='modal' aria-label='Close' )
+                        span(aria-hidden='true') &times;
+                .modal-body
+                    form#ward_form(method="POST" action="/wards")
+                        .alert.alert-secondary.text#error(role='alert' style="display:none; justify-content:space-between;")
+                            small#passErr.text-danger
+                            button.btn(onclick="return hideError();") 
+                                i.bi.bi-x-circle 
+                        .form-group
+                            label(for='name') Ward Name
+                            input#name.form-control(type='text' name="name" )
+                        .modal-footer
+                            button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+                            button.btn.btn-success(type='submit') Save Ward
+
+    include ./includes/alert-logout.pug  
+include ./includes/scripts.pug  

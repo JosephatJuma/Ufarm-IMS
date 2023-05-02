@@ -24,18 +24,23 @@ main(style='margin-top: 58px')
           h5.card-title Dashboard
         .card-body
           .row
+            //agric officer
             if user_role == "agric officer"  
               include ./includes/components/agric-officer/ward.pug  
             if user_role == "agric officer"  
               include ./includes/components/agric-officer/fo.pug            
             if user_role === "agric officer"  
               include ./includes/components/agric-officer/uf.pug
-            if user_role === "farmer one"  
-              include ./includes/components/farmer-one/uf.pug
             if user_role == "agric officer"
               include ./includes/components/agric-officer/products.pug   
             if user_role == "agric officer" 
               include ./includes/components/agric-officer/customers.pug
+
+            //farmer one
+            if user_role === "farmer one"  
+              include ./includes/components/farmer-one/products.pug
+            if user_role === "farmer one"  
+              include ./includes/components/farmer-one/uf.pug
 
             //Urban farmer
             if user_role == "urban farmer"  

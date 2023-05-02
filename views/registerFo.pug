@@ -44,10 +44,10 @@ main(style='margin-top: 58px')
                     label Ward represented
                     select#ward.form-control(name='ward')
                       option(value="" selected disabled) Select FO's ward
-                      option(value='Ward 1') Ward one
-                      option(value='Ward 2') Ward Two
-                      option(value='Ward 3') Ward Three
-                      option(value='Ward 4') Ward Four
+                      if wards 
+                         each ward in wards  
+                            option(value=ward.name) #{ward.name}
+                      
                     p#wardErr.text-danger
               .col-md-3.pr-1
                 .form-group

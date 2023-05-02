@@ -4,6 +4,7 @@ const multer = require("multer");
 const path = require("path");
 const Product = require("../models/urbanFarmer/addProductModel");
 const requireAuth = require("../middleware/auth");
+
 router.use(express.static(path.join(__dirname, "public")));
 
 // Define Multer storage configuration

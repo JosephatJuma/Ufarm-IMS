@@ -23,33 +23,35 @@ main(style='margin-top: 58px')
             h4.card-title
               | All Farmer ones
           .card-body
-              table.table.table-responsive.table-bordered.table-rounded
-                thead.text-white.bg-success
-                  th Image
-                  th Id
-                  th Name
-                  th Ward
-                  th Address
-                  th Phone Number
-                  th Date Booked
-                  th.text-right Action
-                tbody
-                  if farmers_ones
-                      each farmer_one in farmers_ones
-                        tr
-                          td
-                            img(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' width="50px")
-                          td 
-                            span.badge.badge-success.text-white.bg-success
-                              | #{farmer_one.id}
-                          td #{farmer_one.name}
-                          td #{farmer_one.ward}
-                          td #{farmer_one.address}
-                          td #{farmer_one.phone}
-                          td #{farmer_one.activity}
-                          td.text-right
-                              a(href='/list/farmer-one/' + farmer_one.id)
-                                button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
-                                  i.bi.bi-three-dots-vertical.text-white
+            if message 
+                p #{message}
+            if farmers_ones
+                table.table.table-responsive.table-bordered.table-rounded
+                  thead.text-white.bg-success
+                    th Image
+                    th Id
+                    th Name
+                    th Ward
+                    th Address
+                    th Phone Number
+                    th Date Booked
+                    th.text-right Action
+                  tbody
+                        each farmer_one in farmers_ones
+                          tr
+                            td
+                              img(src='https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp' width="50px")
+                            td 
+                              span.badge.badge-success.text-white.bg-success
+                                | #{farmer_one.id}
+                            td #{farmer_one.name}
+                            td #{farmer_one.ward}
+                            td #{farmer_one.address}
+                            td #{farmer_one.phone}
+                            td #{farmer_one.activity}
+                            td.text-right
+                                a(href='/list/farmer-one/' + farmer_one.id)
+                                  button.btn.bg-success.text-white.justify-content-between(style="margin:5px;")
+                                    i.bi.bi-three-dots-vertical.text-white
     include ./includes/alert-logout.pug  
 include ./includes/scripts.pug  

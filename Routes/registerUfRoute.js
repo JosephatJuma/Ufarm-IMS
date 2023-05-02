@@ -4,7 +4,12 @@ const requireAuth = require("../middleware/auth");
 
 const Register = require("../models/farmerOne/registerUfModel");
 const Account = require("../models/account/accountModel");
-router.get("/", requireAuth, (req, res) => {
+const Ward = require("../models/agricOfficer/wardModel");
+router.get("/", requireAuth, async (req, res) => {
+  const ward = await Ward.findOne({
+    "farmerone_details.id": req.session.user.id,
+  });
+
   if (req.session.user.role !== "farmer one") {
     res.render("failure.pug", {
       message: "You can not register an urban farmer",
@@ -12,7 +17,10 @@ router.get("/", requireAuth, (req, res) => {
       go_to_page: "admin",
     });
   } else {
-    res.render("registerUf.pug", { user_role: req.session.user.role });
+    res.render("registerUf.pug", {
+      user_role: req.session.user.role,
+      ward: ward,
+    });
   }
 });
 router.post("/", requireAuth, async (req, res) => {
