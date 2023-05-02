@@ -21,7 +21,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get("/", requireAuth, (req, res) => {
-  res.render("addProduct.pug", { user_role: req.session.user.role });
+  if (req.session.user.role !== "urban farmer") {
+    res.render("failure.pug", {
+      message: "Only registered urban farmers can add their products",
+      go_to_page: "admin",
+      user_role: req.session.user.role,
+    });
+  } else {
+    res.render("addProduct.pug", { user_role: req.session.user.role });
+  }
 });
 
 router.post("/", requireAuth, upload.single("image"), async (req, res) => {
