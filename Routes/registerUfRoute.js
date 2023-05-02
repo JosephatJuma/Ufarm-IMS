@@ -5,7 +5,7 @@ const requireAuth = require("../middleware/auth");
 const Register = require("../models/farmerOne/registerUfModel");
 const Account = require("../models/account/accountModel");
 router.get("/", requireAuth, (req, res) => {
-  res.render("registerUf.pug");
+  res.render("registerUf.pug", { user_role: req.session.user.role });
 });
 router.post("/", requireAuth, async (req, res) => {
   try {
@@ -15,6 +15,7 @@ router.post("/", requireAuth, async (req, res) => {
     if (nin_already) {
       res.render("registerUf.pug", {
         message: "User with same NIN already registered",
+        user_role: req.session.user.role,
       });
       return;
     }
@@ -32,12 +33,15 @@ router.post("/", requireAuth, async (req, res) => {
           message: "Urban farmer successfully registered",
           go_to_page: "register/uf",
           page: "list-u",
+          user_role: req.session.user.role,
         });
       });
     });
   } catch (error) {
     console.log(error);
-    res.status(400).render("/register/uf");
+    res
+      .status(400)
+      .render("/register/uf", { user_role: req.session.user.role });
   }
 });
 

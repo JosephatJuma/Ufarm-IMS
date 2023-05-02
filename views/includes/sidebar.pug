@@ -1,33 +1,40 @@
 
 nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
     .position-sticky
-    
       .list-group.list-group-flush.mx-3.mt-4
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/admin' class= page==="dashboard" ? 'active' : '' )
-          i.bi.bi-speedometer2.me-3
-          span  Dashboard
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo' class= page==="reg-fo" ? 'active' : '')
-          i.bi.bi-person-plus-fill.me-3
-          span Register FO
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/register/uf' class= page==="reg-uf" ? 'active' : '')
-          i.bi.bi-person-plus-fill.me-3
-          span Register UF
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/add-product/' class= page==="add-product" ? 'active' : '')
-          i.bi-file-earmark-plus-fill.me-3
-          span Add product
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo' class= page==="list-fo" ? 'active' : '')
-          i.bi.bi-people-fill.me-3
-          span Farmer Ones
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/uf' class= page==="list-uf" ? 'active' : '')
-          i.bi.bi-people-fill.me-3
-          span Urban Farmers
-        a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products' class= page==="list-products" ? 'active' : '')
-          i.bi.bi-receipt.me-3
-          span Products
+        if user_role !== 'client'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/admin' class= page==="dashboard" ? 'active' : '' )
+            i.bi.bi-speedometer2.me-3
+            span  Dashboard
+        if user_role == 'agric officer'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/register/fo' class= page==="reg-fo" ? 'active' : '')
+            i.bi.bi-person-plus-fill.me-3
+            span Register FO
+        if user_role == 'farmer one'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/register/uf' class= page==="reg-uf" ? 'active' : '')
+            i.bi.bi-person-plus-fill.me-3
+            span Register UF
+        if user_role == 'urban farmer'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/add-product/' class= page==="add-product" ? 'active' : '')
+            i.bi-file-earmark-plus-fill.me-3
+            span Add product
+        if user_role == 'agric officer'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/list/fo' class= page==="list-fo" ? 'active' : '')
+            i.bi.bi-people-fill.me-3
+            span Farmer Ones
+        if user_role == 'farmer one'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/list/uf' class= page==="list-uf" ? 'active' : '')
+            i.bi.bi-people-fill.me-3
+            span Urban Farmers
+        if user_role == 'urban farmers'
+          a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products' class= page==="list-products" ? 'active' : '')
+            i.bi.bi-receipt.me-3
+            span Products
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products' class= page==="orders" ? 'active' : '')
-          i.bi.bi-bookmark-check-fill.me-3
-          span Orders
+            i.bi.bi-bookmark-check-fill.me-3
+            span Orders
         form(action="/logout" method="POST")
             button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout
               i.bi.bi-box-arrow-left.me-3
               | Logout
+        

@@ -67,21 +67,21 @@ main(style='margin-top: 58px')
                                     i.bi.bi-three-dots-vertical.text-white
                                   .dropdown-menu.text-dark.border-success(aria-labelledby='dropdownMenuButton')
                                     a.dropdown-item(href="#" data-toggle='modal' data-target='#exampleModalLong') 
-                                          i.bi.bi-three-dots-vertical
+                                          i.bi.bi-three-dots-vertical.me-3
                                           p View 
                                     a.dropdown-item(href="#" data-toggle="modal" data-target="#alertDelete") 
-                                          i.bi.bi-file-x-fill
+                                          i.bi.bi-file-x-fill.me-3
                                           p Delete    
                                     a.dropdown-item(href="/list/edit/" + product.id) 
-                                         i.bi.bi-pencil-square
+                                         i.bi.bi-pencil-square.me-3
                                          p Edit
                                     if product.is_approved
                                         a.dropdown-item(href="/list/disapprove/" + product.id) 
-                                            i.bi.bi-file-excel-fill
+                                            i.bi.bi-file-excel-fill.me-3
                                             p Disaprove       
                                     else 
                                         a.dropdown-item(href="/list/approve/" + product.id) 
-                                              i.bi.bi-file-check-fill
+                                              i.bi.bi-file-check-fill.me-3
                                               p Approve
                           
                         #alertDelete.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertDeleteLabel' aria-hidden='true')

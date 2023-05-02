@@ -6,7 +6,7 @@ const Register = require("../models/agricOfficer/registerFoModel");
 const Account = require("../models/account/accountModel");
 
 router.get("/", requireAuth, (req, res) => {
-  res.render("registerFo.pug");
+  res.render("registerFo.pug", { user_role: req.session.user.role });
 });
 
 router.post("/", requireAuth, async (req, res) => {
@@ -17,6 +17,7 @@ router.post("/", requireAuth, async (req, res) => {
     if (ward_already) {
       res.render("registerFo.pug", {
         message: "Ward is already represented by another farmer one",
+        user_role: req.session.user.role,
       });
       return;
     }
@@ -24,6 +25,7 @@ router.post("/", requireAuth, async (req, res) => {
     else if (nin_already) {
       res.render("registerFo.pug", {
         message: "User with same NIN already registered",
+        user_role: req.session.user.role,
       });
       return;
     }
@@ -41,11 +43,14 @@ router.post("/", requireAuth, async (req, res) => {
           message: "Farmer One successfully registered",
           go_to_page: "register/fo",
           page: "list-fo",
+          user_role: req.session.user.role,
         });
       });
     });
   } catch (error) {
-    res.status(400).render("/register/fo");
+    res
+      .status(400)
+      .render("/register/fo", { user_role: req.session.user.role });
   }
 });
 

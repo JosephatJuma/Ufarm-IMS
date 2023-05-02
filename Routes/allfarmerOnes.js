@@ -11,10 +11,13 @@ const path = require("path");
 router.get("/fo", requireAuth, async (req, res) => {
   try {
     let list = await Farmer1.find();
-    res.render("farmerOnes.pug", { farmers_ones: list });
+    res.render("farmerOnes.pug", {
+      farmers_ones: list,
+      user_role: req.session.user.role,
+    });
   } catch (error) {
     console.log(error);
-    res.send("No Date found");
+    res.send("No Data found");
   }
 });
 
@@ -23,10 +26,14 @@ router.get("/uf", requireAuth, async (req, res) => {
   try {
     const list = await UrbanFarmer.find();
     if (list.length > 0) {
-      res.render("allUrbanFarmers.pug", { urban_farmers: list });
+      res.render("allUrbanFarmers.pug", {
+        urban_farmers: list,
+        user_role: req.session.user.role,
+      });
     } else {
       res.render("allUrbanFarmers.pug", {
         message: "No urban farmers registered yet",
+        user_role: req.session.user.role,
       });
     }
   } catch (error) {
@@ -39,10 +46,14 @@ router.get("/products", requireAuth, async (req, res) => {
   try {
     const products = await Product.find();
     if (products.length > 0) {
-      res.render("allProducts.pug", { products: products });
+      res.render("allProducts.pug", {
+        products: products,
+        user_role: req.session.user.role,
+      });
     } else {
       res.render("allProducts.pug", {
         message: "No Products have been uploaded",
+        user_role: req.session.user.role,
       });
     }
   } catch (error) {
@@ -58,6 +69,7 @@ router.get("/farmer-one/:id", requireAuth, async (req, res) => {
     farmer_details: details,
     farmer_account: account,
     page: "list-fo",
+    user_role: req.session.user.role,
   });
 });
 
@@ -69,6 +81,7 @@ router.get("/urban-farmer/:id", requireAuth, async (req, res) => {
     farmer_details: details,
     farmer_account: account,
     page: "list-uf",
+    user_role: req.session.user.role,
   });
 });
 
@@ -83,6 +96,7 @@ router.post("/assign-password", requireAuth, async (req, res) => {
     message: "Farmer passwrod has be created",
     go_to_page: "admin",
     page: "admin",
+    user_role: req.session.user.role,
   });
 });
 
@@ -105,6 +119,7 @@ router.get("/delete/:id", requireAuth, async (req, res) => {
       message: "Product successfully Deleted",
       go_to_page: "list/products",
       page: "list-products",
+      user_role: req.session.user.role,
     });
   });
 });
@@ -112,7 +127,10 @@ router.get("/delete/:id", requireAuth, async (req, res) => {
 //edit product
 router.get("/edit/:id", requireAuth, async (req, res) => {
   const details = await Product.findOne({ id: req.params.id });
-  res.render("editProduct.pug", { product_details: details });
+  res.render("editProduct.pug", {
+    product_details: details,
+    user_role: req.session.user.role,
+  });
 });
 
 //post edited product
@@ -132,6 +150,7 @@ router.get("/approve/:id", requireAuth, async (req, res) => {
       message: "Product has been successfully Approved",
       go_to_page: "list/products",
       page: "list-products",
+      user_role: req.session.user.role,
     });
   });
 });
@@ -145,6 +164,7 @@ router.get("/disapprove/:id", requireAuth, async (req, res) => {
       message: "Product has been successfully Disapproved",
       go_to_page: "list/products",
       page: "list-products",
+      user_role: req.session.user.role,
     });
   });
 });

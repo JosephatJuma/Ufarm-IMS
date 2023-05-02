@@ -21,6 +21,7 @@ router.get("/", requireAuth, async (req, res) => {
         wards: 4,
         products: p.length,
         customers: c.length,
+        user_role: req.session.user.role,
       });
     } else {
       res.redirect("/products");
