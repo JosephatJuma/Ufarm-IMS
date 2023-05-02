@@ -33,8 +33,8 @@ nav#sidebarMenu.collapse.d-lg-block.sidebar.collapse.bg-white
         a.list-group-item.list-group-item-action.py-2.ripple(href='/list/products' class= page==="orders" ? 'active' : '')
             i.bi.bi-bookmark-check-fill.me-3
             span Orders
-        form(action="/logout" method="POST")
-            button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout
-              i.bi.bi-box-arrow-left.me-3
-              | Logout
+        button.btn.list-group-item.list-group-item-action.bg-success.text-light.logout(data-toggle="modal" data-target="#alertLogout")
+            i.bi.bi-box-arrow-left.me-3
+            | Logout
+    
         

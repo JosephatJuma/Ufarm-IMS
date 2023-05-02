@@ -1,0 +1,14 @@
+#alertLogout.modal.fade(tabindex='-1' role='dialog' aria-labelledby='alertLogoutLabel' aria-hidden='true')
+      .modal-dialog()
+        .modal-content
+          .modal-header
+            h5.modal-title Are you sure you want to logout?
+            button.close.btn(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true' style="font-size:20px;") &times;
+          .modal-body
+            | Click Yes button to logout or Cancel button to return
+          .modal-footer
+            button.btn.btn-success(type='button' data-dismiss='modal') Cancel
+            form(action="/logout" method="POST")
+              button.btn.btn-warning.text-white(type='submit') Yes
+              // Button trigger modal

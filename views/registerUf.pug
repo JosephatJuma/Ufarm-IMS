@@ -100,11 +100,8 @@ main(style='margin-top: 58px')
             .row
               .update.ml-auto.mr-auto
                 input.btn.btn-success.btn-round(type='submit' value='SUBMIT DETAILS')
-// Main layout
-script(src='/assets/bootstrap/js/bootstrap.min.js')
-script(src='/assets/bootstrap/js/bootstrap.bundle.js')
-script(src='/assets/bootstrap/js/bootstrap.bundle.min.js')
-script(src='/assets/bootstrap/js/bootstrap.js')
+    include ./includes/alert-logout.pug  
+include ./includes/scripts.pug  
 script(src='/js/validations.js')
 script.
   function generateFarmerId() {//gernerate a farmer id
