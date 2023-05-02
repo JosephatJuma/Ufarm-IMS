@@ -14,49 +14,48 @@ include ./includes/header.pug
 .row.d-flex.justify-content-center.align-items-center.h-100
       .col-10
         .d-flex.justify-content-between.align-items-center.mb-4
+          h1 
+            i.bi.bi-cart()
           h3.fw-normal.mb-0.text-black Shopping Cart
-          div
-            p.mb-0
-              span.text-muted Sort by:
-              a.text-body(href='#!')
-                | price 
-                i.fas.fa-angle-down.mt-1
         .card.rounded-3.mb-4
           .card-body.p-4
-            .row.d-flex.justify-content-between.align-items-center
-              .col-md-2.col-lg-2.col-xl-2
-                img.img-fluid.rounded-3(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp' alt='Cotton T-shirt')
-              .col-md-3.col-lg-3.col-xl-3
-                p.lead.fw-normal.mb-2 Basic T-shirt
-                p
-                  span.text-muted Size: 
-                  | M 
-                  span.text-muted Color: 
-                  | Grey
-              .col-md-3.col-lg-3.col-xl-2.d-flex
-                button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepDown()")
-                  i.fas.fa-minus
-                input#form1.form-control.form-control-sm(min='0' name='quantity' value='2' type='number')
-                button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepUp()")
-                  i.fas.fa-plus
-              .col-md-3.col-lg-2.col-xl-2.offset-lg-1
-                h5.mb-0 $499.00
-              .col-md-1.col-lg-1.col-xl-1.text-end
-                a.text-danger(href='#!')
-                  i.fas.fa-trash.fa-lg
-        
-              .col-md-3.col-lg-3.col-xl-2.d-flex
-                button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepDown()")
-                  i.fas.fa-minus
-                input#form1.form-control.form-control-sm(min='0' name='quantity' value='2' type='number')
-                button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepUp()")
-                  i.fas.fa-plus
-              .col-md-3.col-lg-2.col-xl-2.offset-lg-1
-                h5.mb-0 $499.00
-              .col-md-1.col-lg-1.col-xl-1.text-end
-                a.text-danger(href='#!')
-                  i.fas.fa-trash.fa-lg
-        .card
-          .card-body
-            button.btn.btn-warning.btn-block.btn-lg(type='button') Place order
+           if orders
+              .row.d-flex.justify-content-between.align-items-center
+                .col-md-2.col-lg-2.col-xl-2
+                  img.img-fluid.rounded-3(src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp' alt='Cotton T-shirt')
+                .col-md-3.col-lg-3.col-xl-3
+                  p.lead.fw-normal.mb-2 Basic T-shirt
+                  p
+                    span.text-muted Size: 
+                    | M 
+                    span.text-muted Color: 
+                    | Grey
+                .col-md-3.col-lg-3.col-xl-2.d-flex
+                  button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepDown()")
+                    i.fas.fa-minus
+                  input#form1.form-control.form-control-sm(min='0' name='quantity' value='2' type='number')
+                  button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepUp()")
+                    i.fas.fa-plus
+                .col-md-3.col-lg-2.col-xl-2.offset-lg-1
+                  h5.mb-0 $499.00
+                .col-md-1.col-lg-1.col-xl-1.text-end
+                  a.text-danger(href='#!')
+                    i.fas.fa-trash.fa-lg
+          
+                .col-md-3.col-lg-3.col-xl-2.d-flex
+                  button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepDown()")
+                    i.fas.fa-minus
+                  input#form1.form-control.form-control-sm(min='0' name='quantity' value='2' type='number')
+                  button.btn.btn-link.px-2(onclick="this.parentNode.querySelector('input[type=number]').stepUp()")
+                    i.fas.fa-plus
+                .col-md-3.col-lg-2.col-xl-2.offset-lg-1
+                  h5.mb-0 $499.00
+                .col-md-1.col-lg-1.col-xl-1.text-end
+                  a.text-danger(href='#!')
+                    i.fas.fa-trash.fa-lg
+              .card
+               .card-body
+                button.btn.btn-warning.btn-block.btn-lg(type='button') Place order
+           else
+              h5 Your Cart is currently empty
 include ./includes/footer.pug
