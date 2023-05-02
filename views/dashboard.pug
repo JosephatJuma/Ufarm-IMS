@@ -24,130 +24,18 @@ main(style='margin-top: 58px')
           h5.card-title Dashboard
         .card-body
           .row
-            .col-lg-3.col-md-4.col-sm-6(style="margin-bottom:10px;")
-              .card.card-stats
-                .card-body
-                  .row
-                    .col-5.col-md-4
-                      .icon-big.text-center.icon-warning
-                        i.bi.bi-geo-fill.text-success
-                        button.btn.btn-success 
-                         i.bi.bi-three-dots-vertical.text-white
-                    .col-7.col-md-8
-                      .numbers
-                        p.card-category 
-                          |  Wards                          
-                        h1.card-title 
-                          |   #{wards}                       
-                .card-footer
-                  hr
-                  .stats
-                    i.bi.bi-arrow-clockwise
-                    |                     Update Now
-            .col-lg-3.col-md-4.col-sm-6(style="margin-bottom:10px;")
-              .card.card-stats
-                .card-body
-                  .row
-                    .col-5.col-md-4
-                      .icon-big.text-center.icon-warning
-                        i.bi.bi-people-fill.text-success
-                        a(href="list/fo")
-                          button.btn.btn-success 
-                           i.bi.bi-three-dots-vertical.text-white
-                    .col-7.col-md-8
-                      .numbers
-                        p.card-category 
-                          |   Farmer ones                      
-                        //- .d-flex.justify-content-center
-                        //-   .spinner-border.text-success(role='status' )                     
-                        h1.card-title 
-                          |  #{farmer_ones}             
-                .card-footer
-                  hr
-                  .stats
-                    i.bi.bi-calendar
-                    | Last day
-            .col-lg-3.col-md-4.col-sm-6(style="margin-bottom:10px;")
-              .card.card-stats
-                .card-body
-                  .row
-                    .col-5.col-md-4
-                      .icon-big.text-center.icon-success
-                        i.bi.bi-people.text-success
-                        a(href="list/uf")
-                          button.btn.btn-success 
-                           i.bi.bi-three-dots-vertical.text-white
-                    .col-7.col-md-8
-                      .numbers
-                        p.card-category 
-                          |  Urban farmers                             
-                        h1.card-title 
-                          |  #{urban_farmers}                
-                .card-footer
-                  hr
-                  .stats
-                    i.bi.bi-clock-o
-                    |    In the last hour
-            .col-lg-3.col-md-4.col-sm-6(style="margin-bottom:10px;")
-              .card.card-stats
-                .card-body
-                  .row
-                    .col-5.col-md-4
-                      .icon-big.text-center.icon-warning
-                        i.bi.bi-briefcase.text-success
-                      a(href="list/products")
-                          button.btn.btn-success 
-                            i.bi.bi-three-dots-vertical.text-white
-                    .col-7.col-md-8
-                      .numbers
-                        p.card-category 
-                         |    Products                                        
-                        h1.card-title 
-                            |  #{products}                
-                .card-footer
-                  hr
-                  .stats
-                    i.bi.bi-arrow-clockwise
-                      | Update now
-            .col-lg-3.col-md-4.col-sm-6(style="margin-bottom:10px;")
-              .card.card-stats
-                .card-body
-                  .row
-                    .col-5.col-md-4
-                      .icon-big.text-center.icon-warning
-                        i.bi.bi-briefcase.text-success
-                        button.btn.btn-success 
-                         i.bi.bi-three-dots-vertical.text-white
-                    .col-7.col-md-8
-                      .numbers
-                        p.card-category 
-                         |    Customers                                       
-                        h1.card-title 
-                            |   #{customers}                
-                .card-footer
-                  hr
-                  .stats
-                    i.bi.bi-arrow-clockwise
-                      | Update now
-            .col-lg-3.col-md-4.col-sm-6(style="margin-bottom:10px;")
-              .card.card-stats
-                .card-body
-                  .row
-                    .col-5.col-md-4
-                      .icon-big.text-center.icon-warning
-                        i.bi.bi-bookmark-check-fill.text-success
-                        button.btn.btn-success 
-                         i.bi.bi-three-dots-vertical.text-white
-                    .col-7.col-md-8
-                      .numbers
-                        p.card-category 
-                         |    Orders                                      
-                        h1.card-title 
-                            |   0 #{orders}                
-                .card-footer
-                  hr
-                  .stats
-                    i.bi.bi-arrow-clockwise
-                      | Update now
+            if user_role == "agric officer"  
+              include ./includes/components/ward.pug  
+            if user_role == "agric officer"  
+              include ./includes/components/fo.pug            
+            if user_role === "agric officer"  
+              include ./includes/components/uf.pug
+            if user_role == "agric officer"
+              include ./includes/components/products.pug   
+            if user_role == "agric officer" 
+              include ./includes/components/customers.pug 
+            if user_role == "urban farmer"  
+              include ./includes/components/orders.pug  
+           
       include ./includes/alert-logout.pug      
 include ./includes/scripts.pug

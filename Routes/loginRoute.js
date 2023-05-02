@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     ) {
       res.redirect("/admin");
     } else {
-      res.redirect("/admin");
+      res.redirect("/products");
     }
   }
   //if no session is available
