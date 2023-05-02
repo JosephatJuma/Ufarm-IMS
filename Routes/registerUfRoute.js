@@ -5,7 +5,15 @@ const requireAuth = require("../middleware/auth");
 const Register = require("../models/farmerOne/registerUfModel");
 const Account = require("../models/account/accountModel");
 router.get("/", requireAuth, (req, res) => {
-  res.render("registerUf.pug", { user_role: req.session.user.role });
+  if (req.session.user.role !== "farmer one") {
+    res.render("failure.pug", {
+      message: "You can not register an urban farmer",
+      user_role: req.session.user.role,
+      go_to_page: "admin",
+    });
+  } else {
+    res.render("registerUf.pug", { user_role: req.session.user.role });
+  }
 });
 router.post("/", requireAuth, async (req, res) => {
   try {

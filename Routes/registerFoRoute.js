@@ -10,6 +10,7 @@ router.get("/", requireAuth, (req, res) => {
     res.render("failure.pug", {
       message: "You are not alloed to register farmer one",
       user_role: req.session.user.role,
+      go_to_page: "admin",
     });
   } else {
     res.render("registerFo.pug", { user_role: req.session.user.role });
