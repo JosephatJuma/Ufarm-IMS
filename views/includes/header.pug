@@ -6,18 +6,18 @@ header#header
     // Nava Menu
     nav.nav-menu.d-none.d-lg-block
       ul
-        li
+        li(class=page=="home"?"active":"")
           a(href='/') Home
-        li.active
+        li(class=page=="products"?"active":"")
           a(href='/products') Products
-        li
+        li(class=page=="cart"?"active":"")
           a(href='/products/cart/') Cart
        
     // End of Nav
     .btn-area
-      if user=true
+      if user_role=="client"
        form(method="POST" action="/logout" )
            button.btn.sign-up(type="submit") Logout
       else
-        a.btn.sign-up(href='register') Sign up
-        a.btn.login(href='login') Login
+        a.btn.sign-up(href='/register') Sign up
+        a.btn.login(href='/login') Login

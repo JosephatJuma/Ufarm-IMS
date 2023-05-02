@@ -58,7 +58,7 @@ app.set("views", path.join(__dirname, "views"));
 
 //public route
 app.get("/", (req, res) => {
-  res.render("index.pug");
+  res.render("index.pug", { page: "home" });
 });
 
 //other routes

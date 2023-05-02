@@ -8,16 +8,18 @@ router.get("/", async (req, res) => {
     res.render("products.pug", {
       products: products,
       user: req.session.user,
+      page: "products",
     });
   } else {
     res.render("products.pug", {
       message: "There are no products cureently",
       user: req.session.user,
+      page: "products",
     });
   }
 });
-router.get("/cart/", (req, res) => {
-  res.render("cart.pug", { user: req.session.user });
+router.get("/cart/", requireAuth, (req, res) => {
+  res.render("cart.pug", { user: req.session.user, page: "cart" });
 });
 
 module.exports = router;
