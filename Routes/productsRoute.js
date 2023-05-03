@@ -5,7 +5,7 @@ const Order = require("../models/urbanFarmer/ordersModel");
 
 const requireAuth = require("../middleware/auth");
 router.get("/", async (req, res) => {
-  const cart = await Order.find({ "client.id": req.session.user.id });
+  //const cart = await Order.find({ "client.id": req.session.user.id });
   let products = await Product.find({ is_approved: true });
   if (products.length > 0) {
     res.render("products.pug", {
