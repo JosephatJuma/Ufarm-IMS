@@ -163,10 +163,24 @@ router.get("/edit/:id", requireAuth, async (req, res) => {
 
 //post edited product
 router.post("/edit-product", requireAuth, async (req, res) => {
-  // const details = await Product.findOne({ id: req.params.id });
-  //res.render("editProduct.pug", { product_details: details });
-  console.log(req.body);
-  res.json(req.body);
+  const filter = { id: req.body.id };
+  await Product.updateOne(filter, req.body)
+    .then(() => {
+      res.render("success.pug", {
+        message: "Product has been updated successfully",
+        go_to_page: "admin",
+        page: "add-product",
+        user_role: req.session.user.role,
+      });
+    })
+    .catch((error) => {
+      res.render("failure.pug", {
+        message: error.message,
+        go_to_page: "admin",
+        page: "add-product",
+        user_role: req.session.user.role,
+      });
+    });
 });
 
 //approve product
