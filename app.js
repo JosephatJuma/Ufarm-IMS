@@ -4,7 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
-
+const port = process.env.PORT || 4000;
 //configure express-session
 app.use(express.urlencoded({ extended: true }));
 
@@ -74,7 +74,7 @@ app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);
 app.use("/success", successRoute);
 
-app.listen(10000, "localhost", () => {
-  console.log("Listening on port 10000");
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
   app.use("/products", productsRoute);
 });
