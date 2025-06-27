@@ -18,7 +18,7 @@ A web-based platform that enables urban farmers to manage their produce and sell
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JosephatJuma/ufarm.git
-   cd ufarm
+   git clone https://github.com/JosephatJuma/Ufarm-IMS.git
+   cd Ufarm-IMS
    npm install
    npm start
