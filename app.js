@@ -32,6 +32,7 @@ const logout = require("./routes/logout");
 const allFarmerOnesRoute = require("./routes/allfarmerOnes");
 const addProductRoute = require("./routes/addProductRoute");
 const successRoute = require("./routes/successRoute");
+const api = require("./routes/apiRoutes");
 
 //connect controller to db
 mongoose.connect(config.database, {
@@ -73,6 +74,7 @@ app.use("/logout", logout);
 app.use("/register", registerRoute);
 app.use("/add-product", addProductRoute);
 app.use("/success", successRoute);
+app.use("/api", api);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
