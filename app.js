@@ -21,18 +21,18 @@ app.use(
 const config = require("./config/database");
 
 //Routes
-const dashboard = require("./api-routes/dashbordRoute");
-const wardsRoute = require("./api-routes/wardsRoute");
-const productsRoute = require("./api-routes/productsRoute");
-const registerFoRoute = require("./api-routes/registerFoRoute");
-const registerUfRoute = require("./api-routes/registerUfRoute");
-const registerRoute = require("./api-routes/clientRegisterRoute");
-const loginRoute = require("./api-routes/loginRoute");
-const logout = require("./api-routes/logout");
-const allFarmerOnesRoute = require("./api-routes/allfarmerOnes");
-const addProductRoute = require("./api-routes/addProductRoute");
-const successRoute = require("./api-routes/successRoute");
-const api = require("./api-routes/apiRoutes");
+const dashboard = require("./routes/dashbordRoute");
+const wardsRoute = require("./routes/wardsRoute");
+const productsRoute = require("./routes/productsRoute");
+const registerFoRoute = require("./routes/registerFoRoute");
+const registerUfRoute = require("./routes/registerUfRoute");
+const registerRoute = require("./routes/clientRegisterRoute");
+const loginRoute = require("./routes/loginRoute");
+const logout = require("./routes/logout");
+const allFarmerOnesRoute = require("./routes/allfarmerOnes");
+const addProductRoute = require("./routes/addProductRoute");
+const successRoute = require("./routes/successRoute");
+const api = require("./routes/apiRoutes");
 
 //connect controller to db
 mongoose.connect(config.database, {
